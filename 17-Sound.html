@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-11-30 Mon 15:29 -->
+<!-- 2020-12-01 Tue 10:40 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Pendulum</title>
+<title>Sound</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="Patrick Malsom" />
 <style type="text/css">
@@ -240,62 +240,46 @@
 </head>
 <body>
 <div id="content">
-<h1 class="title">Pendulum</h1>
-<p>
-<p align="center"><iframe width="640" height="360" src="https://www.youtube.com/embed/lVDYtxAxUMw" frameborder="0" allowfullscreen></iframe></p>
-</p>
+<h1 class="title">Sound</h1>
 
-<div id="outline-container-org2bb882f" class="outline-2">
-<h2 id="org2bb882f"><span class="section-number-2">1</span> Small Angle Approximation:</h2>
+<div id="outline-container-orgd868a30" class="outline-2">
+<h2 id="orgd868a30"><span class="section-number-2">1</span> Beat Frequency</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-Pendulum motion (a mass swinging in a gravitational field)is an obvious example of harmonic motion. The swing is periodic and the equation of motion can be calculated exactly, but the exact solution is very complicated. To avoid this complication, an approximation can be made which will allow you to write the pendulum equation of motion as Simple Harmonic Oscillator (SHO).
+Sound waves often display an interesting characteristic of the superposition of waves. If two waves of slightly different frequencies are superimposed (added) on top of each other, the waves will create periodic interference based on the following equation:
 </p>
 
 <p>
-The full equation of motion is given as:
+\[f_{beat} = \left| f_1 - f_2 \right|\]
 </p>
 
 <p>
-\[\frac{d^2\theta}{dt^2} = -\frac{g}{\ell} \sin(\theta)\]
+This interference is termed a &ldquo;beat frequency&rdquo; because the sound will pulse between constructive and destructive, which creates a periodic increase/decrease in amplitude of the sound.
 </p>
 
 <p>
-Recall, the SHO equation is takes the following form
-\[\frac{d^2\theta}{dt^2} = -\frac{g}{\ell} \theta\]
-</p>
-
-<p>
-The transformation between the two equations uses the approximation that \(\sin(\theta) \approx \theta\). Lets take a closer look at this approximation.
+Below, two waves of frequency \(f_1 = 10 \,Hz\) and \(f_2 = 11 \, Hz\) are shown. From the beat equation, you would expect the beat frequency to be \(f_{beat} = 1 \, Hz\) and you can see this interference clearly below:
 </p>
 
 
-<div id="orgd7b3108" class="figure">
-<p><img src="./obipy-resources/GtrCqV.png" alt="GtrCqV.png" />
+<div id="org908b7de" class="figure">
+<p><img src="./obipy-resources/kDBCl6.png" alt="kDBCl6.png" />
 </p>
 </div>
 
 <p>
-As you can see above, when the angle is small, the sine function (shown in red) looks almost exactly like a line (shown in blue)! As the angle gets larger, the approximation becomes less and less accurate as the angle increase. For simple experiments which examine pendulum motion in this course, the approximation breaks down around \(20^\circ\). Lets zoom in on this region and look only at the relative (percent) error for small angles
+Please observe the waves are aligned at first, but at 0.5 seconds the waves are anti-aligned and will therefore destructively interfere. At \(t = 1.0 s\) the waves move back to constructive interference, and then the whole process repleats itself. It is this periodic matching and then anti-matching of amplitudes that form the beat.
 </p>
 
 <p>
-\[\text{Percent Error} = \left| \frac{\sin(\theta) - \theta}{\sin(\theta)} \right|\]
+The addition of the two waves create an interesting pattern which shows how the waves constructively and destructively interfere with each other at a frequency of \(f_{beat} = 1\, Hz\)
 </p>
 
 
-<div id="orgb03c91c" class="figure">
-<p><img src="./obipy-resources/LQIbHf.png" alt="LQIbHf.png" />
+<div id="org838f7dc" class="figure">
+<p><img src="./obipy-resources/1hV3Jy.png" alt="1hV3Jy.png" />
 </p>
 </div>
-
-<p>
-Please take a close look at the above figure. It shows the small angle approximation makes an error of approximately 2% at a release angle \(20^\circ\), and this error quickly increases to around 5% at \(30^\circ\). at \(40^\circ\), the error in the approximation is approaching 10%, and the SHO equation with simple solutions (\(\omega = \sqrt{g/\ell}\)) will not be true. In order to obtain accurate results at these larger angles, you are forced to use the <a href="https://en.wikipedia.org/wiki/Pendulum_(mathematics)#Arbitrary-amplitude_period">more advanced mathematics</a> which includes the full \(\sin(\theta)\) term.
-</p>
-
-<p>
-<b>What is the maximum allowable angle when using the small angle approximation?</b> Unfortunately, I cannot give a definitive answer to this question. For simple pendulum measurements in this class, the effects of the approximation starts to become apparent around \(20^\circ\), but a more precise experiment would be able to measure the effect at even smaller angles. In the end, it is left up to the experimenter to determine what angle is acceptable for the given experiment.
-</p>
 </div>
 </div>
 </div>
