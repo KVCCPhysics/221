@@ -6,7 +6,7 @@
 <!-- 2021-01-09 Sat 01:36 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Start Here</title>
+<title>Kinematic Equations</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="Patrick Malsom" />
 <style type="text/css">
@@ -215,16 +215,109 @@
     /*]]>*///-->
 // @license-end
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="preamble" class="status">
 <style type="text/css">body{ max-width:800px; margin: auto;}</style>
 </div>
 <div id="content">
-<h1 class="title">Start Here</h1>
+<h1 class="title">Kinematic Equations</h1>
 <p>
-Welcome to this online physics class! Please read each section and click “next” to complete this orientation module. There is a quiz at the end that you must complete to finish this module and start the course.
+The so called &ldquo;kinematic equations&rdquo; are the most used equations when solving free fall and ballistic physics problems. They are calculated using some basic definitions of the position, velocity and acceleration:
 </p>
+
+<p>
+\[ v = \frac{dx}{dt} \qquad \qquad a = \frac{dv}{dt}\]
+</p>
+
+<p>
+These definitions for the velocity and acceleration were discussed previously, but the equations of motion still must be computed. In order to calculate the kinematic equations, you will need to make an assumption about the motion. Some quantity will need to be held constant (value cannot change). Below I will discuss 4 cases:
+</p>
+
+<p>
+Constant Position:
+This may be the most boring of all of the cases. If the position is constant, no movement will occur (may be obvious). The way to identify this with the mathematics is to look at the definition of the velocity: \(v(t) = \frac{dx(t)}{dt} = \frac{d}{dt} x(t)= 0\)
+</p>
+
+<p>
+(The final answer can be read in English: the derivative of a constant is zero.) The kinematic equation for this is extremely boring:
+</p>
+
+<p>
+\[ x_f = x_i\]
+</p>
+
+<p>
+Constant Velocity:
+Here we get into something more interesting. If the velocity is constant, the position will change, but the acceleration will not change ($ &Delta; v =0$). You can integrate the velocity equation to find the kinematic equation:
+</p>
+
+<p>
+\[ x_f = x_i + v\, t\]
+</p>
+
+<p>
+Constant Acceleration:
+Objects moving under constant acceleration is a very common physics problem for this topic. This is because the acceleration due to gravity is approximately constant for objects on the surface of the earth. We are all confined to live on the surface of the earth, and therefore are extremely used to this acceleration constantly pulling us down. The gravitational acceleration is used so frequently that it gets its own symbol in physics: $ g = 9.8\, m/s<sup>2</sup>$. As you will see in the below video, the kinematic equations are normally derived using the assumption of &ldquo;constant acceleration&rdquo;. I will now write down the kinematic equations which you will frequently use in this course. If you want to see a derivation, please see the below video:
+</p>
+
+<p>
+\[ x_f = x_i + v_i \, t + \tfrac12 a t^2\]
+\[v_f = v_i + a\, t\]
+\[v_f^2 = v_i^2 + 2a (x_f - x_i)\]
+</p>
+
+<p>
+Constant Jerk:
+I would also like to talk about the extension of this topic to situations where the acceleration is not constant. Instead lets assume that the acceleration changes linearly in time. The rate that the acceleration changes (slope) is known as the Jerk (Links to an external site.) (units of m/s<sup>3</sup>). If the Jerk is constant then the equation of motion will need one more integration to arrive at the final result for the position as a function of time. I hope you can see the pattern of increasing level of polynomials from the above cases:
+</p>
+
+<p>
+\[ x_f = x_i + v_i*t + \tfrac12 a_i\, t^2 + \tfrac16 J\, t^3\]
+</p>
+
+<p>
+<p align="center"><iframe width="640" height="360" src="https://www.youtube.com/embed/LPLVyG01N8Y" frameborder="0" allowfullscreen></iframe></p>
+</p>
+
+<div id="outline-container-org3e43438" class="outline-2">
+<h2 id="org3e43438"><span class="section-number-2">1</span> Example</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+I have some solutions for 1D Kinematics problems if you want to take a look at how I approach these problems. I find my steps to be fairly close to the steps outlined in the book in the example problems:
+</p>
+
+<p>
+<i>Please note the numbers in the example problems are not the same as the numbers in your book&#x2026;</i>
+</p>
+
+<p>
+<p align="center"><iframe width="640" height="360" src="https://www.youtube.com/embed/5MAyIClbzhc" frameborder="0" allowfullscreen></iframe></p>
+</p>
+</div>
+</div>
 </div>
 </body>
 </html>
