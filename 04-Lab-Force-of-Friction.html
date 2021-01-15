@@ -6,9 +6,8 @@
 <!-- 2021-01-14 Thu 22:17 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Displacement Velocity And Acceleration</title>
+<title>&lrm;</title>
 <meta name="generator" content="Org mode" />
-<meta name="author" content="Patrick Malsom" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -243,78 +242,120 @@
 <style type="text/css">body{ max-width:800px; margin: auto;font-family: LatoWeb, "Lato Extended", Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;}</style>
 </div>
 <div id="content">
-<h1 class="title">Displacement Velocity And Acceleration</h1>
 
-<div id="outline-container-orgea9071e" class="outline-2">
-<h2 id="orgea9071e">Module Overview</h2>
-<div class="outline-text-2" id="text-orgea9071e">
+<div id="outline-container-org6e22881" class="outline-2">
+<h2 id="org6e22881">Lab 04 Instructions - Force Of Friction</h2>
+<div class="outline-text-2" id="text-org6e22881">
 <p>
-Here you will find information about Displacement, Velocity and Acceleration, Kinematic Equations, Free fall. This module covers chapter 2 in the textbook. You will need to complete the following assignments to finish the module:
+<b>Note:</b> This lab is fairly involved. Please plan your time accordingly. There are video instructions at the bottom of this page which explain all of the details of this experiment. This text is a brief overview of steps involved:<br />
 </p>
 
+<p>
+In this exercise, you will be using two separate experiments to calculate the coefficient of friction between a plywood board and a toy Einstein doll. In the first experiment, the doll is placed on an inclined plane and allowed to begin sliding. In the second experiment, the doll is placed in a Gravitron while the rotational velocity is decreased until the doll slides.
+</p>
+
+<p>
+When you finish the lab you will be able to:
+</p>
 <ul class="org-ul">
-<li>Conceptual Quiz</li>
-<li>Problem Quiz</li>
-<li>Laboratory Exercise (Pivot)</li>
+<li>Draw Free Body Diagrams and write out Newton&rsquo;s laws for each experiment</li>
+<li>Calculate the mathematical expression for the coefficient of friction \(\mu\)</li>
+<li>Perform error analysis on your final result</li>
 </ul>
 
 <p>
-In addition to these graded exercises, there are suggested problems and solutions provided for practice.
+The assignment will conclude with an explanation of how to approach writing an abstract which displays your findings. You will then write and submit your own abstract for the experiments.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org2272025" class="outline-2">
-<h2 id="org2272025">Displacement:</h2>
-<div class="outline-text-2" id="text-org2272025">
+<div id="outline-container-org75e07db" class="outline-2">
+<h2 id="org75e07db">Inclined Plane Experiment</h2>
+<div class="outline-text-2" id="text-org75e07db">
 <p>
-The position of an object is described using the variable \(x\). The first quantity to study is related to the position of the object, it is known as the displacement \(\Delta x\). The displacement is the <b>difference</b> between the positions:
+The first experiment shows a plywood board being inclined until the block slides. You need to use this experiment to calculate the coefficient of friction. The only information you will need is the angle of inclination \(\theta\).
 </p>
 
+<ol class="org-ol">
+<li>Use the video to observe when the doll starts sliding. This angle MUST BE measured in radians, not degrees (don&rsquo;t forget to change the mode on your calculator) . You should record the angle that the doll starts sliding as well as an estimation of the error in your measurement.</li>
+
+<li>Create a Free Body Diagram (FBD) for the inclined plane, with the three forces present as well as a coordinate system (I would recommend using a rotated coordinate system, similar to lecture and the text).</li>
+
+<li>Use the FBD and Newton&rsquo;s second law to write a system of equations for the force acting on the block</li>
+
+<li>The final result should be:</li>
+</ol>
 <p>
-\[\Delta x = x_f - x_i\]
+\[\mu = \tan ( \theta )\]
 </p>
 
-<p>
-Note: the distance is not necessarily equal to the displacement. The distance accounts for the entire path length the object has traveled, whereas the displacement only measures the change imposition. The position will not be used in our physics equations, so instead please always think of the displacement when calculating positional change.
-</p>
-</div>
-</div>
-
-<div id="outline-container-org7786799" class="outline-2">
-<h2 id="org7786799">Velocity:</h2>
-<div class="outline-text-2" id="text-org7786799">
-<p>
-The next quantity, known as the velocity, describes the rate of change of position. This is a fancy mathematical way to say “how fast are you moving?”.
-</p>
+<ol class="org-ol">
+<li>Perform error analysis to find the error in your measurement. Please see the supplemental worksheet <i>Experimental Methods: Propagation of error</i> for an explanation of the error calculation. The final result is</li>
+</ol>
 
 <p>
-\[v = \frac{\Delta x}{\Delta t}\]
-</p>
-
-<p>
-I like to read this equation in English as the following phrase: “the velocity changes the position”.  if you have a non-zero velocity, your position must change! please try to think about driving in a car. if your car has a velocity (given in miles per hour), this means it&rsquo;s moving or changing position.  As long as the car has a velocity, it is required to move.
+\[E(\mu) =\sqrt{\left( \frac{\partial \mu}{\partial \theta} \right) ^2 E[\theta]^2} = \frac{E[\theta]}{\cos^2(\theta)}\]
 </p>
 </div>
 </div>
 
-<div id="outline-container-org8cfeef3" class="outline-2">
-<h2 id="org8cfeef3">Acceleration:</h2>
-<div class="outline-text-2" id="text-org8cfeef3">
+<div id="outline-container-orgfcd36e9" class="outline-2">
+<h2 id="orgfcd36e9">Gravitron Experiment</h2>
+<div class="outline-text-2" id="text-orgfcd36e9">
 <p>
-the final quantity to study in this chapter is the acceleration.  it is very easy to misunderstand what the acceleration does. the acceleration is the rate of change of the velocity.
+The second experiment uses a spinning device known as a gravitron. As the device spins, the centripetal acceleration creates a Normal force which holds the block against the inside of the plywood block. As the Gravitron slows, the centripetal acceleration decreases, and therefore the Normal force decreases and the friction is not able to hold the figurine up.
 </p>
 
 <p>
-\[a = \frac{\Delta v}{\Delta t}\]
+Part 1:
+</p>
+<ol class="org-ol">
+<li>Use the top view of the gravitron to measure the angle every 0.25 seconds. Record this data into the table on Pivot and create a plot of the position as a function of time. This figure also includes a polynomial fit of the data that you will use in the next steps.</li>
+
+<li>Use the path length equation (\[x = r \theta\]) to convert the angular measurement (\[\theta\]) to position measurement (\(x\))</li>
+
+<li>Make a measurement of the time which the figure falls and record this value (with estimated error).</li>
+
+<li>Use the fit parameters to calculate the velocity of the figurine at the above time. The quadratic fit has statistical estimation of error included in the fit parameters</li>
+</ol>
+
+<p>
+\[x(t) = x_i + v_i \, t + \tfrac12 a\, t^2 \qquad \rightarrow \qquad y = Ax^2 + Bx +C\]
 </p>
 
 <p>
-Again, I like to read this equation in English as: “the acceleration changes the velocity”.  If you have a non-zero value for acceleration, your velocity is required to change continuously. Again try to imagine yourself in a car. If you hit the accelerator and speed the car up, you have an acceleration, which continually changes the velocity. You could also press the brake, which will change your velocity in the opposite (possibly negative)  direction.  Both the accelerator and the brake are changing your velocity and therefore cause an acceleration.
+\[v(t) = v_i + a \, t = B + 2 \, A \, t\]
+</p>
+
+<ol class="org-ol">
+<li>Perform error analysis to find the error in your measurement. Again, refer to the <i>Experimental Methods: Propagation of error</i> worksheet for an explanation of the error equation. The final result is</li>
+</ol>
+
+<p>
+\[E[v] = \sqrt{(E[B])^2 + (2 \, t \, E[A])^2 + (2 \, A \, E[t])^2}\]
 </p>
 
 <p>
-<p align="center"><iframe width="640" height="360" src="https://www.youtube.com/embed/b3KO1jSS6lA" frameborder="0" allowfullscreen></iframe></p>
+Part 2:
+</p>
+<ol class="org-ol">
+<li>Create a Free Body Diagram (FBD) of the figurine on the gravitron, with the 3 forces present along with the coordinate system used.</li>
+
+<li>Use the FBD and Newton&rsquo;s second law to write a system of equations for the force acting on the figurine.</li>
+
+<li>The final result should look like</li>
+</ol>
+
+<p>
+\[\mu = \frac{gr}{v^2}\]
+</p>
+
+<ol class="org-ol">
+<li>Perform error analysis to find the error in your measurement. Please see the video for an explanation of the error equation. The final result is</li>
+</ol>
+
+<p>
+\[E[\mu] = \sqrt{ \left(\frac{r}{v^2} E[g] \right)^2 + \left( \frac{g}{v^2} E[r] \right)^2 + \left( \frac{2gr}{v^3}E[v] \right)^2 }\]
 </p>
 </div>
 </div>
