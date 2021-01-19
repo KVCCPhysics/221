@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-01-18 Mon 15:24 -->
+<!-- 2021-01-19 Tue 01:36 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Equations for Exam One</title>
@@ -215,6 +215,28 @@
     /*]]>*///-->
 // @license-end
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="preamble" class="status">
@@ -222,6 +244,35 @@
 </div>
 <div id="content">
 <h1 class="title">Equations for Exam One</h1>
+<p>
+\[\vec{v} = \lim_{\Delta t\to 0} \frac{\Delta \vec{x}}{\Delta t} = \frac{d \vec{x}}{dt}\]
+\[\vec{a} = \lim_{\Delta t\to 0} \frac{\Delta \vec{v}}{\Delta t} = \frac{d \vec{v}}{dt}\]
+</p>
+
+<div id="outline-container-org474acdb" class="outline-2">
+<h2 id="org474acdb">Kinematics: Constant acceleration</h2>
+<div class="outline-text-2" id="text-org474acdb">
+<p>
+\[\vec{x}_f = \vec{x}_i + \vec{v}_i \, t + \frac12 \vec{a}\,t^2\]
+\[\vec{v}_f = \vec{v}_i + \vec{a}\,t\]
+\[\vec{v}_f^2 = \vec{v}_i^2 + 2\,\vec{a} (\vec{x}_f - \vec{x}_i)\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd411081" class="outline-2">
+<h2 id="orgd411081">Circular Motion</h2>
+<div class="outline-text-2" id="text-orgd411081">
+<p>
+\[a_c= \frac{v^2}{r}\]
+\[T = \frac{2 \pi r}{v}\]
+\[\omega = \frac{2 \pi}{T}\]
+\[v = r \, \omega\]
+\[a_c = \frac{v^2}{r}\]
+\[a = \sqrt{a_t^2 + a_c^2}\]
+</p>
+</div>
+</div>
 </div>
 </body>
 </html>
