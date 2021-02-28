@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-01-18 Mon 15:24 -->
+<!-- 2021-02-27 Sat 21:49 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Equations for Exam Two</title>
@@ -215,6 +215,28 @@
     /*]]>*///-->
 // @license-end
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="preamble" class="status">
@@ -222,6 +244,77 @@
 </div>
 <div id="content">
 <h1 class="title">Equations for Exam Two</h1>
+<p>
+\[\vec{v} = \lim_{\Delta t\to 0} \frac{\Delta \vec{x}}{\Delta t} = \frac{d \vec{x}}{dt}\]
+\[\vec{a} = \lim_{\Delta t\to 0} \frac{\Delta \vec{v}}{\Delta t} = \frac{d \vec{v}}{dt}\]
+</p>
+
+<div id="outline-container-orgd7dd4ba" class="outline-2">
+<h2 id="orgd7dd4ba">Kinematics: Constant acceleration</h2>
+<div class="outline-text-2" id="text-orgd7dd4ba">
+<p>
+\[\vec{x}_f = \vec{x}_i + \vec{v}_i \, t + \frac12 \vec{a}\,t^2\]
+\[\vec{v}_f = \vec{v}_i + \vec{a}\,t\]
+\[\vec{v}_f^2 = \vec{v}_i^2 + 2\,\vec{a} (\vec{x}_f - \vec{x}_i)\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org76b0071" class="outline-2">
+<h2 id="org76b0071">Circular Motion</h2>
+<div class="outline-text-2" id="text-org76b0071">
+<p>
+\[ a_c= \frac{v^2}{r}\]
+\[T = \frac{2 \pi r}{v}\]
+\[ \omega = \frac{2 \pi}{T} \]
+\[ x = r \, \theta \qquad v = r \, \omega \qquad a = r \, \alpha\]
+\[a_c = \frac{v^2}{r}\]
+\[ a = \sqrt{a_t^2 + a_c^2}\]
+</p>
+</div>
+</div>
+<div id="outline-container-org528ad83" class="outline-2">
+<h2 id="org528ad83">Forces</h2>
+<div class="outline-text-2" id="text-org528ad83">
+<p>
+\[\sum \vec{F} = m \,\vec{a}\]
+\[f=\mu N\]
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org1f21640" class="outline-2">
+<h2 id="org1f21640">Work and Energy</h2>
+<div class="outline-text-2" id="text-org1f21640">
+<p>
+\[W = F \Delta r \cos(\theta)\]
+\[K=\frac12 mv^2\]
+\[U_g = mgy\]
+\[U_s= \frac12 kx^2\]
+\[U_R= \frac12 I \omega^2\]
+\[W_{nc} = \Delta K + \Delta U\]
+\[U_f - U_i = -\int F \, dx\]
+\[\mathcal{P} = \frac{dE}{dt}\]
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org12bd9d6" class="outline-2">
+<h2 id="org12bd9d6">Momentum</h2>
+<div class="outline-text-2" id="text-org12bd9d6">
+<p>
+\[\vec{p} = m \vec{v}\]
+\[\vec{I} = \int_{t_i}^{t_f} \sum \vec{F} dt\]
+\[\vec{r}_{CM} = \frac1M \sum_i m_i \vec{r}_i\]
+\[\Delta \vec{p}_{tot} = 0\]
+\[ \vec{F} = \frac{d\vec{p}}{dt}\]
+\[m_1 \, \vec{v}_{1i} +m_2 \, \vec{v}_{2i} = m_1 \, \vec{v}_{1f} +m_2 \, \vec{v}_{2f}\]
+\[v_{1i} + v_{1f} = v_{2i} + v_{2f}\]
+</p>
+</div>
+</div>
 </div>
 </body>
 </html>

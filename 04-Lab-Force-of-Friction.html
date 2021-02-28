@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-02-16 Tue 11:06 -->
+<!-- 2021-02-27 Sat 21:42 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -297,6 +297,29 @@ The first experiment shows a plywood board being inclined until the block slides
 \[E(\mu) =\sqrt{\left( \frac{\partial \mu}{\partial \theta} \right) ^2 E[\theta]^2} = \frac{E[\theta]}{\cos^2(\theta)}\]
 </p>
 </div>
+
+<div id="outline-container-org82a7203" class="outline-3">
+<h3 id="org82a7203">Example calculation</h3>
+<div class="outline-text-3" id="text-org82a7203">
+<ul class="org-ul">
+<li>\(\theta\):  the measurement of the angle when the block starts to slide down the ramp (for this experiment theta is somewhere around 25 degrees, which is 0.4363 radians)</li>
+<li>\(E[\theta]\): the measurement uncertainty in the quantity theta. This uncertainty must be estimated by the experimenter using the Pivot video. How accurate do you think you are with your measurements (to one standard deviation)? Do you think the error in measurement is 1 degree? or 0.1 degree? or 10 degrees? I think the error is somewhere around 1 degree (which is 0.01745 radians) for this experiment. Please estimate this error for yourself, and use a different value if you think 1 degree is not accurate.</li>
+</ul>
+
+<p>
+Now use these values to &rsquo;estimate&rsquo; the error in \(\mu\) (remember to convert angles to radians and change your calculator to radian mode):
+</p>
+
+<p>
+\[\mu = \tan(\theta) = \tan(0.4363)  = 0.466\]
+\[E[\mu] = \frac{1}{\cos^2(\theta)} E[theta] = 1/(cos(0.4363)^2 * 0.4363 = 0.0212\]
+</p>
+
+<p>
+Your final answer would then be quoted as: &ldquo;\(\mu = 0.466 \pm 0.0212\)&rdquo;
+</p>
+</div>
+</div>
 </div>
 
 <div id="outline-container-orgfcd36e9" class="outline-2">
@@ -414,7 +437,7 @@ Please avoid writing any of the following in your abstract:
 </p>
 
 <ul class="org-ul">
-<li>Never show any computer code (No Python please)</li>
+<li>Do not show any computer code</li>
 <li>Omit any intricate details of experimental setup or theory</li>
 <li>Do not include set-up, procedure, analysis or tables of data.</li>
 </ul>
