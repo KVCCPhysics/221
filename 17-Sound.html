@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-01-11 Mon 11:48 -->
+<!-- 2021-03-29 Mon 13:23 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Sound</title>
@@ -52,7 +52,7 @@
     padding: 3px;
     border: 1px solid black;
   }
-  pre.src:hover:before { display: inline;}
+  pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
@@ -215,28 +215,6 @@
     /*]]>*///-->
 // @license-end
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
-
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
-</script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="preamble" class="status">
@@ -245,46 +223,6 @@
 <div id="content">
 <h1 class="title">Sound</h1>
 
-<div id="outline-container-orgd868a30" class="outline-2">
-<h2 id="orgd868a30">Beat Frequency</h2>
-<div class="outline-text-2" id="text-orgd868a30">
-<p>
-Sound waves often display an interesting characteristic of the superposition of waves. If two waves of slightly different frequencies are superimposed (added) on top of each other, the waves will create periodic interference based on the following equation:
-</p>
-
-<p>
-\[f_{beat} = \left| f_1 - f_2 \right|\]
-</p>
-
-<p>
-This interference is termed a &ldquo;beat frequency&rdquo; because the sound will pulse between constructive and destructive, which creates a periodic increase/decrease in amplitude of the sound.
-</p>
-
-<p>
-Below, two waves of frequency \(f_1 = 10 \,Hz\) and \(f_2 = 11 \, Hz\) are shown. From the beat equation, you would expect the beat frequency to be \(f_{beat} = 1 \, Hz\) and you can see this interference clearly below:
-</p>
-
-
-<div id="orgfcf2a95" class="figure">
-<p><img src="./obipy-resources/x5MVrF.png" alt="x5MVrF.png" />
-</p>
-</div>
-
-<p>
-Please observe the waves are aligned at first, but at 0.5 seconds the waves are anti-aligned and will therefore destructively interfere. At \(t = 1.0 s\) the waves move back to constructive interference, and then the whole process repleats itself. It is this periodic matching and then anti-matching of amplitudes that form the beat.
-</p>
-
-<p>
-The addition of the two waves create an interesting pattern which shows how the waves constructively and destructively interfere with each other at a frequency of \(f_{beat} = 1\, Hz\)
-</p>
-
-
-<div id="orgd04c000" class="figure">
-<p><img src="./obipy-resources/0AmHbh.png" alt="0AmHbh.png" />
-</p>
-</div>
-</div>
-</div>
 </div>
 </body>
 </html>
