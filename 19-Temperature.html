@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-01-11 Mon 11:48 -->
+<!-- 2021-04-02 Fri 09:51 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Temperature</title>
@@ -52,7 +52,7 @@
     padding: 3px;
     border: 1px solid black;
   }
-  pre.src:hover:before { display: inline;}
+  pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
@@ -215,6 +215,28 @@
     /*]]>*///-->
 // @license-end
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="preamble" class="status">
@@ -225,6 +247,83 @@
 <p>
 <p align="center"><iframe width="640" height="360" src="https://www.youtube.com/embed/Wup00qiNwVI" frameborder="0" allowfullscreen></iframe></p>
 </p>
+
+<div id="outline-container-orge6ec5d8" class="outline-2">
+<h2 id="orge6ec5d8">Scales</h2>
+<div class="outline-text-2" id="text-orge6ec5d8">
+<p>
+It is appropriate to begin thermodynamics with an explanation of the various temperature scales that are used in science and engineering (especially in America). The figure below displays the four most used scales:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Scale</th>
+<th scope="col" class="org-left">Absolute Zero</th>
+<th scope="col" class="org-left">Ice/Water</th>
+<th scope="col" class="org-left">Room Temp</th>
+<th scope="col" class="org-left">Water/Steam</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Kelvin</td>
+<td class="org-left">0 K</td>
+<td class="org-left">273.15 K</td>
+<td class="org-left">293.15 K</td>
+<td class="org-left">373.15 K</td>
+</tr>
+
+<tr>
+<td class="org-left">Celsius</td>
+<td class="org-left">-273.15 C</td>
+<td class="org-left">0 C</td>
+<td class="org-left">20 C</td>
+<td class="org-left">100 C</td>
+</tr>
+
+<tr>
+<td class="org-left">Fahrenheit</td>
+<td class="org-left">-459.7 F</td>
+<td class="org-left">32 F</td>
+<td class="org-left">68 F</td>
+<td class="org-left">212 F</td>
+</tr>
+
+<tr>
+<td class="org-left">Rankine</td>
+<td class="org-left">0 R</td>
+<td class="org-left">491.7</td>
+<td class="org-left">527.7 R</td>
+<td class="org-left">671.7 R</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+<b>Kelvin</b> is the unit you should use for Science and Engineering! All of the units for all constants in this course are based of of the Kelvin temperature scale. There is one exception to this rule: When calculating the change in temperature \(\Delta T\) (for example in the specific heat equation), you can use temperature in Celsius. This is only true because the scales have the same rate of change with energy (slope on the chart below), and this implies the change is equivalent: \(\Delta T_K = \Delta T_C\). If a formula ever uses a temperature \(T\) (without the change), the unit must be Kelvin!
+</p>
+
+
+<div id="org83c18e8" class="figure">
+<p><img src="./obipy-resources/mGVQ0k.png" alt="mGVQ0k.png" />
+</p>
+</div>
+</div>
+</div>
 </div>
 </body>
 </html>
