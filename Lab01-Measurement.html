@@ -1,0 +1,643 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-07-13 Tue 12:06 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Lab 01 - Measurement and Uncertainty</title>
+<meta name="author" content="Patrick Malsom" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<style type="text/css"> blockquote {background:#fee; padding: 3px 13px}</style>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="preamble" class="status">
+<style type="text/css">body{ max-width:800px; margin: auto;font-family: LatoWeb, "Lato Extended", Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;}</style>
+</div>
+<div id="content">
+<h1 class="title">Lab 01 - Measurement and Uncertainty</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org24a5160">1. Measurement and Uncertainty</a>
+<ul>
+<li><a href="#org75ed28b">1.1. General objectives of an experimenter</a></li>
+<li><a href="#org9e090cc">1.2. What to record on paper</a></li>
+</ul>
+</li>
+<li><a href="#org8a6c115">2. Estimation of Volume</a>
+<ul>
+<li><a href="#org01ce49e">2.1. Model of the system</a></li>
+<li><a href="#org51cec8f">2.2. Estimate the Volume</a></li>
+</ul>
+</li>
+<li><a href="#org0dccfb2">3. Measurement of Volume</a>
+<ul>
+<li><a href="#org3271212">3.1. Estimation of Error</a></li>
+<li><a href="#org6909721">3.2. Propagation of Error</a></li>
+<li><a href="#org2724a87">3.3. Systematic Error</a></li>
+</ul>
+</li>
+<li><a href="#org0668e8c">4. Measuring volume with fluid displacement</a></li>
+<li><a href="#org2f1bc1a">5. Assignment</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org24a5160" class="outline-2">
+<h2 id="org24a5160"><span class="section-number-2">1</span> Measurement and Uncertainty</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+This is an introduction to lab which will lay out many of the core concepts for this course. The lab is designed to show you what good measurement habbits are and guides you a through scientific measurement of the volume of a non-uniform object (a branch).
+</p>
+</div>
+
+<div id="outline-container-org75ed28b" class="outline-3">
+<h3 id="org75ed28b"><span class="section-number-3">1.1</span> General objectives of an experimenter</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+The ability to make reliable and accurate measurements is an essential skill in many fields of engineering and experimental science. You should try to become a:
+</p>
+<ul class="org-ul">
+<li><b>Reliable experimenter:</b> means (at minimum) your measurements are always double checked and you have high confidence in them.</li>
+<li><b>Accurate experimenter:</b> means you can quote the value of the measured quantity and appropriately esitmate its error.</li>
+</ul>
+
+<p>
+Becoming proficient at these two goals is not easy, and normally requires adjustment of everyday habbit. Indeed, this rigid method of measurement is overkill for everyday tasks such as cutting a 2x4 to length or measuring the square footage of your house, but will enable the scientific calculation of experimental quantities. The long-term objective is for you to develop a measurement routine which reinforces reliability and accuracy at all times.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org9e090cc" class="outline-3">
+<h3 id="org9e090cc"><span class="section-number-3">1.2</span> What to record on paper</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+Lets start with the setup. Please note that each of these should be recorded <b>on a piece of paper!</b> If you are working in a professional lab, you would want a <i>lab notebook</i>, which is a good idea when your job depends on high quality work. You can use your normal lecture notebook (or loose paper) for this lab course if you wish.
+</p>
+
+<p>
+<b>You must record these FOUR things to paper!</b> Your measurements and sketches will be checked at the end of the lab period and counts as 50% of your lab grade!
+</p>
+</div>
+
+<div id="outline-container-org8514035" class="outline-4">
+<h4 id="org8514035">One: Description of the task</h4>
+<div class="outline-text-4" id="text-org8514035">
+<p>
+This one is easy. Put identifying info on your records. You do not need to write a paragraph. A descriptive name that points to supporting resources, along with a date, is often all that is necessary.
+</p>
+
+<ul class="org-ul">
+<li><i>Phy 221 - Lab 1 Measurement - Sept 08 2021 - P Malsom</i></li>
+</ul>
+
+<p>
+If you move to a different part of the experiment, please make a note in your notes. Again you do not need to write a paragraph, but please be descriptive.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd19b0a8" class="outline-4">
+<h4 id="orgd19b0a8">Two: Make a sketch of the system</h4>
+<div class="outline-text-4" id="text-orgd19b0a8">
+<p>
+Always make a sketch of the experiment (a picture is often worth a
+thousand words).
+</p>
+
+<ul class="org-ul">
+<li>Take your time making a sketch. You will want something clear to reference later.</li>
+<li>Make the sketch large enough that you can label dimensions and dynamics, but leave room to record measurements.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org04211a2" class="outline-4">
+<h4 id="org04211a2">Three: Record measurements (and error) to paper</h4>
+<div class="outline-text-4" id="text-org04211a2">
+<p>
+This is a core part of the good measurement habbits. Recording to paper is faster and more reliable than typing into a computer. If you only use a computer, you will eventually lose data and have to renter results. This is sometimes CATASTROPHIC! For example when some other data you have depends on the lost data, and the experiment will take an extremely long time to redo. Please hear my warnings and <b>record your data to a piece of paper</b>. You can always re-enter data from paper if the computer loses it.
+</p>
+
+<ul class="org-ul">
+<li>Always record the measurements <i>on the same page</i> as the sketch. Data means nothing without a sketch to reference.</li>
+<li>Label your sketch with variables rather than actual numbers. (use \(\ell\) instead of \(0.1\))</li>
+<li>Record your error. Usually this is done with a &ldquo;plus-minus&rdquo;, but could also be a list of measurements used to find a standard deviation.</li>
+<li>Record your unit of measurement (please use SI units).</li>
+</ul>
+
+<p>
+\[\ell=0.1 \pm 0.02~m\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgfc90e63" class="outline-4">
+<h4 id="orgfc90e63">Four: Calculate an estimate of the expected result</h4>
+<div class="outline-text-4" id="text-orgfc90e63">
+<p>
+Before performing the actual analysis (preferably on a computer), please perform a basic calculation with your measurements. This step is used to <b>double check</b> your measurements. Try to examine if this is what you expect the value to be? If it is not, review your measurements to find any mistakes!
+</p>
+
+<p>
+This course will encourage you to use <i>Python</i> as a calculator and bugs are bound to show up in your code. This hand calculation serves as a critical check to see if there is a bug in your programming. It is very hard to find errors without a hand calculated estimate to use as a comparison.
+</p>
+
+<blockquote>
+<p>
+<b>Checkpoint:</b>
+</p>
+<ul class="org-ul">
+<li>Get out a piece of paper and complete the first two tasks above</li>
+<li>Remember to record your results to paper for the next step!</li>
+</ul>
+</blockquote>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8a6c115" class="outline-2">
+<h2 id="org8a6c115"><span class="section-number-2">2</span> Estimation of Volume</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+In the first experiment, you will make some basic measurements and estimate the volume of the piece of wood. This estimation will yield a quick result with marginal accuracy and gives no estmation of uncertainty.
+</p>
+</div>
+
+<div id="outline-container-org01ce49e" class="outline-3">
+<h3 id="org01ce49e"><span class="section-number-3">2.1</span> Model of the system</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+The first step towards making an estimate is to think up a simple model which describes the system. The branch is mostly stright and has a somewhat uniform radius, so lets make the model <b>a uniform cylinder of radius \(r\) and length \(\ell\)</b> The volume of the cylinder is the cross sectional area (\(\pi r^2\)) multiplied by the length:
+</p>
+
+<p>
+\[V = \pi r^2  \, \ell\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org51cec8f" class="outline-3">
+<h3 id="org51cec8f"><span class="section-number-3">2.2</span> Estimate the Volume</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Make some basic measurements with the meter stick and calculate an estimate for the volume:
+</p>
+
+<p>
+<b>Please record these quantities to paper!</b>
+</p>
+
+<p>
+\(r\) : average radius (meters)
+\(\ell\) : average length (meters)
+</p>
+
+<p>
+Calculate the estimate of the volume of the stick
+</p>
+
+<p>
+Here is simple python script to calculate the quantity. Please
+type in values for <b>rad</b> and <b>len</b> and hit <i>Shift+Enter</i> to compute the
+volume:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-ipython">  <span style="color: #6a1868;">rad</span> = <span style="color: #da8548; font-weight: bold;">0.032</span> <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">Enter your radius</span>
+  <span style="color: #a626a4;">len</span> = .<span style="color: #da8548; font-weight: bold;">59</span> <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">Enter your length</span>
+
+  <span style="color: #6a1868;">vol</span> = <span style="color: #da8548; font-weight: bold;">3.1415926</span>*rad**<span style="color: #da8548; font-weight: bold;">2</span> * <span style="color: #a626a4;">len</span>
+
+  <span style="color: #e45649;">print</span>(<span style="color: #50a14f;">"Volume = "</span>,vol,<span style="color: #50a14f;">" m^3"</span>)
+</pre>
+</div>
+
+<p>
+Volume =  0.001898024585216  m<sup>3</sup>
+</p>
+
+<blockquote>
+<p>
+<b>Checkpoint:</b>
+</p>
+<ul class="org-ul">
+<li>Measure the average radius and length of the branch in \(m\).</li>
+<li>Calculate an estimate of the volume of the branch in \(m^3\) and record to paper.</li>
+</ul>
+</blockquote>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0dccfb2" class="outline-2">
+<h2 id="org0dccfb2"><span class="section-number-2">3</span> Measurement of Volume</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+While the previous exercise is a nice start, it is far from scientific. It is missing a key part of any science measurement: estimated error. Error estimation is a complicated and deep topic, and I will have to get into a few of the details to help you understand how to correctly estimate (or better, calculate) the error in a measurement.
+</p>
+
+<p>
+This type of error is sometimes called <i>random</i> error, and for good reason. It arrises from any random inconsistencies coming from measurement devices. An easy example is a scale (for indirectly measuring mass). The scale will have an accuracy, and the manufacturer may quote the error directly on the device. Each time you measure the mass using the scale, the measurement will be slightly different. This is random measurement error.
+</p>
+
+<p>
+Conveniently, the measurement error is allowed to arrize from multiple measurement devices at once. For example, when you measure the branch, there will be some measurement error from the variation in radius, but also some measurement error from the caliper. One of these errors is much larger than the other, but both will be included intrisically in our definition of error.
+</p>
+</div>
+
+
+<div id="outline-container-org706d9de" class="outline-4">
+<h4 id="org706d9de">Mathematical Background: Normal (Gaussian) Distribution</h4>
+<div class="outline-text-4" id="text-org706d9de">
+<p>
+Before we begin, I want to refresh your understanding of the normal distribution. The normal distribution is commonly written as the following function:
+</p>
+
+<p>
+\[f(x) = \frac{1}{\sqrt{2 \pi \sigma^2}} ~ e^{\left(- \frac{(x-\mu)^2}{2\sigma^2} \right)}\]
+</p>
+
+<p>
+When you examine this function, please remember that the values of \(\sigma\) and \(\mu\) are fixed values, so the mathematical function looks like \(f=e^{-x^2}\), which is a &ldquo;bell curve&rdquo;. The term in the front (\(1/\sqrt{2\pi\sigma^2}\)) is a normalization factor, which is a constant because \(\sigma\) is a known value.
+</p>
+<ul class="org-ul">
+<li>\(\mu\) - Mean - most probable measurement</li>
+<li>\(\sigma\) - Standard Deviation - <i>spread</i> of the measurements</li>
+</ul>
+
+<p>
+Approximately 68% of all measurements will fall into the &ldquo;one standard deviation&rdquo; range. A measurement is said to have a value of the mean (\(\mu\)) and an error of one standard deviation (\(\sigma\)). You should quote your value as:
+</p>
+
+<p>
+\[E[x] = \mu \pm \sigma\]
+</p>
+
+
+<div id="org87c76dd" class="figure">
+<p><img src="./obipy-resources/lj286D.png" alt="lj286D.png" />
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org3271212" class="outline-3">
+<h3 id="org3271212"><span class="section-number-3">3.1</span> Estimation of Error</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+You will often be tasked with estimating an error in a measurement. For this experiment, the error must be calculated (or estimated) for two quantities: the radius and the length. Lets start by calculating the error in radius, and then we can use a shortcut for the error in length.
+</p>
+
+<p>
+The radius of the branch is obviously non-uniform. Every time you measure, you will get a slightly different answer. This is what it means to have an <b>Error</b> in a measurement. But the question remains: how should you report the correct amount of error? This question is not easily answered, and a full treatment would be seen in a statistics or mathematics course on probability distributions. If the data is normally distributed (we will assume this for the entire course), the <i>correct</i> value for the error is the <b>standard deviation</b>.
+</p>
+
+<p>
+The standard deviation is the \(\sigma\) (sigma) in the above mathematical equation. 68% of all of the measurements will fall in this range (sometimes called &ldquo;one sigma&rdquo;). The standard deviation is easily calculated using python or in many other programs such as excel or even some calculators.
+</p>
+
+<p>
+Please make <i>many</i> measurements of the radius of your non-uniform object. Aim for 20-40 measurements. In general, the more measurements you make, the better your results will be, but there are diminishing returns (as \(1/\sqrt{N}\))
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6909721" class="outline-3">
+<h3 id="org6909721"><span class="section-number-3">3.2</span> Propagation of Error</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+<i>I want to be direct about this. This analysis is somewhat crude. There is an entire field devoted to this topic (statistics). I am just giving you the simplified (and most used) formula.</i>
+</p>
+
+<p>
+There are three main assumptions which are built in to the simplified error propagation which is often used by science and engineering analyses:
+</p>
+
+<ol class="org-ol">
+<li>The randomness is normally distributed (symmetric Gaussian distribution)</li>
+<li>Variables are independent of each other</li>
+<li>The function is approximately linear over the range of the error</li>
+</ol>
+
+<p>
+These assumptions are often very close to true in real world experiments, and the error formula is frequently used in science and engineering. If you are running a very sensitive experiment, you may find these assumptions are false, and you may have to use more advanced statistics to estimate the error correctly.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org2724a87" class="outline-3">
+<h3 id="org2724a87"><span class="section-number-3">3.3</span> Systematic Error</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+Now is a very good time to discuss systematic error. Systematic error is an error which is present but unaccounted and skews your results consistently in one direction. They commonly arise from oversimplified models, This type of error is often hidden from view and you must be careful to reasses your measurement techniques to minimize these errors.
+</p>
+
+<p>
+As an example, lets imagine your object has another cylinder embedded into it (maybe where a branch was growing out). By making our model a uniform cylinder, we ignore any other radial bulges which directly inmpacts our calculation in one direction. It does not matter how many times you measure the branch, the result will be skewed towards more volume because of the protrusion. Systematic errors often lead to incorrect interpretation of data, because the error is often burried in assumptions which are easy to overlook. You should always note these types of assumption errors in your notes (paper or typed) for discussion or thought later.
+</p>
+
+<blockquote>
+<p>
+<b>Checkpoint:</b>
+</p>
+<ul class="org-ul">
+<li>task</li>
+</ul>
+</blockquote>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0668e8c" class="outline-2">
+<h2 id="org0668e8c"><span class="section-number-2">4</span> Measuring volume with fluid displacement</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+A much more accurate method for measuring volume is to dispace an incompressible liquid with the irregular cylinder. By measuring the change in water height in the cylinder, you can directly measure the volume of the stick. This method removes constraint that the model be a cylinder, and thus may reduce the error in measurement (Note the error is only small when the displacement of water is large, ie: a tube with a small radius will give better results than a tube of large radius).
+</p>
+
+<p>
+Please make a model of this experiment and write out the formulae for the volume of a sphere on your lab notes. Take measurements of the radius of the tube and the height change of the water (remember to record errors!). Use your formula for volume and error propagation to quote a value for the volume and its error.
+</p>
+
+
+<blockquote>
+<p>
+<b>Checkpoint:</b>
+</p>
+<ul class="org-ul">
+<li>task</li>
+</ul>
+</blockquote>
+</div>
+
+<div id="outline-container-orgd0edf63" class="outline-4">
+<h4 id="orgd0edf63"><span class="todo TODO">TODO</span> buy this from mcmaster carr: Item 49035K31</h4>
+</div>
+</div>
+
+<div id="outline-container-org2f1bc1a" class="outline-2">
+<h2 id="org2f1bc1a"><span class="section-number-2">5</span> Assignment</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+Before next lab meeting time, you need to write an abstract about the experiment and submit your work to Canvas. Please refer to the lab resources page on the course webpage before submitting your work. I know this experiment is a bit thin on physics, but be sure to report your measured volumes for the above two methods and make sure you include your error!!
+</p>
+
+<p>
+Please see Lab Resources on the course webpage for more details about lab reports.
+</p>
+
+<blockquote>
+<p>
+<b>Checkpoint:</b>
+</p>
+<ul class="org-ul">
+<li>task</li>
+</ul>
+</blockquote>
+</div>
+<div id="outline-container-org67b9338" class="outline-4">
+<h4 id="org67b9338"><span class="todo TODO">TODO</span> link to &ldquo;Writing a report&rdquo;</h4>
+</div>
+<div id="outline-container-org38fcde4" class="outline-4">
+<h4 id="org38fcde4"><span class="todo TODO">TODO</span> link to &ldquo;Error Analysis&rdquo;</h4>
+</div>
+</div>
+</div>
+</body>
+</html>
