@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-03-17 Thu 12:07 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Lab 02 - Ballistic Motion</title>
+<meta name="author" content="Patrick Malsom" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+</style>
+<style type="text/css"> blockquote {background:#eee; padding: 3px 10px; border: 1px solid; }</style>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="preamble" class="status">
+<style type="text/css">body{ max-width:800px; margin: auto;font-family: LatoWeb, "Lato Extended", Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;}table.center{margin-left:auto; margin-right:auto;}</style>
+</div>
+<div id="content" class="content">
+<h1 class="title">Lab 02 - Ballistic Motion</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org8040b5f">1. Part 1: Gravitational Acceleration</a>
+<ul>
+<li><a href="#orgeb79309">1.1. Record the video</a></li>
+<li><a href="#orgc5b5a24">1.2. Extract the data from the video</a></li>
+<li><a href="#org2a3858e">1.3. Estimate the gravitational acceleration</a></li>
+<li><a href="#orgd756a84">1.4. Finding the acceleration numerically</a></li>
+<li><a href="#org98eb024">1.5. Systematic Error</a></li>
+<li><a href="#org379a762">1.6. Theoretical calculation of \(g\)</a></li>
+</ul>
+</li>
+<li><a href="#orgd143de0">2. Part 2:</a>
+<ul>
+<li><a href="#org62659ca">2.1. Error Propogation</a></li>
+</ul>
+</li>
+<li><a href="#org776f46c">3. Part 3: Predicting ballistic motion</a></li>
+<li><a href="#orgba560e3">4. Assignment (Next week)</a></li>
+</ul>
+</div>
+</div>
+<p>
+In this lab, you will be examining and calculating the trajectory of freely falling objects. In the first part of the lab, we will work as a group to find an approximate value for \(g\). In the second and third part, you will use your knowledge of motion of objects feeling uniform acceleration to predict the range of a projectile.
+</p>
+
+<div id="outline-container-org8040b5f" class="outline-2">
+<h2 id="org8040b5f"><span class="section-number-2">1.</span> Part 1: Gravitational Acceleration</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+For the first part of this lab, we will work as a class. This experiment is useful to see, but the data aquisition is tedious, so I will do it for you! Lets take a video of free fall and make some calculations.
+</p>
+</div>
+
+<div id="outline-container-orgeb79309" class="outline-3">
+<h3 id="orgeb79309"><span class="section-number-3">1.1.</span> Record the video</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+Use a GoPro (or your phone) to record the motion of a freely falling object. The object should be thrown directly upwards from waist height and fall down to the floor. Make sure you record the video with the meter stick in the background for calibration and throw as close to vertical as possible.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc5b5a24" class="outline-3">
+<h3 id="orgc5b5a24"><span class="section-number-3">1.2.</span> Extract the data from the video</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+There are many ways to extract data from a movie. You can try to be clever and use machine learning algoritms to track the object with higher accuracy (scikit-learn module provides this funcitonallity in python), but this is tedious for a one-off experiment. We will use a free software called ImageJ to extract the data. The instructor will do this for you, but here are the instructions to do this for yourself.
+</p>
+</div>
+<div id="outline-container-org789def4" class="outline-5">
+<h5 id="org789def4"><span class="todo TODO">TODO</span> put in the lab resource page for ImageJ</h5>
+</div>
+</div>
+
+<div id="outline-container-org2a3858e" class="outline-3">
+<h3 id="org2a3858e"><span class="section-number-3">1.3.</span> Estimate the gravitational acceleration</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+Now lets look at the math and find an estimate of the gravitaional acceleration. Lets assume that the ball follows the normal kinematic equations:
+\[x_f = x_i + v_i \, t + \frac12 a\,t^2\]
+\[v_f = v_i + a\,t\]
+</p>
+
+<p>
+The next question is: which variables are known and which are uknown? You have two independent equations, and are allowed to have two unknowns. In this experiment, the position and the time are easy to measure, but the velocity and acceleration are not. We will have to either make estimates of the velocity or figure out a way to avoid the calculation if possible.
+</p>
+
+<p>
+Remember that the goal is to <b>measure the acceleration</b>. This means one unknown is already taken (\(a\)). This leaves two unknowns (\(v_i\) and \(v_f\)) where the math requires one. In order to avoid this problem altogether, lets just start collecting data at the very top of the throw (making one variable equal to zero).
+</p>
+
+<blockquote>
+<p>
+<b>Checkpoint:</b>
+</p>
+<ul class="org-ul">
+<li>A clever (or maybe not) trick to remove one of these variables is to start the measurement from the very top of the motion. Why does this help? Please try to be specific.</li>
+<li>Measure postion and time using the video. Use the data to calculate the gravitational acceleration.</li>
+<li>What systematic error is present? (there is a large one!)</li>
+</ul>
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-orgd756a84" class="outline-3">
+<h3 id="orgd756a84"><span class="section-number-3">1.4.</span> Finding the acceleration numerically</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+This is a good first approximation, but the video contains a whole lot of data that we are ignoring. Lets use some calculus to find a better approximation to the acceleration:
+</p>
+</div>
+
+<div id="outline-container-org2840916" class="outline-4">
+<h4 id="org2840916">Method 1: Numerical Derivative</h4>
+<div class="outline-text-4" id="text-org2840916">
+<p>
+We know calculus! Lets find a numerical derivative. We will use the simple finite difference method for evaluation. In this method, it is assumed that the measurements are uniform with for the independent variable (the one in the denominator). This is the case with this experiment, as the frame rate (frequency) is fixed at \(f=120~fps\), which makes the time interval (period) \(h = \Delta t = \tfrac{1}{f}= \tfrac{1}{120} = 0.008333~sec\)
+</p>
+
+<p>
+\[v_i = \frac{dx}{dt} \Rightarrow \frac{(x_i - x_{i-1})}{h}\]
+\[a_i = \frac{d^2x}{dt^2} \Rightarrow \frac{\frac{(x_i+1 - x_{i})}{h} - \frac{(x_i - x_{i-1})}{h}}{h} = \frac{x_{i+1} - 2\, x_i + x_{i-1}}{h^2}\]
+</p>
+
+<p>
+This should be easy enough to calculate in python using numpy:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #e45649;">import</span> matplotlib <span style="color: #e45649;">as</span> mpl
+<span style="color: #e45649;">import</span> matplotlib.pyplot <span style="color: #e45649;">as</span> plt
+<span style="color: #e45649;">import</span> numpy <span style="color: #e45649;">as</span> np
+
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">import data from csv</span>
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">do finite differences</span>
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">plot the data</span>
+
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgbece429" class="outline-4">
+<h4 id="orgbece429">Method 2: Polynomial Fit</h4>
+<div class="outline-text-4" id="text-orgbece429">
+<p>
+Now, lets try something different and try a simple fit of the data to a second order polynomial:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #e45649;">import</span> matplotlib <span style="color: #e45649;">as</span> mpl
+<span style="color: #e45649;">import</span> matplotlib.pyplot <span style="color: #e45649;">as</span> plt
+<span style="color: #e45649;">import</span> numpy <span style="color: #e45649;">as</span> np
+
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">import data from csv</span>
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">do finite differences</span>
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">plot the data</span>
+
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org2918617" class="outline-5">
+<h5 id="org2918617"><span class="todo TODO">TODO</span> add code to fit with a polynomial</h5>
+</div>
+</div>
+
+
+<div id="outline-container-orgecd670c" class="outline-4">
+<h4 id="orgecd670c">Method 3: Include air resistance</h4>
+<div class="outline-text-4" id="text-orgecd670c">
+<p>
+As a final attempt, I will include air resistance into the model. This math and the code is a bit complex, but you should be able to use your data to examine the full effect of air resistance on the object.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #e45649;">import</span> matplotlib <span style="color: #e45649;">as</span> mpl
+<span style="color: #e45649;">import</span> matplotlib.pyplot <span style="color: #e45649;">as</span> plt
+<span style="color: #e45649;">import</span> numpy <span style="color: #e45649;">as</span> np
+
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">import data from csv</span>
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">do finite differences</span>
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">plot the data</span>
+
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org6d7c851" class="outline-5">
+<h5 id="org6d7c851"><span class="todo TODO">TODO</span> add (animate?)code to fit with added air resistance terms</h5>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org98eb024" class="outline-3">
+<h3 id="org98eb024"><span class="section-number-3">1.5.</span> Systematic Error</h3>
+<div class="outline-text-3" id="text-1-5">
+<p>
+This experiment displays a clear and obvious error: <span class="underline">We ignore air resistance</span>! The measurement of the gravitational acceleration will be impacted by this damping and our current theoretical models do not account for this at all. This is a very nice example of a <b>systematic error</b>. This is an error which is unaccounted for (and often overlooked) but will skew the result consistantly in one direction. Please refrain from modifying your theoretical model to account for these errors (motion under constant acceleration for this experiment). The experimental method is designed to test the validity of the theoretical model, and if the model ignores important assumptions, the experiment can hopefully identify the inaccuracies. Please be on the lookout for assumptions that may impact your results systematically and write them down in your lab notes for discussion or consideration later. Some other examples include:
+</p>
+<ul class="org-ul">
+<li>throwing the ball at an angle instead of directly upwards</li>
+<li>misidentifying the time at which the ball has zero vertical velocity</li>
+<li>try to think of your own!</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org379a762" class="outline-3">
+<h3 id="org379a762"><span class="section-number-3">1.6.</span> Theoretical calculation of \(g\)</h3>
+<div class="outline-text-3" id="text-1-6">
+<p>
+The best way to determine the local acceleration due to gravity would be to have a fancy experimental apparatus to measure the accleration in our current location. Unfortunately, having this device is very time/cost/space prohibitive and we must resort to primitive methods such as recording a high speed video of free fall (this is a very poor way to measure \(g\)). But&#x2026; theory can help us!!
+</p>
+
+
+<p>
+Issac Newton determined exactly how the gravitational force depends on mass and radius (\(F=\tfrac{GmM}{r^2}\)). Using the <i>Earth Graviational Model</i> (EGM2008), the gravitational acceleration in Kalamazoo is calculated to be: \(\vec{g} = (9.80284,0.00006,0.00001)\,m/s^2\), where the components are (radial,west,north). This EGM2008 calculation accounts for many factors, including the non-inertial reference frame due to the spin of Earth, elevation from sea level, and Earth&rsquo;s oblique and non-uniform shape. This is much more accurate than we can determine using an experiment in a college course.
+</p>
+
+<p>
+For the rest of the experiment, lets use this model and define the gravitational acceleration to be:
+</p>
+
+<p>
+\[g = 9.8028 \pm 0.0001~m/s^2\]
+</p>
+</div>
+<div id="outline-container-org362300c" class="outline-5">
+<h5 id="org362300c"><span class="todo TODO">TODO</span> Add link to EGM2008</h5>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd143de0" class="outline-2">
+<h2 id="orgd143de0"><span class="section-number-2">2.</span> Part 2:</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+In the next part of the lab, you will be using a ball launcher to analyze the motion of a projectile in two dimensions. You will use the kinematic equations to <b>calculate the initial velocity</b> of a metal ball as it launches out of a cannon.
+</p>
+
+<ol class="org-ol">
+<li>Place the ball launcher on the edge of a table directed as close as possible to horizontal (remember to take notes on systematic errors!)</li>
+<li>Locate a clear line of fire. Have at least 3.0m free of other students and valuables.</li>
+<li>Measure the initial height of the ball launch (think about where to measure on the ball). Record measurement and error to your lab notes.</li>
+<li>Ready the launcher for a test firing to find the approximate location where the ball will land. After this shot, tape a piece of paper to the floor centered on the landing area. Each time the ball lands, it will make an indentation on the paper for you to measure distance.</li>
+<li>Fire the pendulum to gather data (five or more times, more is better). You can fire many rounds and mark them on the paper, and record all of the landing positions after firing.</li>
+<li>The mean and standard deviation should be used to find the measurement for distance. Please remember to record all distance measurements to paper, and then write out the distance in this notation: \(d=5.21 \pm 0.05\,m\).</li>
+<li>Use the kinematic equations to find the initial velocity in the X and Y direction. Find the initial Vector velocity. Find the final velocity in the X and Y direction. Find the final Vector velocity. Remember to record any measurement errors when performing this experiment (please ask if you dont know what this means).</li>
+</ol>
+
+<blockquote>
+<p>
+<b>Checkpoint:</b>
+</p>
+<ul class="org-ul">
+<li>Record the launcher label in your lab records.</li>
+<li>Take measurements of both height and legth (along with error).</li>
+<li>use the vertical direction to solve for time (use algebra).</li>
+<li>use the horizontal direction to solve for the initial velocity (use algebra).</li>
+<li>Write out the expressions for \(t\) and \(v_{ix}\) for use in error propogation.</li>
+</ul>
+</blockquote>
+</div>
+
+<div id="outline-container-org01ce9c4" class="outline-5">
+<h5 id="org01ce9c4"><span class="todo TODO">TODO</span> add a cartoon picture of the motion to the direcitons (horizontal ball launch)</h5>
+</div>
+
+<div id="outline-container-org62659ca" class="outline-3">
+<h3 id="org62659ca"><span class="section-number-3">2.1.</span> Error Propogation</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+The error in the experimental value can be computed using the following function. The error in a function \(f(A,B,...)\) is given as \(E[f]\) and follows the following expression:
+</p>
+
+<p>
+\[E[f] = \sqrt{ \left| \frac{\partial f}{\partial A} \right|^2 E[A]^2 + \left| \frac{\partial f}{\partial B} \right|^2 E[B]^2 + \cdots} \]
+</p>
+
+<ol class="org-ol">
+<li>The error in h is estimated (try to imagine a Gaussian distribution at the measurement locaiton).</li>
+<li>The error in d is calculated from the mean and standard deviation of the landing marks.</li>
+<li>The error in g is estimated using the EGM2008 from part 1.</li>
+<li>Derive an expression for the time as a function of height and acceleration.</li>
+<li>Derive an expression for \(v_{ix}\) as a function of height, distance and acceleration.</li>
+<li>Use the error propogation formula to calculate the experimental error for your velocity measurement.</li>
+</ol>
+
+<blockquote>
+<p>
+<b>Checkpoint:</b>
+</p>
+<ul class="org-ul">
+<li>You will need to report your results for initial velocity (including error) in the lab assignemnt.</li>
+</ul>
+</blockquote>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org776f46c" class="outline-2">
+<h2 id="org776f46c"><span class="section-number-2">3.</span> Part 3: Predicting ballistic motion</h2>
+<div class="outline-text-2" id="text-3">
+<ol class="org-ol">
+<li>Loosen the bolts on the launcher and reposition the launcher to an incline between \(15^\circ\) and \(25^\circ\).</li>
+<li>Measure the vertical distance the ball will drop from the indicated point on the side of the launcher.</li>
+<li>Calculate the Range the ball will travel using the initial velocity solved for in Part 1. Again, remember to record your measurement errors.</li>
+<li>Place a piece of paper center at your predicted range and tape it to the ground. Do not gauge the range with a test shot. You have predicted the landing location.</li>
+<li><b>Find the instructor before proceeding with the shot.</b></li>
+<li>Measure, in meters, the range of three shots from where the projectile leaves the firing tube to the impact point. Take the average of the three shots.</li>
+<li>Compare your average range to your predicted range and calculate the percentage error.</li>
+</ol>
+<p>
+\[ Error = \frac{x_{calc}-x_{ave}}{x_{calc}} * 100 \]
+</p>
+
+<blockquote>
+<p>
+<b>Checkpoint:</b>
+</p>
+<ul class="org-ul">
+<li>does your predicted value fall within one standard deviation of the results?</li>
+<li>Would knowing the mass of the ball considerably improve your calculations?</li>
+<li>Consider performing the error calculations for this experiment. Which measurements would require an estimate of error (height, distance and &#x2026;)? What would you estimate for the error?</li>
+</ul>
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-orgba560e3" class="outline-2">
+<h2 id="orgba560e3"><span class="section-number-2">4.</span> Assignment (Next week)</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+You have 2 things to complete using data from this lab:
+</p>
+
+<ol class="org-ol">
+<li>Complete the error analysis for the initial velocity using the horizontal shot (Part 2).</li>
+
+<li>Write an abstract which presents your results for Part 2.</li>
+</ol>
+</div>
+</div>
+</div>
+</body>
+</html>

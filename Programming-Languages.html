@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-03-17 Thu 12:07 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Programming Languages</title>
+<meta name="author" content="Patrick Malsom" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+</style>
+</head>
+<body>
+<div id="preamble" class="status">
+<style type="text/css">body{ max-width:800px; margin: auto;font-family: LatoWeb, "Lato Extended", Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;}table.center{margin-left:auto; margin-right:auto;}</style>
+</div>
+<div id="content" class="content">
+<h1 class="title">Programming Languages</h1>
+<p>
+This class (especially lab) will use <b>Python</b> as a basic calculator and programming language to perform analysis and display data. I will also be using SageMath on and off for demonstrations in lecture. You will not need to be an expert in python to perform these labs, but learning a bit about the language will be helpful.
+</p>
+
+<p>
+I want to give you a brief overview of the four most used numeric languages in science and engineering, followed by three languages used for symbolic (math) calculations. Finally, I will give a quick description of other languages you may have seen. Please be aware that the below opinions are my own, and you may find others who disagree&#x2026;
+</p>
+
+<div id="outline-container-org3f2d783" class="outline-2">
+<h2 id="org3f2d783">Numeric programming languages</h2>
+<div class="outline-text-2" id="text-org3f2d783">
+<p>
+In this course, we will use Python (and a bit of SageMath) to perform our analysis. There are many other languages you may see and might need to learn in your professional life. I will give a very rough (and perhaps opinionated) rundown of some popular languages you may encounter. Different professions will require different software, but I have identified 4 languages for numerics which are used heavily in engineering and science.
+</p>
+</div>
+
+<div id="outline-container-org6d3957d" class="outline-3">
+<h3 id="org6d3957d">Python</h3>
+<div class="outline-text-3" id="text-org6d3957d">
+<p>
+High level general purpose language which is currently gaining in popularity.
+</p>
+
+<ul class="org-ul">
+<li><b>Common Uses</b>
+
+<ul class="org-ul">
+<li>Jack of all trades language used in many technical, business and tech fields</li>
+<li>Scripting (small programs which perform a simple computer task)</li>
+<li>Science (especially physics and chemistry)</li>
+<li>Machine learning and data science (tech companies like Google etc)</li>
+<li>Robotics and Mechatronics</li>
+</ul></li>
+
+<li><b>Pros</b>
+
+<ul class="org-ul">
+<li>Easy to create short programs for tedious calculations (scripting)</li>
+<li>Fast development (less time coding)</li>
+<li>Vast external libraries for almost all computing problems</li>
+</ul></li>
+
+<li><b>Cons</b>
+
+<ul class="org-ul">
+<li>Slow code execution</li>
+<li>Steeper learning curve than Matlab or VBA (This decreases with experience)</li>
+<li>Not widely used in engineering (This may be changing)</li>
+<li>Requires installing software (but the software is free!)</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgb82416f" class="outline-3">
+<h3 id="orgb82416f">C/C++</h3>
+<div class="outline-text-3" id="text-orgb82416f">
+<p>
+Low level general purpose language which is at the foundation of many softwares (including entire operating systems and large analysis softwares)
+</p>
+
+<ul class="org-ul">
+<li><b>Common Uses</b>
+
+<ul class="org-ul">
+<li>High performance codes which require lots of computation</li>
+<li>Large projects with mix of software and hardware professionals</li>
+<li>Embedded controllers (arduino)</li>
+</ul></li>
+
+<li><b>Pros</b>
+
+<ul class="org-ul">
+<li>FAST! Almost as fast as assembly</li>
+<li>Well understood</li>
+<li>Supported everywhere</li>
+</ul></li>
+
+<li><b>Cons</b>
+
+<ul class="org-ul">
+<li>Difficult to write code</li>
+<li>Simple tasks require lots of boilerplate code</li>
+<li>Requires code design before starting the project (bad for quick prototypes)</li>
+<li>Requires installing software (but the software is free!)</li>
+<li>Very steep initial learning curve</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orga0db046" class="outline-3">
+<h3 id="orga0db046">Matlab</h3>
+<div class="outline-text-3" id="text-orga0db046">
+<p>
+High level language sold by MathWorks aimed as a numerical programming language for engineering. The syntax is especially convenient for matrix mathematics (think vector math). MatLab is highly recommended by university engineering instructors, but is losing ground in industry because of the cost (Python is FREE).
+</p>
+
+<ul class="org-ul">
+<li><b>Common Uses</b>
+
+<ul class="org-ul">
+<li>Used mostly in mechanical engineering</li>
+<li>Not heavily used outside of engineering (this is bad&#x2026;)</li>
+</ul></li>
+
+<li><b>Pros</b>
+
+<ul class="org-ul">
+<li>Matrix operations are easy to perform</li>
+<li>Includes plotting libraries</li>
+</ul></li>
+
+<li><b>Cons</b>
+
+<ul class="org-ul">
+<li>Proprietary and EXPENSIVE (Very important)</li>
+<li>Almost zero use outside of engineering</li>
+<li>Missing key features of modern programming languages (no namespaces, weak object orientation)</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org5c00e39" class="outline-3">
+<h3 id="org5c00e39">Visual Basic (VB .NET)</h3>
+<div class="outline-text-3" id="text-org5c00e39">
+<p>
+Simple language which is natively supported in Microsoft Excel. Business language which is embraced by some engineering firms (not used at all in sciences).
+</p>
+
+<ul class="org-ul">
+<li><b>Common Uses</b>
+
+<ul class="org-ul">
+<li>Quick and dirty calculations which are used by non-engineers in a company</li>
+<li>Analysis which you want to run directly in Excel</li>
+</ul></li>
+
+<li><b>Pros</b>
+
+<ul class="org-ul">
+<li>Included on almost all windows computers</li>
+<li>Performs calculations inside of excel, which may be where the data is stored for the company.</li>
+</ul></li>
+
+<li><b>Cons</b>
+
+<ul class="org-ul">
+<li>Very shallow language</li>
+<li>No visualization (can leverage excel for this)</li>
+<li>No included packages for specialized fields</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5ce601f" class="outline-2">
+<h2 id="org5ce601f">Symbolic (mathematics) programming languages</h2>
+<div class="outline-text-2" id="text-org5ce601f">
+<p>
+For those of you who enjoy mathematical manipulation, there is also another class of programming language which can be used to do symbolic manipulations. For example, in these languages, the constant Pi is not 3.1415926; it is the irrational number Pi and the software will treat it this way. You will not be required to learn any symbolic programming in this class, but I will use Sagemath for some example calculations
+</p>
+</div>
+
+<div id="outline-container-org966a346" class="outline-3">
+<h3 id="org966a346">Sagemath</h3>
+<div class="outline-text-3" id="text-org966a346">
+<p>
+Programming suite which combines many free software packages. Not used heavily in industry.
+</p>
+
+<ul class="org-ul">
+<li>Free software</li>
+<li>built on top of python, so python code will run inside of SageMath</li>
+<li>Disjointed language which can be confusing</li>
+<li>Very new and has growing pains</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org400d2d8" class="outline-3">
+<h3 id="org400d2d8">Mathematica</h3>
+<div class="outline-text-3" id="text-org400d2d8">
+<p>
+Very powerful symbolic computation language. Backed by a very large corporation (Wolfram). This language is used in technical data analysis and research exploration for mathematics heavy fields.
+</p>
+
+<ul class="org-ul">
+<li>Proprietary and EXPENSIVE!</li>
+<li>Many mathematical routines come prepackaged</li>
+<li>Best documentation of any programming language</li>
+<li>Difficult to write high performance code</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org1264db7" class="outline-3">
+<h3 id="org1264db7">Maple</h3>
+<div class="outline-text-3" id="text-org1264db7">
+<p>
+Competitor to Mathematica, but losing the battle. Heavily used in some specific branches of mathematics
+</p>
+
+<ul class="org-ul">
+<li>Proprietary and EXPENSIVE!</li>
+<li>Quick creation of plots and visualization</li>
+<li>Used by WMU math department</li>
+<li>Not heavily used by many industries outside of university</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1f51101" class="outline-2">
+<h2 id="org1f51101">Other languages you may see</h2>
+<div class="outline-text-2" id="text-org1f51101">
+<ul class="org-ul">
+<li><b>R</b> - Statistics language which is similar to python. Python is starting to absorb many of its users.</li>
+<li><b>Fortran</b> - Older language used for legacy simulations. Superseded by C and C++. Used largely in large simulation suites which were written decades ago, and are still useful currently.</li>
+<li><b>C#</b> - Higher level extension to C++. Heavily used in windows and for developing video games. Successor to C++ in many non-science fields (including engineering).</li>
+<li><b>Java</b> - Enterprise programming language which is widely used in many business environments. Famous for its use of a &ldquo;virtual&rdquo; environment which supposedly can be run on any computer. Slow and clunky development. Rarely used for scientific or data heavy applications.</li>
+<li><b>SQL</b> - Standard language for storing related data in a database. Not as much of a programming language as it is a set of commands to get/set/manipulate large amounts of data.</li>
+<li><b>Rust</b> - Rust is intended to be a C++ replacement that places importance on correctness and memory safety. Rust programs are intended to never have segfaults.</li>
+<li><b>Go</b> - New language which is gaining popularity which borrows much of its syntax from C, but adds many convenient features like garbage collection. Go sets itself apart by using concurrency to do away with parallelism.</li>
+<li>The list goes on and on&#x2026;</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org12b0d60" class="outline-2">
+<h2 id="org12b0d60">Web languages (not used heavily for data analysis)</h2>
+<div class="outline-text-2" id="text-org12b0d60">
+<ul class="org-ul">
+<li><b>HTML</b> - Static website markup language for displaying web page content. Widely used by web browsers to display static content.</li>
+<li><b>Javascript</b> - Dynamic website scripting language which is understood by a web browser (chrome, firefox, etc.). Used to make fancy things happen in your web browser, like moving images or dynamic content, but suffers from poor language design.</li>
+<li><b>Ruby</b> - High level web language used for web applications. It is more sane than Javascript, but cannot be interpreted by the web browser</li>
+<li><b>PHP</b> - Web scripting language. Fairly old language which is still heavily used by web developers.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org28b6fc0" class="outline-2">
+<h2 id="org28b6fc0">Jupyter (or CoLab for Google)</h2>
+<div class="outline-text-2" id="text-org28b6fc0">
+<p>
+Python is an interpreted language, which means you can run code as you go (no compilation). This means you can use it much like a glorified calculator. Another piece of software named <i>jupyter</i> is commonly used to make a web interface which can use the python interpreter right in your web browser.
+</p>
+</div>
+
+<div id="outline-container-orgf3446bb" class="outline-3">
+<h3 id="orgf3446bb">Installing the software for yourself</h3>
+<div class="outline-text-3" id="text-orgf3446bb">
+<p>
+You do not need to install any software for this course, just use the web interface on colab.research.google.com
+</p>
+
+<p>
+If you wish to have this software on your own computer, you can install it easily on windows using the anaconda software suite. Please come see me if you use mac or linux and I can help you install it.
+</p>
+
+<p>
+Please go here to download Python (version 3):
+<a href="https://www.anaconda.com/distribution/">https://www.anaconda.com/distribution/</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
