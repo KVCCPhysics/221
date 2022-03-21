@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-03-21 Mon 14:07 -->
+<!-- 2022-03-18 Fri 11:36 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Instructions for Exam Three</title>
+<title>Lab Resources - Abstract</title>
 <meta name="author" content="Patrick Malsom" />
 <meta name="generator" content="Org Mode" />
 <style>
@@ -193,103 +193,130 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { width: 90%; }
 </style>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="preamble" class="status">
 <style type="text/css">body{ max-width:800px; margin: auto;font-family: LatoWeb, "Lato Extended", Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;}table.center{margin-left:auto; margin-right:auto;}</style>
 </div>
 <div id="content" class="content">
-<h1 class="title">Instructions for Exam Three</h1>
+<h1 class="title">Lab Resources - Abstract</h1>
+
+
+<div id="outline-container-org1912794" class="outline-2">
+<h2 id="org1912794">Writing an Abstract</h2>
+<div class="outline-text-2" id="text-org1912794">
 <p>
-Exam 3 covers Chapters 10-12. Topics include:
+The ability to write an abstract (technical summary) is a critical skill for a professional scientist or engineer. Writing short and descriptive paragraphs of your work is often the best way to communicate results to colleagues, coworkers and supervisors.
+</p>
+
+<p>
+The abstract should be very short (4-6 sentences in total), and should be filled with details about the experiment. The main purpose of an abstract is to explain what is contained in the rest of the report. For this course, it should focus on the physics involved and the measurement taken.
+</p>
+
+<p>
+Please focus on creating a very compact explanation of an experiment which <b>answers these four questions</b>:
+</p>
+
+<blockquote>
+<ol class="org-ol">
+<li><b>Purpose</b>
+<ul class="org-ul">
+<li>What physics were you trying to examine?</li>
+<li>Basic concept involved (i.e. Motion of a Damped Pendulum)</li>
+</ul></li>
+
+<li><b>Method</b>
+<ul class="org-ul">
+<li>How was the experiment designed and performed?</li>
+<li>What was measured? (i.e. the angular position)</li>
+</ul></li>
+
+<li><b>Results</b>
+<ul class="org-ul">
+<li>What were your findings? You MUST include your experimental findings!</li>
+<li>Display your most significant results (i.e. the frequency and dampening)</li>
+<li>Include your error (i.e. 5rad/s +/- .1rad/s)</li>
+</ul></li>
+
+<li><b>Conclusion</b>
+<ul class="org-ul">
+<li>Do your results agree with your understanding of theory? If not, what can be improved?</li>
+</ul></li>
+</ol>
+</blockquote>
+
+<p>
+Please avoid writing any of the following in your abstract:
 </p>
 
 <ul class="org-ul">
-<li>Torque and Angular acceleration</li>
-<li>Moment of Inertia</li>
-<li>Rotational Kinetic Energy</li>
-<li>Angular momentum</li>
-<li>Rotational Collisions</li>
-<li>Static Equilibrium</li>
-</ul>
-
-<div id="outline-container-orgc1bf8ad" class="outline-2">
-<h2 id="orgc1bf8ad">Exam 3</h2>
-<div class="outline-text-2" id="text-orgc1bf8ad">
-<p>
-This exam will be different from the rest:
-</p>
-
-<ul class="org-ul">
-<li>The exam is take-home. You will be able to ask questions about the problems in class. Some of them are complicated and will need to be discussed.</li>
-<li><b>You must solve all four problems</b>. These problems are to be solved like a normal exam (long form written answers on a piece of paper).</li>
-<li>You will then perform an analysis of one of the four problems. This is a somewhat large and complex computing and writing task, but we can sort through things together.</li>
+<li>Never show any computer code (No Python please)</li>
+<li>Omit any intricate details of experimental setup or theory.</li>
+<li>Do not include set-up, procedure, analysis or tables of data.</li>
 </ul>
 </div>
 
-<div id="outline-container-orgf54d859" class="outline-4">
-<h4 id="orgf54d859">Reference Materials</h4>
-<div class="outline-text-4" id="text-orgf54d859">
-<ul class="org-ul">
-<li><a href="./LabResources-VideoProcessing.html">Lab Resources - Video Processing</a></li>
-<li><a href="./LabResources-ImageJ.html">Lab Resources - Data Extraction with ImageJ</a></li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-orgc77cbf1" class="outline-3">
-<h3 id="orgc77cbf1">Problem 1: Torque on a Rigid Object</h3>
-<div class="outline-text-3" id="text-orgc77cbf1">
+<div id="outline-container-orgaf587dd" class="outline-3">
+<h3 id="orgaf587dd">Creating an abstract - Ballistic Motion</h3>
+<div class="outline-text-3" id="text-orgaf587dd">
 <p>
-Calculate the angular acceleration and velocity of the falling mass
-</p>
-</div>
-
-<div id="outline-container-orgece0c34" class="outline-4">
-<h4 id="orgece0c34">Video to be made Tuesday 3/21</h4>
-</div>
-</div>
-
-<div id="outline-container-org5808553" class="outline-3">
-<h3 id="org5808553">Problem 2: Rotational Inelastic Collision</h3>
-<div class="outline-text-3" id="text-org5808553">
-<p>
-Calculate the angular momentum before and after collision.
+To start, please write four separate sentences explaining each of these points. By simply putting them together, you will have a good rough draft of an abstract. Here is an example for an experiment on free fall motion:
 </p>
 
-<p>
-<p align="center"><iframe width="640" height="360" src="https://www.youtube.com/embed/pGpmjdfNKmA" frameborder="0" allowfullscreen></iframe></p>
-</p>
+<blockquote>
+<ol class="org-ol">
+<li>This experiment investigates the effect of gravity on a mass free to fall in two dimensions.</li>
+<li>A launcher was used to shoot a ball at a constant initial velocity and the final range of impact was measured.</li>
+<li>The theoretically predicted range was found to be \(1.422 \pm 0.091 ~ m\) and the average measured range was \(1.366~m\).</li>
+<li>This result shows the kinematic equations can be successfully used to predict the motion of the mass, even when ignoring air resistance.</li>
+</ol>
+</blockquote>
 
 <p>
-Download ImageJ compatible video: <a href="https://drive.google.com/file/d/1yuo_hwelwtkddCWFuiQ608fFiilp9DFc/view?usp=sharing">Inelastic ImageJ Video (8MB)</a>
+Now put these sentences together and read the text. It will most likely not make much sense. Please rewrite these sentences in English.
 </p>
+
+<blockquote>
+<p>
+This experiment investigates the effect of gravity on a mass free to fall in two dimensions. A spring loaded launcher was used to launch a steel ball at a constant initial velocity and measured the final range when the ball impacts the ground. The theoretically predicted range was found to be \(1.422 \pm 0.091 ~ m\) and the average measured range was \(1.366~m\). This result shows the kinematic equations can be successfully used to predict the motion of the metal mass, even when ignoring air resistance.
+</p>
+</blockquote>
 </div>
 </div>
 
-<div id="outline-container-orgc4b216c" class="outline-3">
-<h3 id="orgc4b216c">Problem 3: Spinning Top</h3>
-<div class="outline-text-3" id="text-orgc4b216c">
+<div id="outline-container-org184dac3" class="outline-3">
+<h3 id="org184dac3">Example abstract - Oscillation of a Conical Spring</h3>
+<div class="outline-text-3" id="text-org184dac3">
 <p>
-Calculate the moment of inertia of a spinning top.
+Here is another abstract for another experiment which you can use as an example of a well written abstract for this course. This abstract is a good example of how you can condense lots of information down into a short paragraph:
 </p>
 
+<blockquote>
 <p>
-<p align="center"><iframe width="640" height="360" src="https://www.youtube.com/embed/kOF2-x8AmNU" frameborder="0" allowfullscreen></iframe></p>
+We present the measurement and analysis of the motion of a vertical plane spring-mass oscillator assuming simple harmonic motion. We find the spring constant k and the mass distribution constant c of the conical spring used to be \(k=8.107 \pm 0.013 N/m\) and \(c=0.307 \pm .005\) (dimensionless). Using these values, we predict the frequency of the undamped oscillator with a load mass of \(0.299 \pm 0.002~Kg\) to be \(4.824 \pm 0.021~Hz\) and measure the frequency to be \(4.8249 \pm 0.0003 ~ s^{-1}\). This study shows that undamped oscillators display a linear relationship between load mass and squared period, in agreement with theory presented.
 </p>
-
-<p>
-Download ImageJ compatible video: <a href="https://drive.google.com/file/d/1use3cTYXue0ZUCgpSWoDGNYXVqfwk2DY/view?usp=sharing">Bluetop ImageJ Video (90MB)</a>
-</p>
-</div>
-</div>
-
-<div id="outline-container-orgcadf307" class="outline-3">
-<h3 id="orgcadf307">Problem 4: Collision of Two Disks</h3>
-<div class="outline-text-3" id="text-orgcadf307">
-<p>
-Calculate the angular and linear momentum before and after collision.
-</p>
+</blockquote>
 </div>
 </div>
 </div>

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-03-17 Thu 12:07 -->
+<!-- 2022-03-18 Fri 11:39 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Lab Resources: ImageJ</title>
@@ -208,8 +208,57 @@ You will need to download ImageJ to complete this guide. This is <i>free and ope
 <li><b>ImageJ</b> Image processing and scripting software. ImageJ is widely used in biological and astronomy research (analyzing microscope and telescope images, etc) and is funded by the US Government (NIH). <a href="https://imagej.nih.gov/ij/">https://imagej.nih.gov/ij/</a></li>
 </ul>
 
-<div id="outline-container-org2defb11" class="outline-2">
-<h2 id="org2defb11">Step</h2>
+<p>
+This guide will show you how to extract positional data from ImageJ. This is not a full guide on the software. I will only explain the one tool which I find most useful and let you explore the rest on your own.
+</p>
+
+<div id="outline-container-orgb629424" class="outline-2">
+<h2 id="orgb629424">Main Toolbar</h2>
+<div class="outline-text-2" id="text-orgb629424">
+
+<div id="org3338d32" class="figure">
+<p><img src="./img/ImageJ-mainwindow.png" alt="ImageJ-mainwindow.png" />
+</p>
+</div>
+
+<p>
+ImageJ opens as a bunch of separate windows. When you first launch the program, the above window will be shown. Please select File-&gt;Open and select the mjpeg/AVI video file which is created in the <a href="./LabResources-VideoProcessing.html">Video Processing</a> guide or downloaded from the course page. The first frame of the video whould then open, which has a scroll bar at the bottom to move through the individual frames.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7c56afc" class="outline-2">
+<h2 id="org7c56afc">Point Tool</h2>
+<div class="outline-text-2" id="text-org7c56afc">
+<p>
+After your image is open you can use the point tool to get coordinates out of your video. The point tool looks similar to a plus sign, and is higlighted in the above screenshot. Somewhat confusingly, to configure this tool by <b>double clicking on the point tool button</b>, which will pop up another window shown below:
+</p>
+
+
+<div id="orge505832" class="figure">
+<p><img src="./img/ImageJ-pointtool.png" alt="ImageJ-pointtool.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3f94cec" class="outline-2">
+<h2 id="org3f94cec">Results Window</h2>
+<div class="outline-text-2" id="text-org3f94cec">
+<p>
+The two important sections to make are &ldquo;Auto-measure&rdquo; (saves the current click location) and &ldquo;Auto-next slice&rdquo;(moves to the next frame in the video on each click). By selecting these two options you will be able to quickly record data from the videos by clicking on the object as it moves. Each click will update the results window:
+</p>
+
+
+<div id="orgb338b4a" class="figure">
+<p><img src="./img/ImageJ-pointresults.png" alt="ImageJ-pointresults.png" />
+</p>
+</div>
+
+<p>
+You can then export this data by saving to file or simply selecting and copy+paste into another program (Python, Excel, etc&#x2026;).
+</p>
+</div>
 </div>
 </div>
 </body>
