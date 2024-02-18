@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-04-27 Wed 10:52 -->
+<!-- 2024-02-16 Fri 15:53 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Lab Resources - Writing a Technical Report</title>
+<title>&lrm;</title>
 <meta name="author" content="Patrick Malsom" />
 <meta name="generator" content="Org Mode" />
 <style>
@@ -191,7 +191,7 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
+  .org-svg { }
 </style>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -220,72 +220,187 @@
 <style type="text/css">body{ max-width:800px; margin: auto;font-family: LatoWeb, "Lato Extended", Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;}table.center{margin-left:auto; margin-right:auto;}</style>
 </div>
 <div id="content" class="content">
-<h1 class="title">Lab Resources - Writing a Technical Report</h1>
+<div id="outline-container-org1de5960" class="outline-2">
+<h2 id="org1de5960">Fundamental Forces</h2>
+<div class="outline-text-2" id="text-org1de5960">
 <p>
-The software that I will show you in this course is named &ldquo;Jupyter&rdquo; and is an online interface to program Python, but also has a nice interface to create documents with mathematics and figures. This software is complex and will take time for you to learn, but is also available for free (Free and Open Source Software).
+Let me lay out a simple picture for a complicated universe: Physicists have only found <b>four</b> fundamental forces. That is it. These four forces create all of the universe, from supermassive black holes which gravitationally attract entire galaxys, to cells which absorb packets of light and transform them into little packets of chemical energy (photosynthesis). Everything we know and observe is a manifestation of these four forces:
+</p>
+</div>
+
+<div id="outline-container-orgba5c1fc" class="outline-4">
+<h4 id="orgba5c1fc">Gravitational Force</h4>
+<div class="outline-text-4" id="text-orgba5c1fc">
+<p>
+This force was uncovered by Isaac Newton and is the first of the classical forces to be discovered:
 </p>
 
 <p>
-The interface we will use is provided by google direclty in your google drive. Please navigate to <a href="https://colab.research.google.com/">https://colab.research.google.com/</a> to start the notebook interface.
-</p>
-
-<div id="outline-container-org2769881" class="outline-3">
-<h3 id="org2769881">Falling Massive Rod</h3>
-<div class="outline-text-3" id="text-org2769881">
-<ul class="org-ul">
-<li>Extract the position as a function of time from the video</li>
-<li>Plot \(\theta(t)\)</li>
-<li>Make a fit of \(\theta(t)\) and calculate \(\alpha\)</li>
-<li>take numeric derivatives of \(\theta(t)\)</li>
-<li>Report on the validity of the torque on a non-uniform rigid object.</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-orgaf95592" class="outline-3">
-<h3 id="orgaf95592">Inelastic Dart Collision</h3>
-<div class="outline-text-3" id="text-orgaf95592">
-<ul class="org-ul">
-<li>Extract the dart and rotating rod position as a function of time</li>
-<li>Calculate the angular momentum of the dart.</li>
-<li>Fit the angular position of the rotating rod and find the initial angular velocity after colllision</li>
-<li>Report on the valididy of the conservation of angular momentum</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-orgef39d52" class="outline-3">
-<h3 id="orgef39d52">Spinning Top</h3>
-<div class="outline-text-3" id="text-orgef39d52">
-<ul class="org-ul">
-<li>Extract \(\omega\) and \(\omega_\theta\) from the video</li>
-<li>Make a figure of the moment of inertia of the top as a function of time</li>
-<li>Report on the valididty of the top precession equation</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-org2042d8a" class="outline-2">
-<h2 id="org2042d8a">Writing the report</h2>
-<div class="outline-text-2" id="text-org2042d8a">
-<p>
-A &ldquo;report&rdquo; can mean all sorts of things: It could refer to a published paper (very strict formatting) or more commonly a report to a supervisor or working group. Here, I will focus on creating a professional report for a normal workplace, which means a short paper with figures and nice formatting which explains your ideas and your work.
+\[F = G \frac{mM}{r^2}\]
 </p>
 
 <p>
-Traditional reports rely on a fairly strict structure:
+Where G is the universal gravitation constant, m and M are the masses of the two objects and r is the distance which the objects are separated. Please note that we use a simplification of this force when studying objects on the surgface of the earth. The <i>Weight</i> of an object is said to be equal to \(F_g = m\,g\) where \(g = 9.8~m/s^2\) is the gravitational acceleration on the surface of the earth. Please note that these forces are the same and that \(g = G\, \frac{M_{e}}{r_e^2}\) where the mass and the radius are for our planet Earth.
 </p>
-<ul class="org-ul">
-<li>Abstract - Very important section which summarizes the entire paper <a href="./LabResources-Abstract.html">(see here for more)</a></li>
-<li>Theory - Overview of which concepts and equations you are using</li>
-<li>Experimental methods -</li>
-<li>Analysis/Results</li>
-<li>Conclusion</li>
-<li>References</li>
-</ul>
+</div>
+</div>
+
+<div id="outline-container-orge1e270f" class="outline-4">
+<h4 id="orge1e270f">Electric and Magnetic Forces</h4>
+<div class="outline-text-4" id="text-orge1e270f">
+<p>
+These forces are the subject of study for the second semester of physics.
+</p>
 
 <p>
-These sections are very nice to think about when writing a report, but explicitly writing a section for each of these categories is usually overkill for an internal report.
+\[F_E = k_e \frac{q_1\,q_2}{r^2}\]
+</p>
+
+<p>
+The electric force is quite similar to the gravitational force (referred to as an inverse square law), with two major physical differences: First the constant k is 20 orders of magnitude larger than G from the gravitational force! This is an enormously large difference and explains why you can accelerate comfortably in a gravitational field (jumping out of an airplane) but suffer greatly when interacting with the electric force (hitting the ground&#x2026; ouch). The second difference is that the masses in the gravitational force can only be a positive value, but the charge (\(q_1\) and \(q_2\)) can be either positive or negative. This fact allows most of the large scale electric forces to cancel each other at large distances (by large I mean the size of a human hair). This means the gravitational force will dominate at large distances, and the electric force will dominate at small distances.
+</p>
+
+<p>
+\[ F_B = q \, v \times B\]
+</p>
+
+<p>
+The magnetic force is intimately related to the electric force, and they are grouped together in the physicists mind. The equations are written completely as &ldquo;Maxwells Equations&rdquo; and are extensively studied in the second semester of physics.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org681583f" class="outline-4">
+<h4 id="org681583f">Weak Force</h4>
+<div class="outline-text-4" id="text-org681583f">
+<p>
+The Weak force is a quantum force which governs the change of a fundamental particle (say a proton) to another particle (say a neutron). This type of decay will happen in unstable nuclei and the force has an interesting &ldquo;mediator&rdquo; called the \(W^+\), \(W^-\) and \(Z^0\) Bosons. This force and its mediators become fundamentally important when studying radioactive decays, but are unimportant for the study of classical physics. This force is both weak (the same maginitude as the electric force) and very short range (much shorter than even the electric force), which relegates its study to very small objects such as individual atoms.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb1ea692" class="outline-4">
+<h4 id="orgb1ea692">Strong Force</h4>
+<div class="outline-text-4" id="text-orgb1ea692">
+<p>
+The STRONG force is another quantum force, and is the force an atom uses to hold its nucleus together in a very compact positively charged central region. The mediator of this force is the &ldquo;gluon&rdquo; which defines how quarks behave inside of protons and neutrons. This force is extremely short range (\(10^{-15}\,m\)) but is extremely large, so much that it will overpower the very strong repulsive force created by the positively charged quarks in the center of a proton.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org925ef13" class="outline-2">
+<h2 id="org925ef13">Classical Forces</h2>
+<div class="outline-text-2" id="text-org925ef13">
+<p>
+In this course, we are studying classical physics. This physics existed before we knew about any Quantum Mechanics or Electromagnetic interactions. These classical forces fall into the following categories:
+</p>
+<ol class="org-ol">
+<li>Weight: the force due to gravity (mg).</li>
+<li>Normal: Contanct force created by the electromagnetic repulsion of electrons in two different materials.</li>
+<li>Tension: Force created by pulling on a rope or string.</li>
+<li>Friction: Force created by rubbing two surfaces together.</li>
+</ol>
+
+<p>
+These are the forces that we will concern ourselves with for this course.
+</p>
+
+
+<p>
+<p align="center"><iframe width="640" height="360" src="https://www.youtube.com/embed/bZk_EiXCMOA" frameborder="0" allowfullscreen></iframe></p>
+</p>
+
+
+<p>
+<p align="center"><iframe width="640" height="360" src="https://www.youtube.com/embed/jneUH5YPXjc" frameborder="0" allowfullscreen></iframe></p>
+</p>
+
+<p>
+Problem Solving Strategy:
+</p>
+
+<ol class="org-ol">
+<li>Carefully Read the Problem
+<ul class="org-ul">
+<li>Take your time and pay attention to each word (starts from rest, stationary, balanced, etc..)</li>
+<li>Draw a picture</li>
+</ul></li>
+<li>Label any knowns on the picture
+<ul class="org-ul">
+<li>Draw a free body diagram and create a coordinate system</li>
+<li>Take your time and think which direction the forces point</li>
+<li>Magnitude is not necessary</li>
+<li>Label directions with angles on the FBD</li>
+</ul></li>
+<li>Apply Newtons 2nd law (separate directions)
+<ul class="org-ul">
+<li>Each FBD gets its own set of \(\sum F = m a\) equations</li>
+<li>Break the forces into components along the coordinate directions</li>
+<li>Separate equations for x &amp; y directions
+\[\sum F_x = m a_x\]
+\[\sum F_y = m a_y\]</li>
+</ul></li>
+<li>Solve the equations from step 3
+<ul class="org-ul">
+<li>If the number of equations is equal to the number of unknowns, you are done with physics and on to math!</li>
+<li>Use the system of equations algebra techniques</li>
+</ul></li>
+</ol>
+
+<p>
+<p align="center"><iframe width="640" height="360" src="https://www.youtube.com/embed/KcT8FaxOpco" frameborder="0" allowfullscreen></iframe></p>
+</p>
+
+<p>
+<p align="center"><iframe width="640" height="360" src="https://www.youtube.com/embed/wygOXOAMbO8" frameborder="0" allowfullscreen></iframe></p>
+</p>
+
+<p>
+<p align="center"><iframe width="640" height="360" src="https://www.youtube.com/embed/C_F_CcbP_iM" frameborder="0" allowfullscreen></iframe></p>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9727218" class="outline-2">
+<h2 id="org9727218">Friction</h2>
+<div class="outline-text-2" id="text-org9727218">
+<p>
+<p align="center"><iframe width="640" height="360" src="https://www.youtube.com/embed/18eQrDCCvKw" frameborder="0" allowfullscreen></iframe></p>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb31b0ba" class="outline-2">
+<h2 id="orgb31b0ba">Example Problems</h2>
+<div class="outline-text-2" id="text-orgb31b0ba">
+<p>
+<p align="center"><iframe width="640" height="360" src="https://www.youtube.com/embed/B5QTtFdXjPc" frameborder="0" allowfullscreen></iframe></p>
+</p>
+
+<p>
+<p align="center"><iframe width="640" height="360" src="https://www.youtube.com/embed/jPoBVVNWqrY" frameborder="0" allowfullscreen></iframe></p>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb66c9a0" class="outline-2">
+<h2 id="orgb66c9a0">Centripetal Force (Ch 6.1-6.2)</h2>
+<div class="outline-text-2" id="text-orgb66c9a0">
+<p>
+<p align="center"><iframe width="640" height="360" src="https://www.youtube.com/embed/uRINYiw9ccA" frameborder="0" allowfullscreen></iframe></p>
+</p>
+
+<p>
+<p align="center"><iframe width="640" height="360" src="https://www.youtube.com/embed/Igvhlki_lfQ" frameborder="0" allowfullscreen></iframe></p>
+</p>
+
+<p>
+Note: I mistype in my calculator at the very end of the below video. All of the physics is correct, but the final calculator entry is not&#x2026; (You can see this mistake in the last 30 seconds of the video, where I type an extra 2) The actual answer should be half of what I find in the calculation: \(\mu = 0.131\)
+</p>
+
+<p>
+<p align="center"><iframe width="640" height="360" src="https://www.youtube.com/embed/co5bCh7YYBk" frameborder="0" allowfullscreen></iframe></p>
 </p>
 </div>
 </div>

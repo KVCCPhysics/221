@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-04-27 Wed 10:52 -->
+<!-- 2024-02-17 Sat 22:30 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Lab Resources - Writing a Technical Report</title>
+<title>Lab 02 - Kinematics</title>
 <meta name="author" content="Patrick Malsom" />
 <meta name="generator" content="Org Mode" />
 <style>
@@ -191,8 +191,10 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
+  .org-svg { }
 </style>
+<style type="text/css"> blockquote {background:#eee; padding: 3px 10px; border: 1px solid; }</style>
+<style type="text/css"> .example {background:#FFFCF6; margin-top: -16px;}</style>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         displayAlign: "center",
@@ -220,73 +222,235 @@
 <style type="text/css">body{ max-width:800px; margin: auto;font-family: LatoWeb, "Lato Extended", Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;}table.center{margin-left:auto; margin-right:auto;}</style>
 </div>
 <div id="content" class="content">
-<h1 class="title">Lab Resources - Writing a Technical Report</h1>
-<p>
-The software that I will show you in this course is named &ldquo;Jupyter&rdquo; and is an online interface to program Python, but also has a nice interface to create documents with mathematics and figures. This software is complex and will take time for you to learn, but is also available for free (Free and Open Source Software).
-</p>
-
-<p>
-The interface we will use is provided by google direclty in your google drive. Please navigate to <a href="https://colab.research.google.com/">https://colab.research.google.com/</a> to start the notebook interface.
-</p>
-
-<div id="outline-container-org2769881" class="outline-3">
-<h3 id="org2769881">Falling Massive Rod</h3>
-<div class="outline-text-3" id="text-org2769881">
-<ul class="org-ul">
-<li>Extract the position as a function of time from the video</li>
-<li>Plot \(\theta(t)\)</li>
-<li>Make a fit of \(\theta(t)\) and calculate \(\alpha\)</li>
-<li>take numeric derivatives of \(\theta(t)\)</li>
-<li>Report on the validity of the torque on a non-uniform rigid object.</li>
+<h1 class="title">Lab 02 - Kinematics</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orga4f6162">1. Horizontal Shot</a></li>
+<li><a href="#org0346d7c">2. Predicting two-dimensional motion</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgaf95592" class="outline-3">
-<h3 id="orgaf95592">Inelastic Dart Collision</h3>
-<div class="outline-text-3" id="text-orgaf95592">
-<ul class="org-ul">
-<li>Extract the dart and rotating rod position as a function of time</li>
-<li>Calculate the angular momentum of the dart.</li>
-<li>Fit the angular position of the rotating rod and find the initial angular velocity after colllision</li>
-<li>Report on the valididy of the conservation of angular momentum</li>
-</ul>
-</div>
-</div>
+<div id="outline-container-orga4f6162" class="outline-2">
+<h2 id="orga4f6162"><span class="section-number-2">1.</span> Horizontal Shot</h2>
+<div class="outline-text-2" id="text-1">
+<ol class="org-ol">
+<li>The Ballistic Pendulum must be placed on a table edge. Make sure that the launcher is firing as close as possible to horizontal.</li>
 
-<div id="outline-container-orgef39d52" class="outline-3">
-<h3 id="orgef39d52">Spinning Top</h3>
-<div class="outline-text-3" id="text-orgef39d52">
-<ul class="org-ul">
-<li>Extract \(\omega\) and \(\omega_\theta\) from the video</li>
-<li>Make a figure of the moment of inertia of the top as a function of time</li>
-<li>Report on the valididty of the top precession equation</li>
-</ul>
-</div>
-</div>
+<li>Locate a clear line of fire at least 3 meters free of other classmates and other objects.</li>
 
-<div id="outline-container-org2042d8a" class="outline-2">
-<h2 id="org2042d8a">Writing the report</h2>
-<div class="outline-text-2" id="text-org2042d8a">
-<p>
-A &ldquo;report&rdquo; can mean all sorts of things: It could refer to a published paper (very strict formatting) or more commonly a report to a supervisor or working group. Here, I will focus on creating a professional report for a normal workplace, which means a short paper with figures and nice formatting which explains your ideas and your work.
+<li><p>
+Measure the initial height of the ball from the floor in meters. Take a moment to think where on the ball you should take this measurement to find the overall change in height.
 </p>
 
 <p>
-Traditional reports rely on a fairly strict structure:
-</p>
-<ul class="org-ul">
-<li>Abstract - Very important section which summarizes the entire paper <a href="./LabResources-Abstract.html">(see here for more)</a></li>
-<li>Theory - Overview of which concepts and equations you are using</li>
-<li>Experimental methods -</li>
-<li>Analysis/Results</li>
-<li>Conclusion</li>
-<li>References</li>
-</ul>
+Height (\(\Delta y = y_f - y_i\)):
+</p></li>
+
+<li>Ready the Ballistic Pendulum for firing and fire a practice shot which will show you how far the ball will travel.</li>
+
+<li>Place a piece of white paper on the floor at the approximate impact point. Tape the white paper to the floor and fire the Ballistic Pendulum three times.</li>
+
+<li>Measure, in meters, the range of the three shots from where the projectile leaves the firing tube to the impact point. Use the average value in step 7.</li>
+</ol>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">\(x_1= \hspace{70mm}\)</td>
+</tr>
+
+<tr>
+<td class="org-left">\(x_2=\)</td>
+</tr>
+
+<tr>
+<td class="org-left">\(x_3=\)</td>
+</tr>
+
+<tr>
+<td class="org-left">\(x_{ave}=\)</td>
+</tr>
+</tbody>
+</table>
 
 <p>
-These sections are very nice to think about when writing a report, but explicitly writing a section for each of these categories is usually overkill for an internal report.
+Use your knowledge of Kinematics to find the initial velocity in the X and Y direction. Find the initial vector velocity. Find the final velocity in the X and Y direction. Find the final vector velocity.
 </p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">\(x_i=\hspace{50mm}\)</td>
+<td class="org-left">\(y_i=\hspace{50mm}\)</td>
+</tr>
+
+<tr>
+<td class="org-left">\(x_f=\)</td>
+<td class="org-left">\(y_f=\)</td>
+</tr>
+
+<tr>
+<td class="org-left">\(v_{ix}=\)</td>
+<td class="org-left">\(v_{iy}=\)</td>
+</tr>
+
+<tr>
+<td class="org-left">\(v_{fx}=\)</td>
+<td class="org-left">\(v_{fy}=\)</td>
+</tr>
+
+<tr>
+<td class="org-left">\(a_x=\)</td>
+<td class="org-left">\(a_y=\)</td>
+</tr>
+
+<tr>
+<td class="org-left">\(\hspace{30mm}t=\)</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<blockquote>
+<p>
+<b>Checkpoint:</b>
+</p>
+<ul class="org-ul">
+<li>Check with the instructor to verify your velocity calculations.</li>
+</ul>
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-org0346d7c" class="outline-2">
+<h2 id="org0346d7c"><span class="section-number-2">2.</span> Predicting two-dimensional motion</h2>
+<div class="outline-text-2" id="text-2">
+<ol class="org-ol">
+<li>Loosen the bolts on the launcher and reposition the launcher to an incline between \(15^\circ\) and \(25^\circ\).</li>
+
+<li>Measure the vertical distance the ball will drop from the indicated point on the side of the launcher.
+Height (\(\Delta y = y_f - y_i\)):</li>
+
+<li>Calculate the Range the ball will travel using the initial velocity solved for in Part 1.</li>
+</ol>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">\(x_i=\hspace{50mm}\)</td>
+<td class="org-left">\(y_i=\hspace{50mm}\)</td>
+</tr>
+
+<tr>
+<td class="org-left">\(x_f=\)</td>
+<td class="org-left">\(y_f=\)</td>
+</tr>
+
+<tr>
+<td class="org-left">\(v_{ix}=\)</td>
+<td class="org-left">\(v_{iy}=\)</td>
+</tr>
+
+<tr>
+<td class="org-left">\(v_{fx}=\)</td>
+<td class="org-left">\(v_{fy}=\)</td>
+</tr>
+
+<tr>
+<td class="org-left">\(a_x=\)</td>
+<td class="org-left">\(a_y=\)</td>
+</tr>
+
+<tr>
+<td class="org-left">\(\hspace{30mm}t=\)</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+
+<blockquote>
+<p>
+<b>Checkpoint:</b>
+</p>
+<ul class="org-ul">
+<li>Place a piece of paper center at your predicted range and tape it to the ground. Do not gauge the range with a test shot. You have predicted the landing location.</li>
+<li><b>Find the instructor before proceeding with the shot.</b></li>
+</ul>
+</blockquote>
+
+<p>
+Measure, in meters, the range of three shots from where the projectile leaves the firing tube to the impact point. Take the average of the three shots.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">\(x_1= \hspace{70mm}\)</td>
+</tr>
+
+<tr>
+<td class="org-left">\(x_2=\)</td>
+</tr>
+
+<tr>
+<td class="org-left">\(x_3=\)</td>
+</tr>
+
+<tr>
+<td class="org-left">\(x_{ave}=\)</td>
+</tr>
+</tbody>
+</table>
+
+<ol class="org-ol">
+<li>Compare your average range to your predicted range.</li>
+</ol>
+
+<p>
+\[ Error = \frac{x_{theory}-x_{experiment}}{x_{theory}} * 100 \]
+</p>
+
+<p>
+Percent Error:
+</p>
+
+<blockquote>
+<p>
+<b>Checkpoint:</b>
+</p>
+<ul class="org-ul">
+<li>Would knowing the radius of the ball refine your value for initial velocity?</li>
+<li>Would knowing the mass of the ball improve your calculations?</li>
+</ul>
+</blockquote>
 </div>
 </div>
 </div>

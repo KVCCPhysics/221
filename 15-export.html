@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-04-27 Wed 10:52 -->
+<!-- 2024-02-16 Fri 15:53 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Lab Resources - Writing a Technical Report</title>
+<title>Simple Harmonic Motion Pendulum Damped And Forced Oscillations</title>
 <meta name="author" content="Patrick Malsom" />
 <meta name="generator" content="Org Mode" />
 <style>
@@ -191,7 +191,7 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
+  .org-svg { }
 </style>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -220,72 +220,64 @@
 <style type="text/css">body{ max-width:800px; margin: auto;font-family: LatoWeb, "Lato Extended", Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;}table.center{margin-left:auto; margin-right:auto;}</style>
 </div>
 <div id="content" class="content">
-<h1 class="title">Lab Resources - Writing a Technical Report</h1>
+<h1 class="title">Simple Harmonic Motion Pendulum Damped And Forced Oscillations</h1>
 <p>
-The software that I will show you in this course is named &ldquo;Jupyter&rdquo; and is an online interface to program Python, but also has a nice interface to create documents with mathematics and figures. This software is complex and will take time for you to learn, but is also available for free (Free and Open Source Software).
+<p align="center"><iframe width="640" height="360" src="https://www.youtube.com/embed/Zt-tDBlq8GQ" frameborder="0" allowfullscreen></iframe></p>
+</p>
+<p>
+<p align="center"><iframe width="640" height="360" src="https://www.youtube.com/embed/lVDYtxAxUMw" frameborder="0" allowfullscreen></iframe></p>
+</p>
+
+<div id="outline-container-orgba6cb0b" class="outline-2">
+<h2 id="orgba6cb0b">Small Angle Approximation:</h2>
+<div class="outline-text-2" id="text-orgba6cb0b">
+<p>
+Pendulum motion (a mass swinging in a gravitational field)is an obvious example of harmonic motion. The swing is periodic and the equation of motion can be calculated exactly, but the exact solution is very complicated. To avoid this complication, an approximation can be made which will allow you to write the pendulum equation of motion as Simple Harmonic Oscillator (SHO).
 </p>
 
 <p>
-The interface we will use is provided by google direclty in your google drive. Please navigate to <a href="https://colab.research.google.com/">https://colab.research.google.com/</a> to start the notebook interface.
-</p>
-
-<div id="outline-container-org2769881" class="outline-3">
-<h3 id="org2769881">Falling Massive Rod</h3>
-<div class="outline-text-3" id="text-org2769881">
-<ul class="org-ul">
-<li>Extract the position as a function of time from the video</li>
-<li>Plot \(\theta(t)\)</li>
-<li>Make a fit of \(\theta(t)\) and calculate \(\alpha\)</li>
-<li>take numeric derivatives of \(\theta(t)\)</li>
-<li>Report on the validity of the torque on a non-uniform rigid object.</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-orgaf95592" class="outline-3">
-<h3 id="orgaf95592">Inelastic Dart Collision</h3>
-<div class="outline-text-3" id="text-orgaf95592">
-<ul class="org-ul">
-<li>Extract the dart and rotating rod position as a function of time</li>
-<li>Calculate the angular momentum of the dart.</li>
-<li>Fit the angular position of the rotating rod and find the initial angular velocity after colllision</li>
-<li>Report on the valididy of the conservation of angular momentum</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-orgef39d52" class="outline-3">
-<h3 id="orgef39d52">Spinning Top</h3>
-<div class="outline-text-3" id="text-orgef39d52">
-<ul class="org-ul">
-<li>Extract \(\omega\) and \(\omega_\theta\) from the video</li>
-<li>Make a figure of the moment of inertia of the top as a function of time</li>
-<li>Report on the valididty of the top precession equation</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-org2042d8a" class="outline-2">
-<h2 id="org2042d8a">Writing the report</h2>
-<div class="outline-text-2" id="text-org2042d8a">
-<p>
-A &ldquo;report&rdquo; can mean all sorts of things: It could refer to a published paper (very strict formatting) or more commonly a report to a supervisor or working group. Here, I will focus on creating a professional report for a normal workplace, which means a short paper with figures and nice formatting which explains your ideas and your work.
+The full equation of motion is given as:
 </p>
 
 <p>
-Traditional reports rely on a fairly strict structure:
+\[\frac{d^2\theta}{dt^2} = -\frac{g}{\ell} \sin(\theta)\]
 </p>
-<ul class="org-ul">
-<li>Abstract - Very important section which summarizes the entire paper <a href="./LabResources-Abstract.html">(see here for more)</a></li>
-<li>Theory - Overview of which concepts and equations you are using</li>
-<li>Experimental methods -</li>
-<li>Analysis/Results</li>
-<li>Conclusion</li>
-<li>References</li>
-</ul>
 
 <p>
-These sections are very nice to think about when writing a report, but explicitly writing a section for each of these categories is usually overkill for an internal report.
+Recall, the SHO equation is takes the following form
+\[\frac{d^2\theta}{dt^2} = -\frac{g}{\ell} \theta\]
+</p>
+
+<p>
+The transformation between the two equations uses the approximation that \(\sin(\theta) \approx \theta\). Lets take a closer look at this approximation.
+</p>
+
+
+<div id="orge09352f" class="figure">
+<p><img src="./ob-jupyter/28fb6222978791292d3225e307b30ebe0b98c630.png" alt="28fb6222978791292d3225e307b30ebe0b98c630.png" />
+</p>
+</div>
+
+<p>
+As you can see above, when the angle is small, the sine function (shown in red) looks almost exactly like a line (shown in blue)! As the angle gets larger, the approximation becomes less and less accurate as the angle increase. For simple experiments which examine pendulum motion in this course, the approximation breaks down around \(20^\circ\). Lets zoom in on this region and look only at the relative (percent) error for small angles
+</p>
+
+<p>
+\[\text{Percent Error} = \left| \frac{\sin(\theta) - \theta}{\sin(\theta)} \right|\]
+</p>
+
+
+<div id="org5a93537" class="figure">
+<p><img src="./ob-jupyter/4134e8a83d9feed6b328d2ca7d384b84da1e6ed4.png" alt="4134e8a83d9feed6b328d2ca7d384b84da1e6ed4.png" />
+</p>
+</div>
+
+<p>
+Please take a close look at the above figure. It shows the small angle approximation makes an error of approximately 2% at a release angle \(20^\circ\), and this error quickly increases to around 5% at \(30^\circ\). at \(40^\circ\), the error in the approximation is approaching 10%, and the SHO equation with simple solutions (\(\omega = \sqrt{g/\ell}\)) will not be true. In order to obtain accurate results at these larger angles, you are forced to use the <a href="https://en.wikipedia.org/wiki/Pendulum_(mathematics)#Arbitrary-amplitude_period">more advanced mathematics</a> which includes the full \(\sin(\theta)\) term.
+</p>
+
+<p>
+<b>What is the maximum allowable angle when using the small angle approximation?</b> Unfortunately, I cannot give a definitive answer to this question. For simple pendulum measurements in this class, the effects of the approximation starts to become apparent around \(20^\circ\), but a more precise experiment would be able to measure the effect at even smaller angles. In the end, it is left up to the experimenter to determine what angle is acceptable for the given experiment.
 </p>
 </div>
 </div>
