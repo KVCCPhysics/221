@@ -1,0 +1,688 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-08-14 Wed 15:31 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Lab 3 - Forces</title>
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<style type="text/css"> blockquote {background:#cdd; padding: 3px 10px; border: 1px solid; }</style>
+<style type="text/css"> .example {background:#FFFCF6; margin-top: -16px;}</style>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<style type="text/css">body{ max-width:800px; margin: auto;font-family: LatoWeb, "Lato Extended", Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;}table.center{margin-left:auto; margin-right:auto;}</style>
+</div>
+<div id="content" class="content">
+<h1 class="title">Lab 3 - Forces</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org2d8c611">1. Balancing Forces in 2D - part 1</a></li>
+<li><a href="#org89fabd3">2. Balancing forces in 2D - part 2</a></li>
+<li><a href="#org29d9265">3. Numerical Equation Solvers</a></li>
+<li><a href="#orge9d3e8d">4. Numerical Solvers: Five forces in equilibrium</a></li>
+<li><a href="#org4de0df0">5. Numerical Solvers: Three connected rings</a></li>
+</ul>
+</div>
+</div>
+<p>
+In this lab, you will explore forces in static equilibrium (where all forces cancel with each other). You will use a Free Body Diagram to graphically display the forces and solve problems by applying Newtons 2nd Law (summation of vector forces).
+</p>
+<div id="outline-container-org2d8c611" class="outline-2">
+<h2 id="org2d8c611"><span class="section-number-2">1.</span> Balancing Forces in 2D - part 1</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Lets start with a warm up problem.
+</p>
+
+<ol class="org-ol">
+<li><p>
+Place three (3) pulleys on the force table at the angles given below. Place a string over the pulley and attach a mass hanger to each string . Place a random mass on each of the mass hangers and record below:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Angle</th>
+<th scope="col" class="org-left">mass [kg]</th>
+<th scope="col" class="org-left">F=mg [N]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">\(0^\circ\)</td>
+<td class="org-left">\(\qquad\qquad\qquad\)</td>
+<td class="org-left">\(\qquad\qquad\qquad\)</td>
+</tr>
+
+<tr>
+<td class="org-left">\(147^\circ\)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">\(230^\circ\)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table></li>
+
+<li>Draw a Free Body Diagram for the center ring. Remember an FBD is a cartoon picture showing each of the tension directions. Be sure to label the forces and to make a coordinate system (the group should all use the same setup).</li>
+
+<li><p>
+Calculate the <b>component</b> of each of the tension forces along your coordinate system. Take care to use negative signs when required.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Force</th>
+<th scope="col" class="org-left">\(F_x\)</th>
+<th scope="col" class="org-left">\(F_y\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">\(F_1\)</td>
+<td class="org-left">\(\qquad\qquad\qquad\)</td>
+<td class="org-left">\(\qquad\qquad\qquad\)</td>
+</tr>
+
+<tr>
+<td class="org-left">\(F_2\)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">\(F_3\)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">\(\Sigma F\)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table></li>
+
+<li>Newton&rsquo;s Second Law says \(\Sigma F_x = ma_x\) and \(\Sigma F_x = ma_y\). The next step is to simply add the X and Y force component columns (separately). The result is the overall force experienced by the ring in the X and Y direction.</li>
+
+<li>Calculate the force which is needed to bring the system into balance (the mass hanger required to make the overall force equal to zero). Dont trick yourself, this part is now easy! Place a mass on a fourth mass hanger and observe if the ring touches the center pin. If the ring still touches the center pin, recheck your calculations.</li>
+</ol>
+
+<blockquote>
+<p>
+<b>Checkpoint:</b>
+</p>
+<ul class="org-ul">
+<li>The ring of the mass hanger should now have 4 strings which are in <b>equilibrium</b></li>
+<li>You might be thinking: If all of the mass hangers are 50g, could you have ignored them in your calculations in part 4? Explain why you could or could not. (If you are unsure of the answer, please remove 50g from each hangar and see if balance is achieved)</li>
+</ul>
+</blockquote>
+</div>
+</div>
+<div id="outline-container-org89fabd3" class="outline-2">
+<h2 id="org89fabd3"><span class="section-number-2">2.</span> Balancing forces in 2D - part 2</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Now let me make the problem a bit more challenging by removing the 4th string. For this setup, you have 3 tensions which are initially out of balance. You are tasked to find the combination of masses which should be added to the existing hangers which will bring the system to equilibrium.
+</p>
+
+<ol class="org-ol">
+<li><p>
+Set up the force table with the below angles. In this setup, you know \(F_1=m_1 g\) but the other forces are of unknown magnitude but known direction.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Angle</th>
+<th scope="col" class="org-left">mass [kg]</th>
+<th scope="col" class="org-left">F=mg [N]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">\(0^\circ\)</td>
+<td class="org-left">\(\qquad 0.35~kg\qquad\)</td>
+<td class="org-left">\(\qquad\qquad\qquad\)</td>
+</tr>
+
+<tr>
+<td class="org-left">\(115^\circ\)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">\(207^\circ\)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table></li>
+
+<li>Calculate the masses required to add to hangers 2 and 3 to put the system into equilibrium. Practice writing out Newtons 2nd Law in the x and y directions. Then use system of equations to solve for the forces.</li>
+
+<li>Add your calculated masses to the hangers and observe if the system returns to equilibrium. If the ring touches, check your calculations again.</li>
+</ol>
+
+<blockquote>
+<p>
+<b>Checkpoint:</b>
+</p>
+<ul class="org-ul">
+<li>If all the mass hangers carried equal masses, what would the angles need to be for the ring to not touch the pin? Please try this experiment if you are unsure of your answer.</li>
+<li>Can you use newtons second law to prove the assertion (use trig identities)?</li>
+<li>Can you say anything about the difference between Polar and Cartesian coordinates?</li>
+</ul>
+</blockquote>
+</div>
+</div>
+<div id="outline-container-org29d9265" class="outline-2">
+<h2 id="org29d9265"><span class="section-number-2">3.</span> Numerical Equation Solvers</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+In the remainder of the lab you will explore some Python scripts or programs used to solve systems of linear and non-linear equations. Linear Algebra is a branch of mathematics which studies systems of equations with n equations and n unknowns. Linear equations dominate many fields of science and engineering including civil, structural, mechanical and even forms the basis of all of the recent machine learning (AI) technology. Non-Linear equations are also found in many fields and can be problematic to solve if care is not taken. Lets use the force table to explore these complicated topics!
+</p>
+
+<p>
+<b><b>Basic Mathematical Thought: A system of equations is well defined when there are n independent equations and n unknowns</b></b>. Thinking about the ring in the middle of the force table, we have 2 dimensions (x and y) so can only solve a problem with 2 unknowns. Before diving into the physics, lets look at some python code:
+</p>
+</div>
+<div id="outline-container-org5a46be4" class="outline-3">
+<h3 id="org5a46be4"><span class="section-number-3">3.1.</span> Python: Code syntax refresher</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+This lab requires some use of Python, it is not necessary to know any coding beforehand, just try to pick up what you can. Here is a brief overview of how to <b><b>import modules</b></b>, use <b><b>lists</b></b> and declare <b><b>functions</b></b> in Python:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">import will load special functions an external library</span>
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">this library is called numeric python (numpy)</span>
+<span style="color: #e45649;">import</span> numpy
+
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">show output using the print() method</span>
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">print can show multiple "strings" and calculations together</span>
+<span style="color: #a626a4;">print</span>(<span style="color: #50a14f;">"Hello World!"</span>)
+<span style="color: #a626a4;">print</span>(<span style="color: #da8548; font-weight: bold;">2</span>+<span style="color: #da8548; font-weight: bold;">2</span>,<span style="color: #50a14f;">"equals four"</span>)
+
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">to access a function inside of numpy, use a dot (.)</span>
+<span style="color: #a626a4;">print</span>(numpy.pi)
+<span style="color: #a626a4;">print</span>(<span style="color: #50a14f;">"cos(pi/4)="</span>,numpy.cos(numpy.pi/<span style="color: #da8548; font-weight: bold;">4</span>))
+
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">A list in python is denoted with square brackets [ ]</span>
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">Elements in a list can be accessed via index (starting at 0)</span>
+<span style="color: #6a1868;">listA</span> = [<span style="color: #da8548; font-weight: bold;">1</span>, <span style="color: #da8548; font-weight: bold;">3</span>, <span style="color: #da8548; font-weight: bold;">5</span>, <span style="color: #da8548; font-weight: bold;">7</span>]
+<span style="color: #a626a4;">print</span>(<span style="color: #50a14f;">"first element="</span>,listA[<span style="color: #da8548; font-weight: bold;">0</span>],<span style="color: #50a14f;">"Last element ="</span>,listA[-<span style="color: #da8548; font-weight: bold;">1</span>])
+
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">functions are declared using the def keyword</span>
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">these functions take arguments just like a calculus function would</span>
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">The indentation level of the text designates when the function ends</span>
+<span style="color: #e45649;">def</span> <span style="color: #a626a4;">power</span>(x,n):
+    <span style="color: #e45649;">return</span> x**n
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">this kustom function can now be called at any point later in the code</span>
+<span style="color: #a626a4;">print</span>(<span style="color: #50a14f;">"2.3^3 = "</span>, power(<span style="color: #da8548; font-weight: bold;">2.3</span>,<span style="color: #da8548; font-weight: bold;">3</span>))
+</pre>
+</div>
+
+<pre class="example">
+Hello World!
+4 equals four
+3.141592653589793
+cos(pi/4)= 0.7071067811865476
+first element= 1 Last element = 7
+2.3^3 =  12.166999999999998
+</pre>
+</div>
+</div>
+<div id="outline-container-org952328a" class="outline-3">
+<h3 id="org952328a"><span class="section-number-3">3.2.</span> Python: Numerical root solver</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+Almost all physics and engineering problems require solutions to algebraic equations. Many times these equations are non-linear and difficult to solve. Numerical methods can come to our rescue. The below code shows how to use a numeric root solver to find solutions to systems of equations:
+</p>
+
+<p>
+\[x\cos (y) = 4\]
+</p>
+
+<p>
+\[xy-y=5\]`
+</p>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">import fancy numerical methods inside of scipy library</span>
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">fsolve can numerically solve very complicated systems of equations!!!</span>
+<span style="color: #e45649;">import</span> numpy
+<span style="color: #e45649;">import</span> scipy.optimize
+
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">system of equations -&gt; x*cos(y) = 4,  y*x - y = 5</span>
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">x[0] is x and x[1] is y in the example below</span>
+<span style="color: #e45649;">def</span> <span style="color: #a626a4;">func</span>(x):
+    <span style="color: #e45649;">return</span> [
+        x[<span style="color: #da8548; font-weight: bold;">0</span>] * numpy.cos(x[<span style="color: #da8548; font-weight: bold;">1</span>]) - <span style="color: #da8548; font-weight: bold;">4</span>,
+        x[<span style="color: #da8548; font-weight: bold;">1</span>] * x[<span style="color: #da8548; font-weight: bold;">0</span>] - x[<span style="color: #da8548; font-weight: bold;">1</span>] - <span style="color: #da8548; font-weight: bold;">5</span>
+    ]
+
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">Find a numeric solution using guesses x=1 and y=0.5</span>
+<span style="color: #6a1868;">sols</span>=scipy.optimize.fsolve(func, [<span style="color: #da8548; font-weight: bold;">1</span>, <span style="color: #da8548; font-weight: bold;">0.5</span>])
+<span style="color: #a626a4;">print</span>(<span style="color: #50a14f;">"solutions x,y: "</span>,sols)
+
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">verify the solutions (should equal ~0)</span>
+<span style="color: #a626a4;">print</span>(<span style="color: #50a14f;">"A \'root\' means the function should evaluate to zero: \n"</span>,func(sols))
+</pre>
+</div>
+
+<pre class="example">
+solutions x,y:  [6.50409711 0.90841421]
+A 'root' means the function should evaluate to zero:
+ [7.105427357601002e-15, -3.552713678800501e-15]
+</pre>
+
+
+<blockquote>
+<p>
+<b>Checkpoint:</b>
+</p>
+<ul class="org-ul">
+<li>Interested in programming: open up jupyter/colab/sagemathcell for this lab. <b><b>You will need to run and modify this code to complete the lab!</b></b></li>
+<li>Review the above python code. Try to pick up pieces of the syntax as you work thru examples.</li>
+<li>Verify by hand that the solutions found using the root solver are actually solutions.</li>
+</ul>
+</blockquote>
+</div>
+</div>
+</div>
+<div id="outline-container-orge9d3e8d" class="outline-2">
+<h2 id="orge9d3e8d"><span class="section-number-2">4.</span> Numerical Solvers: Five forces in equilibrium</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+This lab requires some complicated (or at least tedious) calculations. The system we are studying has 5 tensions pointing in 5 directions. This complication level screams out for using a computer to perform the calculations. Many would use Excel, but I much prefer the power of a real programming language.
+</p>
+</div>
+<div id="outline-container-orgb665b5c" class="outline-3">
+<h3 id="orgb665b5c"><span class="section-number-3">4.1.</span> Free Body Diagrams and the Unit Circle</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+Draw a free body diagram of the top of the force table with 5 forces. We will have to use a rigid framework to define the angles which the forces point. This is what the unit circle was designed for! Recall the unit circle requires angles be measured starting at 0 on the horizontal-to-the-right direction:
+</p>
+</div>
+</div>
+<div id="outline-container-org15b9d0f" class="outline-3">
+<h3 id="org15b9d0f"><span class="section-number-3">4.2.</span> System of equations</h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+Write out a system of 2 equations and 2 unknowns (Newtons second law): Lets analyze the system of equations:
+</p>
+
+<p>
+\(\sum F_x =\)
+</p>
+
+<p>
+\(\sum F_y =\)
+</p>
+
+<ul class="org-ul">
+<li>1 unknown Force vector (both magnitude and direction of the same force, nonlinear but easy to solve by hand in cartesian coordinates)</li>
+<li>2 unknown Forces (magnitudes): Set 5 angles and 3 weights. Find two unknown weights. (linear equation)</li>
+<li>1 unknown Force vector and another unknown angle from a different force. (non-linear equation)</li>
+<li>2 unknown angles (direction). Set 3 angles and 5 weights. Find two unknown angles. (non-linear equation)</li>
+</ul>
+
+<p>
+Each of the above systems have the same force equations but will require different techniques to find solutions. We are going to perform the calculation numerically, so pick whichever seems most interesting/fun to solve.
+</p>
+
+<p>
+The code below shows how to find the solutions to the top-most system above (unknown 5th force to find balance):
+</p>
+
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #e45649;">import</span> numpy
+<span style="color: #e45649;">import</span> scipy.optimize
+
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">Define the masses and the angles (4 each)</span>
+<span style="color: #6a1868;">m1</span>, <span style="color: #6a1868;">m2</span>, <span style="color: #6a1868;">m3</span>, <span style="color: #6a1868;">m4</span> = <span style="color: #da8548; font-weight: bold;">0.55</span>, <span style="color: #da8548; font-weight: bold;">0.45</span>, <span style="color: #da8548; font-weight: bold;">0.25</span>, <span style="color: #da8548; font-weight: bold;">0.65</span>
+<span style="color: #6a1868;">theta1</span>, <span style="color: #6a1868;">theta2</span>, <span style="color: #6a1868;">theta3</span>, <span style="color: #6a1868;">theta4</span> = <span style="color: #da8548; font-weight: bold;">0</span>, <span style="color: #da8548; font-weight: bold;">90</span>, <span style="color: #da8548; font-weight: bold;">180</span>, <span style="color: #da8548; font-weight: bold;">270</span>
+
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">REQUIRED STEP: Convert angles to radians -&gt; unit circle definitions for trig</span>
+<span style="color: #6a1868;">theta1</span> = theta1*numpy.pi/<span style="color: #da8548; font-weight: bold;">180</span>
+<span style="color: #6a1868;">theta2</span> = theta2*numpy.pi/<span style="color: #da8548; font-weight: bold;">180</span>
+<span style="color: #6a1868;">theta3</span> = theta3*numpy.pi/<span style="color: #da8548; font-weight: bold;">180</span>
+<span style="color: #6a1868;">theta4</span> = theta4*numpy.pi/<span style="color: #da8548; font-weight: bold;">180</span>
+
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">Calculate tension (from the weights) in each string</span>
+<span style="color: #6a1868;">T1</span>,<span style="color: #6a1868;">T2</span>,<span style="color: #6a1868;">T3</span>,<span style="color: #6a1868;">T4</span> = m1*<span style="color: #da8548; font-weight: bold;">9.8</span>,m2*<span style="color: #da8548; font-weight: bold;">9.8</span>,m3*<span style="color: #da8548; font-weight: bold;">9.8</span>,m4*<span style="color: #da8548; font-weight: bold;">9.8</span>
+
+<span style="color: #e45649;">def</span> <span style="color: #a626a4;">tensions</span>(x):
+    <span style="color: #e45649;">return</span> [
+        T1*numpy.cos(theta1)+T2*numpy.cos(theta2)+T3*numpy.cos(theta3)+
+              T4*numpy.cos(theta4)+x[<span style="color: #da8548; font-weight: bold;">0</span>]*numpy.cos(x[<span style="color: #da8548; font-weight: bold;">1</span>])-<span style="color: #da8548; font-weight: bold;">0</span>,
+        T1*numpy.sin(theta1)+T2*numpy.sin(theta2)+T3*numpy.sin(theta3)+
+              T4*numpy.sin(theta4)+x[<span style="color: #da8548; font-weight: bold;">0</span>]*numpy.sin(x[<span style="color: #da8548; font-weight: bold;">1</span>])-<span style="color: #da8548; font-weight: bold;">0</span>,
+    ]
+<span style="color: #6a1868;">sols</span>=scipy.optimize.fsolve(tensions, [<span style="color: #da8548; font-weight: bold;">3</span>, <span style="color: #da8548; font-weight: bold;">1</span>])
+<span style="color: #a626a4;">print</span>(<span style="color: #50a14f;">"Place mass of"</span>,sols[<span style="color: #da8548; font-weight: bold;">0</span>]/<span style="color: #da8548; font-weight: bold;">9.8</span>,<span style="color: #50a14f;">"kg at angle"</span>, sols[<span style="color: #da8548; font-weight: bold;">1</span>]*<span style="color: #da8548; font-weight: bold;">180</span>/numpy.pi, <span style="color: #50a14f;">"degrees"</span>)
+</pre>
+</div>
+
+<pre class="example">
+Place mass of 0.36055512754637475 kg at angle 146.30993247400784 degrees
+</pre>
+</div>
+</div>
+<div id="outline-container-org842e420" class="outline-3">
+<h3 id="org842e420"><span class="section-number-3">4.3.</span> Solving your own tension balance problem</h3>
+<div class="outline-text-3" id="text-4-3">
+<p>
+As a group, solve one of the other cases shown in the previous step. Pick reasonable (but somewhat random) angles and weights which form the knowns. As a group, write out the force balance equations and modify the above code to solve the problem you chose.
+</p>
+
+<blockquote>
+<p>
+<b>Checkpoint:</b>
+</p>
+<ul class="org-ul">
+<li>Show the instructor your code which can solve one of the above situations. Ask for help if you need any.</li>
+</ul>
+</blockquote>
+</div>
+</div>
+</div>
+<div id="outline-container-org4de0df0" class="outline-2">
+<h2 id="org4de0df0"><span class="section-number-2">5.</span> Numerical Solvers: Three connected rings</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+Now lets solve a challenging problem (borrowed from WMU statics course). Try to follow the same steps as the force table problem to practice your techniques:
+</p>
+
+<ul class="org-ul">
+<li>How many equations will you have in your system with 3 rings?</li>
+<li>How many unknown tensions/angles are present?</li>
+</ul>
+</div>
+<div id="outline-container-org56750db" class="outline-3">
+<h3 id="org56750db"><span class="section-number-3">5.1.</span> Find the tension in each rope</h3>
+<div class="outline-text-3" id="text-5-1">
+<p>
+The lamp has a mass of 15 kg and is supported by the 6 cords shown below. Determine the tension in each cord and the angle \(\theta\) to reach equilibrium \(\sum \vec{F} = 0\)
+</p>
+
+
+<div id="org6b209e5" class="figure">
+<p><img src="./img/lab-forces2-part2.jpg" alt="lab-forces2-part2.jpg" width="600px" />
+</p>
+</div>
+
+<blockquote>
+<p>
+<b>Checkpoint:</b>
+</p>
+<ul class="org-ul">
+<li>Write out the six force equations for the three rings.</li>
+<li>Modify the above root finding equations to find the 5 tensions and one angle.</li>
+<li>Is there a way to make this a set of linear equations rather than non-linear? Yes, just make the tension in the upper right cartesian rather than polar! Pretty cool.</li>
+</ul>
+</blockquote>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

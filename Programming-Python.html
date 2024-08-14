@@ -1,0 +1,995 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-08-14 Wed 15:31 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Programming Python</title>
+<meta name="author" content="Patrick Malsom" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<style type="text/css"> blockquote {background:#eee; padding: 3px 10px; border: 1px solid; }</style>
+<style type="text/css"> .example {background:#FFFCF6; margin-top: -16px;}</style>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<style type="text/css">body{ max-width:800px; margin: auto;font-family: LatoWeb, "Lato Extended", Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;}table.center{margin-left:auto; margin-right:auto;}</style>
+</div>
+<div id="content" class="content">
+<h1 class="title">Programming Python</h1>
+<div id="outline-container-orgb42e402" class="outline-2">
+<h2 id="orgb42e402">Introduction to Python</h2>
+<div class="outline-text-2" id="text-orgb42e402">
+<p>
+<b>Disclaimer</b>: I do not wish this to be a programming class. I also do not expect any of you to be experts in programming either now or at the end of the semester. I do wish to show you how to use a programming language to obsolete your graphing calculator. Please try to absorb what you can from this quick rundown.
+</p>
+
+<p>
+If you are interested in programming and want to know more about python, I recommend looking at the following resources:
+<a href="http://swcarpentry.github.io/python-novice-inflammation/index.html">http://swcarpentry.github.io/python-novice-inflammation/index.html</a>
+</p>
+
+<p>
+The below notebook will cover the basics of syntax in python and explore the basic <b>data types</b> which you can use. This will be followed by a quick rundown of <b>comparisons</b>, <b>loops</b> and <b>functions</b> which you will see and use later in the course. Finally, some of the most used external <b>modules</b> in data driven analysis will be discussed. There are a few exercises at the end of the notebook which you can use to test your own understanding.
+</p>
+</div>
+<div id="outline-container-org0937539" class="outline-3">
+<h3 id="org0937539">Jupyter interface</h3>
+<div class="outline-text-3" id="text-org0937539">
+<p>
+The nice web interface you are looking at is called Jupyter. It includes all you need to get started writing and running python! At the very top of the screen you should see the title of the current file, a menu bar, and a few buttons.
+</p>
+</div>
+<div id="outline-container-org74a4098" class="outline-4">
+<h4 id="org74a4098">Jupyter Cells</h4>
+<div class="outline-text-4" id="text-org74a4098">
+<p>
+Below the top bars, you will see editable boxes called <b>cells</b>. Each cell can be one of three types: 1. Markdown Cell (text cell which you can write English and Math in) 2. Input Cell (python code) 3. Output (output of the immediately preceding input cell)
+</p>
+</div>
+<div id="outline-container-org7972921" class="outline-5">
+<h5 id="org7972921">Markdown Cell</h5>
+<div class="outline-text-5" id="text-org7972921">
+<p>
+The other cell type which you can edit is called a markdown cell. Markdown is used to write English and math (not code). If you double click on a markdown cell, it will change the text to an editable format. When you are finished editing, simply <b>hold the shift button and then press enter</b> to get back the formatted text. this is a change
+</p>
+
+<p>
+Markdown cells can also contain mathematical notation. Math notation is denoted using the dollar sign <b>$</b> for inline maths and <b>$$</b> for equations. For example, lets print some Greek letters like \(\alpha\) and \(\beta\), followed by a longer equation
+</p>
+
+<p>
+\[\int x^2 dx = \frac{x^3}{3}\]
+</p>
+
+<p>
+Exercise: Try to double click on this markdown cell, edit some of the text, and then press shift+enter to format the new text.
+</p>
+</div>
+</div>
+<div id="outline-container-org70c6617" class="outline-5">
+<h5 id="org70c6617">Input Cell</h5>
+<div class="outline-text-5" id="text-org70c6617">
+<p>
+Input cells are used to run your python programs. It is the default mode for a cell in the notebook, and expects python code as input (no English or math). These cells are easily identified with the &ldquo;<i>In [ ]</i>&rdquo; on the left border of the notebook. Below is an example input cell which you can click on and edit.
+</p>
+
+<p>
+Exercise: To run the below input code, hold the shift button and then press enter. Try it out!
+</p>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #a626a4;">print</span>(<span style="color: #da8548; font-weight: bold;">2.3</span> * <span style="color: #da8548; font-weight: bold;">3.7</span>)
+</pre>
+</div>
+
+<pre class="example">
+#+BEGIN_EXAMPLE
+8.51
+#+END_EXAMPLE
+</pre>
+</div>
+</div>
+<div id="outline-container-org094ba5f" class="outline-5">
+<h5 id="org094ba5f">Output cell</h5>
+<div class="outline-text-5" id="text-org094ba5f">
+<p>
+Output cells are non-editable cells which display the output of your
+input cell code. You cannot edit output cells directly.
+</p>
+
+<p>
+Running the above input cell created an output cell, denoted by the
+&ldquo;<i>Out [ ]</i>&rdquo;. By default, only one line of output will be displayed for a
+given input cell. If you wish to display more than one result in an
+output, please use the <b>print( )</b> function, as shown below:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #a626a4;">print</span>(<span style="color: #50a14f;">"Below is the result:"</span>)
+<span style="color: #a626a4;">print</span>(<span style="color: #50a14f;">"4+4"</span>)
+</pre>
+</div>
+
+<pre class="example">
+#+BEGIN_EXAMPLE
+Below is the result:
+4+4
+#+END_EXAMPLE
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org1d141b3" class="outline-4">
+<h4 id="org1d141b3">Jupyter Menus</h4>
+<div class="outline-text-4" id="text-org1d141b3">
+<p>
+The Jupyter interface includes a menu bar as well as some quick buttons at the top of the screen. There are too many options in these menus to list, but some of the most useful buttons are listed below
+</p>
+
+<ul class="org-ul">
+<li><b>File</b>: Standard file commands like new, save, rename, print and close.</li>
+<li><b>Edit</b>: Tools for manipulating, moving, splitting and merging cells.</li>
+<li><b>View</b>: Show and hide buttons from the user interface.</li>
+<li><b>Insert</b>: Create cells above or below the cursor.</li>
+<li><b>Runtime</b>: Execution options for the entire notebook. Options to change cell type.</li>
+<li><b>Tools</b>: Basic settings and commands available for the web interface.</li>
+<li><b>Help</b>: External web links to documentation for many libraries.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7ff16b3" class="outline-4">
+<h4 id="org7ff16b3">Comments (#)</h4>
+<div class="outline-text-4" id="text-org7ff16b3">
+<p>
+It is often useful to take notes on your current program. Any text which follows a <b>#</b> is ignored by the python interpreter. If you wish to make a note to yourself (or someone else) for later, simply put a # before the text. You are free to put the comment on its own line, or following some code you wish to execute. Here is an example:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">This is a comment on its own line</span>
+<span style="color: #a626a4;">print</span>(<span style="color: #da8548; font-weight: bold;">2</span>+<span style="color: #da8548; font-weight: bold;">2</span>) <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">2+2 Comments can also be on the same line as code</span>
+</pre>
+</div>
+
+<p>
+4
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgcb25167" class="outline-3">
+<h3 id="orgcb25167">Saving a value: Assignment statements</h3>
+<div class="outline-text-3" id="text-orgcb25167">
+<p>
+At many points in your program you will need to save some information to a variable. These variables can hold complex data structures, such as lists with experimental data or even a graph of your analysis. Variables names must start with a character (a-Z), but numbers can be used after the first character. Python is a case sensitive language, and variable names are no exception.
+</p>
+
+<p>
+Below, the equal sign (=) is used to assign the number 2 to the variable a:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #6a1868;">a</span> = <span style="color: #da8548; font-weight: bold;">2</span>
+<span style="color: #a626a4;">print</span>(a)
+</pre>
+</div>
+
+<p>
+2
+</p>
+
+<p>
+If you now start a new cell (in the same notebook), the value of <code>a</code> is saved:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #a626a4;">print</span>(a)
+</pre>
+</div>
+
+<p>
+2
+</p>
+
+<p>
+Python also allows you to set multiple variables at the same time. For example, if I wish to set the positional variables \(x=1.23~m\) , \(y = -0.877~m\), and \(z=2.19~m\), I can use the following shorthand assignment:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #6a1868;">x</span>, <span style="color: #6a1868;">y</span>, <span style="color: #6a1868;">z</span> = <span style="color: #da8548; font-weight: bold;">1.23</span>, -<span style="color: #da8548; font-weight: bold;">0.877</span>, <span style="color: #da8548; font-weight: bold;">2.19</span>
+<span style="color: #a626a4;">print</span>(x,y,z)
+</pre>
+</div>
+
+<p>
+1.23 -0.877 2.19
+</p>
+
+<p>
+Being able to assign, recall and modify data is one of the most useful aspects of computer programming. This is a major contrast to something like a graphing calculator (or paper and pencil).
+</p>
+</div>
+</div>
+<div id="outline-container-org719757a" class="outline-3">
+<h3 id="org719757a">Core data types in python</h3>
+<div class="outline-text-3" id="text-org719757a">
+</div>
+<div id="outline-container-org9cb9dea" class="outline-4">
+<h4 id="org9cb9dea">Numbers</h4>
+<div class="outline-text-4" id="text-org9cb9dea">
+<p>
+A number in python can be an integer or a decimal number (also called <i>floating-point</i>). You can use mathematical operators like addition (+), subtraction (-), multiplication (<b>), division (/), exponent (*</b>) and modulus (%).
+</p>
+
+<p>
+Try to run the following input and verify that the output is correct:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #a626a4;">print</span>(<span style="color: #da8548; font-weight: bold;">2</span>+<span style="color: #da8548; font-weight: bold;">3</span>) <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">addition</span>
+<span style="color: #a626a4;">print</span>(<span style="color: #da8548; font-weight: bold;">2</span>*<span style="color: #da8548; font-weight: bold;">3</span>) <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">multiplication</span>
+<span style="color: #a626a4;">print</span>(<span style="color: #da8548; font-weight: bold;">2</span>/<span style="color: #da8548; font-weight: bold;">3</span>) <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">division</span>
+<span style="color: #a626a4;">print</span>(<span style="color: #da8548; font-weight: bold;">2</span>**<span style="color: #da8548; font-weight: bold;">3</span>) <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">exponent (2 to the power 3)</span>
+</pre>
+</div>
+
+<p>
+5
+6
+0.6666666666666666
+8
+</p>
+</div>
+</div>
+<div id="outline-container-org0e77739" class="outline-4">
+<h4 id="org0e77739">Strings</h4>
+<div class="outline-text-4" id="text-org0e77739">
+<p>
+A string is a sequence of characters that are to be interpreted as normal text. Strings are created by wrapping the text in quotation marks (you can use either single or double, but don&rsquo;t mix the two). Here is an example of a string:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #a626a4;">print</span>(<span style="color: #50a14f;">'2+2'</span>)
+</pre>
+</div>
+
+<p>
+2+2
+</p>
+
+<p>
+Python also allows you to do odd things with types. For example we can add or multiply strings together:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #a626a4;">print</span>(<span style="color: #50a14f;">"Adding "</span> + <span style="color: #50a14f;">"Three "</span> + <span style="color: #50a14f;">"Strings"</span>)
+<span style="color: #a626a4;">print</span>(<span style="color: #50a14f;">"Multiply "</span> * <span style="color: #da8548; font-weight: bold;">7</span>)
+</pre>
+</div>
+
+<p>
+Adding Three Strings
+Multiply Multiply Multiply Multiply Multiply Multiply Multiply
+</p>
+</div>
+</div>
+<div id="outline-container-orgdaa5f7c" class="outline-4">
+<h4 id="orgdaa5f7c">Lists</h4>
+<div class="outline-text-4" id="text-orgdaa5f7c">
+<p>
+Lists are a fundamental data type in python that will be used extensively. They can be used to represent vectors, or store large recorded data sets, etc.
+</p>
+
+<p>
+Lists must start with a square starting bracket, end with a square ending bracket, and the elements of the list are separated with commas. Here is an example:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #6a1868;">a</span>=[<span style="color: #da8548; font-weight: bold;">1</span>,<span style="color: #da8548; font-weight: bold;">2</span>,<span style="color: #da8548; font-weight: bold;">3</span>,<span style="color: #da8548; font-weight: bold;">4</span>,<span style="color: #da8548; font-weight: bold;">5</span>]
+<span style="color: #a626a4;">print</span>(a)
+<span style="color: #a626a4;">print</span>(a[<span style="color: #da8548; font-weight: bold;">3</span>])
+</pre>
+</div>
+
+<p>
+[1, 2, 3, 4, 5]
+4
+</p>
+
+<p>
+Lists can store any type of object as an element, including other lists. Below is a list which contains strings, numbers and another list:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #6a1868;">a</span>=[<span style="color: #da8548; font-weight: bold;">1</span>,<span style="color: #50a14f;">'a'</span>,[<span style="color: #da8548; font-weight: bold;">2</span>,<span style="color: #da8548; font-weight: bold;">3</span>,<span style="color: #da8548; font-weight: bold;">4</span>]]
+<span style="color: #a626a4;">print</span>(a[<span style="color: #da8548; font-weight: bold;">2</span>][<span style="color: #da8548; font-weight: bold;">2</span>])
+</pre>
+</div>
+
+<p>
+4
+</p>
+</div>
+</div>
+<div id="outline-container-org2dc6a0e" class="outline-4">
+<h4 id="org2dc6a0e">Other built-in types:</h4>
+<div class="outline-text-4" id="text-org2dc6a0e">
+<p>
+There are many other data types that are commonly used inside of python code. These types are very useful when writing code, but are a bit more complicated (and less frequently used) than numbers, strings and lists. Some common types are: * <b>Booleans</b>: True and False. These will be used in the comparison section below. * <b>Dictionaries</b>: Key value pairs which can be used to efficiently store and fetch data * <b>Tuples</b>: Similar to a list, but cannot be changed once it is created * <b>Sets</b>: Similar to a tuple (immutable), but store unordered and unique elements (like a set in mathematics)
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd3e59ab" class="outline-3">
+<h3 id="orgd3e59ab">Indentation</h3>
+<div class="outline-text-3" id="text-orgd3e59ab">
+<p>
+All programming languages must have an order of operations, and some notation to signify the start and end of functions and loops. In many languages this is a parenthesis or and curly bracket, but python does away with this. Instead it uses indentation level to denote the beginning and end of a complex statement. Here is an example of a function:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">Declare the position function</span>
+<span style="color: #e45649;">def</span> <span style="color: #a626a4;">position</span>(xi,vi,t):
+    <span style="color: #e45649;">return</span> xi + vi*t + <span style="color: #da8548; font-weight: bold;">0.5</span>*(-<span style="color: #da8548; font-weight: bold;">9.8</span>)*t**<span style="color: #da8548; font-weight: bold;">2</span>
+
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">Call the position function</span>
+<span style="color: #a626a4;">print</span>(position(<span style="color: #da8548; font-weight: bold;">1</span>,<span style="color: #da8548; font-weight: bold;">2</span>,<span style="color: #da8548; font-weight: bold;">1</span>))
+</pre>
+</div>
+
+<p>
+-1.9000000000000004
+</p>
+
+<p>
+Note the &ldquo;return xi&#x2026;&rdquo; line is indented further than the rest. This signifies to python that the statement belongs to the above function definition. There is no ending bracket needed with this indentation, simply moving your code in an indentation level will close the function definition.
+</p>
+</div>
+</div>
+<div id="outline-container-org59b85b8" class="outline-3">
+<h3 id="org59b85b8">Comparisons</h3>
+<div class="outline-text-3" id="text-org59b85b8">
+<p>
+Often you will need your code to make logical decisions. The comparison operators in python are equal (<code>==</code>), not equal (<code>!=</code>)less than (<code>&lt;</code>), greater than (<code>&gt;</code>), less than or equal to (<code>&lt;=</code>) and greater than or equal to (<code>&gt;=</code>). These comparisons return only boolean values (<code>True</code> or <code>False</code>), which can be used to make decisions in your program.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #a626a4;">print</span>(<span style="color: #da8548; font-weight: bold;">2</span>==<span style="color: #da8548; font-weight: bold;">2</span>)
+</pre>
+</div>
+
+<p>
+True
+</p>
+
+<p>
+The most common way to invoke this decision is with an <code>if</code> statement. When the argument inside of the <code>if</code> statement is True, the code inside will be evaluated. The <code>else</code> statement can be included when you also wish the program to perform a task when the comparison is False.
+</p>
+
+<p>
+Take a look at this simple example. Remember, you are encouraged to modify this code to see what changes in your output (change the less than to be a greater than. What happens?).
+</p>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #e45649;">if</span> <span style="color: #da8548; font-weight: bold;">2</span> &gt; <span style="color: #da8548; font-weight: bold;">4</span> :
+    <span style="color: #a626a4;">print</span>(<span style="color: #50a14f;">'The if statement is True'</span>)
+<span style="color: #e45649;">else</span>:
+    <span style="color: #a626a4;">print</span>(<span style="color: #50a14f;">'The if statement is False'</span>)
+</pre>
+</div>
+
+<p>
+The if statement is False
+</p>
+</div>
+</div>
+<div id="outline-container-org1d58006" class="outline-3">
+<h3 id="org1d58006">For Loop</h3>
+<div class="outline-text-3" id="text-org1d58006">
+<p>
+Loops are common to most programming languages, and are used when you wish to perform a task repeatedly. A <code>for</code> loop can be used to iterate over a list.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">create a list of courses</span>
+<span style="color: #6a1868;">numbers</span> = [<span style="color: #da8548; font-weight: bold;">1</span>,<span style="color: #da8548; font-weight: bold;">2</span>,<span style="color: #da8548; font-weight: bold;">3</span>,<span style="color: #da8548; font-weight: bold;">4</span>,<span style="color: #da8548; font-weight: bold;">5</span>,<span style="color: #da8548; font-weight: bold;">6</span>,<span style="color: #da8548; font-weight: bold;">7</span>,<span style="color: #da8548; font-weight: bold;">8</span>,<span style="color: #da8548; font-weight: bold;">9</span>]
+<span style="color: #e45649;">for</span> x <span style="color: #e45649;">in</span> numbers :
+    <span style="color: #a626a4;">print</span>(x+<span style="color: #da8548; font-weight: bold;">2</span>)
+</pre>
+</div>
+
+<p>
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</p>
+
+<p>
+You can also make a <code>for</code> loop iterate a fixed number of times by calling the <code>range</code> function. Note that the integers which are generated by the <code>range</code> function start at 0 and increase to a maximum value one less than the argument of the range function.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #e45649;">for</span> x <span style="color: #e45649;">in</span> <span style="color: #a626a4;">range</span>(<span style="color: #da8548; font-weight: bold;">7</span>):
+    <span style="color: #6a1868;">y</span> = x**<span style="color: #da8548; font-weight: bold;">2</span>
+    <span style="color: #a626a4;">print</span>(x,y)
+</pre>
+</div>
+
+<p>
+0 0
+1 1
+2 4
+3 9
+4 16
+5 25
+6 36
+</p>
+
+<p>
+When performing technical analysis, you will often need to perform some mathematical manipulation to a list of data. We often want the loop body to make use of both the item in this data list and it&rsquo;s position in the list. The best way to do this is by using the enumerate built-in function, which returns an iterable of (index, item) pairs:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #6a1868;">test_list</span> = [<span style="color: #da8548; font-weight: bold;">0</span>,<span style="color: #da8548; font-weight: bold;">1</span>,<span style="color: #da8548; font-weight: bold;">2</span>,<span style="color: #da8548; font-weight: bold;">3</span>,<span style="color: #da8548; font-weight: bold;">4</span>,<span style="color: #da8548; font-weight: bold;">5</span>,<span style="color: #da8548; font-weight: bold;">6</span>,<span style="color: #da8548; font-weight: bold;">7</span>,<span style="color: #da8548; font-weight: bold;">8</span>,<span style="color: #da8548; font-weight: bold;">9</span>]
+<span style="color: #e45649;">for</span> i,val <span style="color: #e45649;">in</span> <span style="color: #a626a4;">enumerate</span>(test_list):
+    <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">calculate the cube of the values in test_list</span>
+    <span style="color: #a626a4;">print</span>(i,val**<span style="color: #da8548; font-weight: bold;">3</span>)
+</pre>
+</div>
+
+<p>
+0 0
+1 1
+2 8
+3 27
+4 64
+5 125
+6 216
+7 343
+8 512
+9 729
+</p>
+</div>
+</div>
+<div id="outline-container-org6e097d1" class="outline-3">
+<h3 id="org6e097d1">While Loop</h3>
+<div class="outline-text-3" id="text-org6e097d1">
+<p>
+The default behavior of a for loop is to iterate over a fixed number of values, but sometimes you may want to loop until a comparison is false. For example, if you wish to generate the Fibonacci numbers less than 1000, you can use the following while loop
+</p>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">Compute the Fibonacci numbers less than 200</span>
+<span style="color: #6a1868;">last</span>, <span style="color: #6a1868;">current</span> = <span style="color: #da8548; font-weight: bold;">0</span>, <span style="color: #da8548; font-weight: bold;">1</span>
+<span style="color: #e45649;">while</span> current &lt; <span style="color: #da8548; font-weight: bold;">1000</span>:
+    <span style="color: #a626a4;">print</span>(current)
+    <span style="color: #6a1868;">last</span>, <span style="color: #6a1868;">current</span> = current, last + current
+</pre>
+</div>
+
+<p>
+1
+1
+2
+3
+5
+8
+13
+21
+34
+55
+89
+144
+233
+377
+610
+987
+</p>
+</div>
+</div>
+<div id="outline-container-org2ba5ced" class="outline-3">
+<h3 id="org2ba5ced">List comprehensions</h3>
+<div class="outline-text-3" id="text-org2ba5ced">
+<p>
+Loops are used frequently enough that python also includes a shorthand for creating lists called a comprehension. Comprehensions are clever short-hand statements used to create sequence data structures. For instance, we can fill a list by manipulating data from another list quickly using list comprehension:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #6a1868;">a</span> = [<span style="color: #da8548; font-weight: bold;">1</span>, <span style="color: #da8548; font-weight: bold;">2</span>, <span style="color: #da8548; font-weight: bold;">3</span>, <span style="color: #da8548; font-weight: bold;">4</span>, <span style="color: #da8548; font-weight: bold;">5</span>]
+<span style="color: #6a1868;">b</span> = [i**<span style="color: #da8548; font-weight: bold;">2</span> <span style="color: #e45649;">for</span> i <span style="color: #e45649;">in</span> a]
+<span style="color: #a626a4;">print</span>(a)
+<span style="color: #a626a4;">print</span>(b)
+</pre>
+</div>
+
+<p>
+[1, 2, 3, 4, 5]
+[1, 4, 9, 16, 25]
+</p>
+
+<p>
+You can further gain control of these comprehensions by adding an <code>if</code>
+statement to the end of the comprehension:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #6a1868;">c</span>=[i**<span style="color: #da8548; font-weight: bold;">2</span> <span style="color: #e45649;">for</span> i <span style="color: #e45649;">in</span> a <span style="color: #e45649;">if</span> i &gt;<span style="color: #da8548; font-weight: bold;">2</span> ]
+<span style="color: #a626a4;">print</span>(c)
+</pre>
+</div>
+
+<p>
+[9, 16, 25]
+</p>
+
+<p>
+<b>A word of caution:</b> I often use comprehensions because they can significantly shorten code, but I will only use them when the mathematical operation is short and can be performed with a single line of code. For more complicated calculations, it is best to use a for or while loop.
+</p>
+</div>
+</div>
+<div id="outline-container-org0104892" class="outline-3">
+<h3 id="org0104892">Functions</h3>
+<div class="outline-text-3" id="text-org0104892">
+<p>
+Functions are constructs that encapsulate a set of instructions to be reused throughout a program. Like mathematical functions, Python functions take any number of input arguments and return a single ouput. Functions always return an object, although in Python, that object is not always important. If a function doesn&rsquo;t explicitly return an object, it will automatically return None.
+</p>
+
+<p>
+To define a function, we use the def keyword followed by the name we wish to give the function. The name must be unique else the new function will replace any other object (functions, variables, etc) of the same name in the current namespace. The name of the function is followed without a space by a tuple of the argument names the function is to accept. Lastly, the tuple is followed by a colon : and the body of the function begins on the next line. As with conditionals, the body block is denoted by indentation. The return keyword may be invoked at any time during a branch within the function. When Python reaches a return, the function exits. If return is followed by an object, that object is passed out of the function as output. Otherwise None is returned. If Python reaches the end of the function body without encountering return, the function exits and None is returned.
+</p>
+
+<p>
+Let&rsquo;s look at an example where we use the Taylor expansion to 5th order of the sine function about 0:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #e45649;">def</span> <span style="color: #a626a4;">taylor_sin</span>(x):
+    <span style="color: #e45649;">return</span> x - x**<span style="color: #da8548; font-weight: bold;">3</span>/<span style="color: #da8548; font-weight: bold;">6</span> + x**<span style="color: #da8548; font-weight: bold;">5</span>/<span style="color: #da8548; font-weight: bold;">120</span>
+</pre>
+</div>
+
+<p>
+Note when you declare a function, it will not compute anything. All the
+declaration does is tell the computer what to do when the function is
+called. Lets now call the function:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #a626a4;">print</span>(taylor_sin(<span style="color: #da8548; font-weight: bold;">0.15</span>))
+</pre>
+</div>
+
+<pre class="example" id="orgf8ba1ba">
+0.1494381328125
+</pre>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #a626a4;">print</span>([[i,taylor_sin(i)] <span style="color: #e45649;">for</span> i <span style="color: #e45649;">in</span> [<span style="color: #da8548; font-weight: bold;">0</span>,<span style="color: #da8548; font-weight: bold;">0.1</span>,<span style="color: #da8548; font-weight: bold;">0.2</span>,<span style="color: #da8548; font-weight: bold;">0.3</span>,<span style="color: #da8548; font-weight: bold;">0.4</span>,<span style="color: #da8548; font-weight: bold;">0.5</span>]])
+</pre>
+</div>
+
+<pre class="example" id="orgf89d4ee">
+[[0, 0.0], [0.1, 0.09983341666666667], [0.2, 0.19866933333333336], [0.3, 0.29552025], [0.4, 0.3894186666666667], [0.5, 0.47942708333333334]]
+</pre>
+</div>
+<div id="outline-container-orge16e980" class="outline-4">
+<h4 id="orge16e980">Code Documentation</h4>
+<div class="outline-text-4" id="text-orge16e980">
+<p>
+It is a very good practice to document code inside of all of your functions. A docstring should be used to create built in help on your programs inner workings. Docstrings are printed when the help function is called on an object. To add a docstring to your function, include a multiline string as the first line of the function&rsquo;s body. Python will know that this string is intended to be the docstring.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #e45649;">def</span> <span style="color: #a626a4;">taylor_sin</span>(x,y):
+    <span style="color: #84888b; font-style: italic;">'''Takes a number and computes the 5th order Taylor expansion of sine and then adds the second argument to the result'''</span>
+    <span style="color: #e45649;">return</span> x - x**<span style="color: #da8548; font-weight: bold;">3</span>/<span style="color: #da8548; font-weight: bold;">6</span> + x**<span style="color: #da8548; font-weight: bold;">5</span>/<span style="color: #da8548; font-weight: bold;">120</span> + y
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #a626a4;">print</span>(taylor_sin(<span style="color: #da8548; font-weight: bold;">1</span>,<span style="color: #da8548; font-weight: bold;">1</span>))
+</pre>
+</div>
+
+<pre class="example" id="org7a2e3bb">
+1.8416666666666668
+</pre>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #a626a4;">help</span>(taylor_sin)
+</pre>
+</div>
+
+<pre class="example" id="orgfd64fe8">
+Help on function taylor_sin in module __main__:
+
+taylor_sin(x, y)
+    Takes a number and computes the 5th order Taylor expansion of sine and then adds the second argument to the result
+
+</pre>
+</div>
+</div>
+<div id="outline-container-orgf75b8ad" class="outline-4">
+<h4 id="orgf75b8ad">Code reuse</h4>
+<div class="outline-text-4" id="text-orgf75b8ad">
+<p>
+The main benefit of using functions in your code is being able to reuse common functions in multiple other codes. If you spend time programming the Taylor series, you can simply copy that function into any other program and begin using that function immediately. Once you start using python regularly, the reuse of functions will save significant development time when you are performing routine data analysis tasks.
+</p>
+</div>
+</div>
+<div id="outline-container-org2168ff0" class="outline-4">
+<h4 id="org2168ff0">Function arguments</h4>
+<div class="outline-text-4" id="text-org2168ff0">
+<p>
+As was seen in the <code>taylor_sin</code> function above, functions can be given positional arguments which are subsequently passed into the body of the function. Multiple arguments can be passed and the order does matter both when the function is defined and called.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org7c2138b" class="outline-3">
+<h3 id="org7c2138b">Modules</h3>
+<div class="outline-text-3" id="text-org7c2138b">
+<p>
+The above topics only cover the core of the Python programming language, but python provides much more than a basic language. Modules are libraries which provide extensive methods which can be used to solve specific problems. Lets take a look at how to import a module to make math calculations using numpy (NUMeric PYthon).
+</p>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #e45649;">import</span> numpy
+<span style="color: #a626a4;">print</span>(numpy.sin(<span style="color: #da8548; font-weight: bold;">0.15</span>))
+</pre>
+</div>
+
+<p>
+0.14943813247359922
+</p>
+
+<p>
+First note the <code>import</code> keyword, which tells the computer to load all of the functions contained within the numpy module. If you wish to use a function from this module, you must preface the function call with <code>numpy.</code>. This tells the computer to look in the numpy module for the specific function.
+</p>
+
+<p>
+Lets now use another function in numpy named arange, which returns evenly spaced values within a given interval. First I will show the help page for numpy.arange:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #a626a4;">print</span>(numpy.arange(<span style="color: #da8548; font-weight: bold;">0</span>,<span style="color: #da8548; font-weight: bold;">1</span>,<span style="color: #da8548; font-weight: bold;">0.1</span>))
+</pre>
+</div>
+
+<p>
+[0.  0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9]
+</p>
+
+<p>
+Now I wish to give you a quick rundown of some of the more interesting modules from a data analysis perspective. Hopefully this will give you a bit of insight into how vast and powerful modules are in the python language.
+</p>
+</div>
+<div id="outline-container-org1f2cbd6" class="outline-4">
+<h4 id="org1f2cbd6">Numpy</h4>
+<div class="outline-text-4" id="text-org1f2cbd6">
+<p>
+<code>numpy</code> stands for numerical python and is extensively used for data science. Includes almost all mathematical functions you may require, along with matrix methods, Fourier transforms, random number generation, etc.
+</p>
+
+<p>
+For a nice quick tutorial on some of the included methods, see
+<a href="https://numpy.org/devdocs/user/quickstart.html">https://numpy.org/devdocs/user/quickstart.html</a>.
+</p>
+
+<p>
+For a longer an more comprehensive guide, see
+<a href="https://scipy-lectures.org/intro/numpy/index.html">https://scipy-lectures.org/intro/numpy/index.html</a>.
+</p>
+</div>
+</div>
+<div id="outline-container-org9ba0734" class="outline-4">
+<h4 id="org9ba0734">Math</h4>
+<div class="outline-text-4" id="text-org9ba0734">
+<p>
+<code>math</code> is a trimmed down version of <code>numpy</code> and is included in the standard python library (which is noramlly installed with every version of python). This library includes many of the math functions found in numpy, but numpy provides much more than math. This is best used when you want to keep the footprint of your code as small as possible.
+</p>
+
+<p>
+for a list of methods included in the math module, see
+<a href="https://docs.python.org/3/library/math.html">https://docs.python.org/3/library/math.html</a>.
+</p>
+</div>
+</div>
+<div id="outline-container-org8f2b9b9" class="outline-4">
+<h4 id="org8f2b9b9">Matplotlib</h4>
+<div class="outline-text-4" id="text-org8f2b9b9">
+<p>
+Full featured plotting library which can create research publication quality figures. We will be using this module extensively in the coming semester to make figures of data collected in lab.
+</p>
+
+<p>
+A nice starter tutorial can be found here:
+<a href="https://matplotlib.org/tutorials/introductory/pyplot.html#sphx-glr-tutorials-introductory-pyplot-py">https://matplotlib.org/tutorials/introductory/pyplot.html#sphx-glr-tutorials-introductory-pyplot-py</a>.
+</p>
+
+<p>
+Many more tutorials are available from the matplotlib website:
+<a href="https://matplotlib.org/tutorials/index.html#introductory">https://matplotlib.org/tutorials/index.html#introductory</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org74942a1" class="outline-4">
+<h4 id="org74942a1">Pandas</h4>
+<div class="outline-text-4" id="text-org74942a1">
+<p>
+data analysis suite which is especially useful when performing statistical analysis of large sets of data. This module has many useful functions for importing and displaying data which is stored in a file as comma separated values.
+</p>
+
+<p>
+<a href="https://pandas.pydata.org/pandas-docs/stable/getting_started/index.html">https://pandas.pydata.org/pandas-docs/stable/getting_started/index.html</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org9a3cf90" class="outline-4">
+<h4 id="org9a3cf90">Sympy</h4>
+<div class="outline-text-4" id="text-org9a3cf90">
+<p>
+Symbolic python! This is for you math nerds (myself included).
+</p>
+
+<p>
+Allows python to create symbolic variables which you can then use to do mathematical operations such as differentiation and integration, etc. This library uses a few different paradigms than the normal python language, but is very useful for calculus computations and solving equations.
+</p>
+
+<p>
+<a href="https://docs.sympy.org/latest/tutorial/index.html">https://docs.sympy.org/latest/tutorial/index.html</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org1a23fb7" class="outline-4">
+<h4 id="org1a23fb7">Scipy</h4>
+<div class="outline-text-4" id="text-org1a23fb7">
+<p>
+Provides numerical libraries for many common scientific and engineering problems. Includes numerical integration, optimization, interpolation, Fourier transforms, linear algebra, etc.
+</p>
+
+<p>
+<a href="https://docs.scipy.org/doc/scipy/reference/tutorial/index.html">https://docs.scipy.org/doc/scipy/reference/tutorial/index.html</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org68c7fd8" class="outline-4">
+<h4 id="org68c7fd8">Scikit-learn</h4>
+<div class="outline-text-4" id="text-org68c7fd8">
+<p>
+Machine learning! This is a super hot field in tech right now. If you really like teaching computers how to interpret data, this may be an interesting field to pursue.
+</p>
+
+<p>
+<a href="https://scikit-learn.org/stable/tutorial/basic/tutorial.html">https://scikit-learn.org/stable/tutorial/basic/tutorial.html</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

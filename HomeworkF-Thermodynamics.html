@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-08-14 Wed 15:31 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Homework F - Thermodynamics</title>
+<meta name="author" content="Patrick Malsom" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<style type="text/css">body{ max-width:800px; margin: auto;font-family: LatoWeb, "Lato Extended", Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;}table.center{margin-left:auto; margin-right:auto;}</style>
+</div>
+<div id="content" class="content">
+<h1 class="title">Homework F - Thermodynamics</h1>
+<div id="outline-container-orgfdad96e" class="outline-2">
+<h2 id="orgfdad96e">Problem F.1</h2>
+<div class="outline-text-2" id="text-orgfdad96e">
+<p>
+In a period of \(1.00 s\), \(5.00 \times 10^{23}\) nitrogen molecules strike a wall with an area of \(8.00~cm^2\) . Assume the molecules move with a speed of \(300~m/s\) and strike the wall head-on in elastic collisions. What is the pressure exerted on the wall? Note: The mass of one \(N_2\) molecule is \(4.65 \times 10^{-26}~kg\).
+</p>
+</div>
+</div>
+<div id="outline-container-org6b08b36" class="outline-2">
+<h2 id="org6b08b36">Problem F.2</h2>
+<div class="outline-text-2" id="text-org6b08b36">
+<p>
+A \(4.00~L\) sample of a diatomic ideal gas with specific heat ratio \(\gamma = 1.40\), confined to a cylinder, is carried through a closed cycle. The gas is initially at \(1.00~atm\) and \(300~K\). First, its pressure is tripled under constant volume. Then, it expands adiabatically to its original pressure. Finally, the gas is compressed isobarically to its original volume.
+</p>
+
+<ol class="org-ol">
+<li>Draw a PV diagram of this cycle.</li>
+<li>Determine the volume of the gas at the end of the adiabatic expansion.</li>
+<li>Find the temperature of the gas at the start of the adiabatic expansion.</li>
+<li>Find the temperature at the end of the cycle.</li>
+<li>What was the net work done on the gas for this cycle?</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orgd460a38" class="outline-2">
+<h2 id="orgd460a38">Problem F.3</h2>
+<div class="outline-text-2" id="text-orgd460a38">
+<p>
+An engine absorbs \(1.70~kJ\) from a hot reservoir at \(277^\circ C\) and expels \(1.20~kJ\) to a cold reservoir at \(27^\circ C\) in each cycle.
+</p>
+
+<ol class="org-ol">
+<li>What is the engine’s efficiency?</li>
+<li>How much work is done by the engine in each cycle?</li>
+<li>What is the power output of the engine if each cycle lasts \(0.300~ s\)?</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org343c439" class="outline-2">
+<h2 id="org343c439">Problem F.4</h2>
+<div class="outline-text-2" id="text-org343c439">
+<p>
+Suppose a heat engine is connected to two energy reservoirs, one a pool of molten aluminum (\(660^\circ C\)) and the other a block of solid mercury (\(238.9^\circ C\)). The engine runs by freezing \(1.00~g\) of aluminum and melting \(15.0~g\) of mercury during each cycle. The heat of fusion of aluminum is \(3.97 \times 10^5~ J/kg\); the heat of fusion of mercury is \(1.18 \times 10^4~ J/kg\). What is the efficiency of this engine?
+</p>
+</div>
+</div>
+<div id="outline-container-org88e05a1" class="outline-2">
+<h2 id="org88e05a1">Problem F.5</h2>
+<div class="outline-text-2" id="text-org88e05a1">
+<p>
+A \(1.00-mol\) sample of an ideal monatomic gas is taken through the cycle shown below. The process \(A \rightarrow B\) is a reversible isothermal expansion. Calculate
+</p>
+
+<ol class="org-ol">
+<li>the net work done by the gas</li>
+<li>the energy added to the gas by heat</li>
+<li>the energy exhausted from the gas by heat</li>
+<li>the efficiency of the cycle</li>
+<li>Explain how the efficiency compares with that of a Carnot engine operating between the same temperature extremes.</li>
+</ol>
+
+
+<div id="orga6fee0b" class="figure">
+<p><img src="./img/hwF_fig2.png" alt="hwF_fig2.png" width="400px" />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orga3c507f" class="outline-2">
+<h2 id="orga3c507f">Problem F.6</h2>
+<div class="outline-text-2" id="text-orga3c507f">
+<p>
+In 1816, Robert Stirling, a Scottish clergyman, patented the Stirling engine, which has found a wide variety of applications ever since, including current use in solar energy collectors to transform sunlight into electricity. Fuel is burned externally to warm one of the engine’s two cylinders. A fixed quantity of inert gas moves cyclically between the cylinders, expanding in the hot one and contracting in the cold one. The below figure represents a model for its thermodynamic cycle. Consider \(n\) moles of an ideal monatomic gas being taken once through the cycle, consisting of two isothermal processes at temperatures \(3~T_i\) and \(T_i\) and two constant volume processes. Let us find the efficiency of this engine.
+</p>
+
+<ol class="org-ol">
+<li>Find the energy transferred by heat into the gas during the isovolumetric process AB.</li>
+<li>Find the energy transferred by heat into the gas during the isothermal process BC.</li>
+<li>Find the energy transferred by heat into the gas during the isovolumetric process CD.</li>
+<li>Find the energy transferred by heat into the gas during the isothermal process DA.</li>
+<li>Identify which of the results from parts (a) through (d) are positive and evaluate the energy input to the engine by heat.</li>
+<li>From the first law of thermodynamics, find the work done by the engine.</li>
+<li>From the results of parts (e) and (f), evaluate the efficiency of the engine.</li>
+</ol>
+
+
+<p>
+A Stirling engine is easier to manufacture than an internal combustion engine or a turbine. It can run on burning garbage. It can run on the energy transferred by sunlight and produce no material exhaust. Stirling engines are not currently used in automobiles due to long startup times and poor acceleration response.
+</p>
+
+
+<div id="org739b1b4" class="figure">
+<p><img src="./img/hwF_fig1.png" alt="hwF_fig1.png" width="400px" />
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,617 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-08-14 Wed 15:31 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Lab Resources - Error Analysis</title>
+<meta name="author" content="Patrick Malsom" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<style type="text/css"> blockquote {background:#eee; padding: 3px 10px; border: 1px solid; }</style>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<style type="text/css">body{ max-width:800px; margin: auto;font-family: LatoWeb, "Lato Extended", Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;}table.center{margin-left:auto; margin-right:auto;}</style>
+</div>
+<div id="content" class="content">
+<h1 class="title">Lab Resources - Error Analysis</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orga0363fb">1. Partial derivatives</a></li>
+<li><a href="#orgb2da50f">2. Propagation of error and reporting experimental values</a></li>
+<li><a href="#org72657c1">3. Evaluation with a computer</a>
+<ul>
+<li><a href="#orga0f009b">3.1. Example: Volume and surface area of a cylinder</a></li>
+<li><a href="#org1c0e266">3.2. Exercise 1: Surface area of a cylinder</a></li>
+<li><a href="#org22e7021">3.3. Exercise 2: Universal law of gravitation</a></li>
+<li><a href="#error-propagation-for-ball-launcher">3.4. Error propagation for ball launcher</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<p>
+The experiments you will perform in this course are never going to be perfect. The magnitude of the error is determined  We will need to develop some machinery for calculating what error is present in a calculation. Fortunately, these calculations can be easily performed by applying a bit of calculus. I wish to introduce some special notation which will be used in this lab. A capital E followed by square braces, \(E[~]\), is defined to be the <b>error operator</b>, which can be either measured (\(E[\ell] = 0.01~m\)) or calculated using a theoretical expression.
+</p>
+<div id="outline-container-orga0363fb" class="outline-2">
+<h2 id="orga0363fb"><span class="section-number-2">1.</span> Partial derivatives</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Partial derivatives are wonderful things! You will study this type of derivative extensively in Calc III. I will give you a brief overview here.
+</p>
+
+<p>
+Partial derivatives are used in multivariate calculus to find the gradient (slope) of a multidimensional function. Lets think about a function with two dimensions as a mountain range (x and y directions are independent variables), and the height is the z direction, z(x,y). If you take a partial derivative, you will find the slope of this function in only one of these directions. The rate of change of \(z\) in the \(x\) direction would be written as:
+</p>
+
+<p>
+$$\frac{\partial z}{\partial x}
+</p>
+
+<p>
+The reason I say these derivatives are <i>wonderful</i> is because they are normally somewhat easy to evaluate. You simply take a normal derivative (as seen in calc I) while assuming all other variables are held constant. This means any \(y\) you see in the function can be treated as a constant and can be treated as a constant number number.
+</p>
+
+<p>
+The error calculation you use below will use partial derivitives of a function of many variables and you will have to calculate the derivative with respect to each and every independent variable. This can seem daunting, but derivatives are usually fairly easy to calculate with normal calculus rules (dont forget the chain rule!). The final reason these derivatives are wonderful, is a computer can calculate them for us!
+</p>
+</div>
+</div>
+<div id="outline-container-orgb2da50f" class="outline-2">
+<h2 id="orgb2da50f"><span class="section-number-2">2.</span> Propagation of error and reporting experimental values</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+The experiments you will perform in this course are never going to be perfect. The magnitude of the error is determined  We will need to develop some machinery for calculating what error is present in a calculation. Fortunately, these calculations can be easily performed by applying a bit of calculus. I wish to introduce some special notation which will be used in this lab. A capital E followed by square braces, \(E[~]\), is defined to be the <b>error operator</b>, which can be either measured (\(E[\ell] = 0.01~m\)) or calculated using a theoretical expression.
+</p>
+
+<ul class="org-ul">
+<li>\(A\): a variable which you have measured</li>
+<li>\(E[A]\): the error in the measured variable</li>
+<li>\(f\): the theoretical expression you are using to calculate</li>
+<li>\(E[f]\): the error in the calculated function</li>
+</ul>
+
+<p>
+Given any function \(f\) with arguments \(A,B,\ldots\) The procedure for calculating error in the function \(E[f]\) is given by the following expression:
+</p>
+
+\begin{equation}
+E[ f(A,B,\ldots)] = \sqrt{\left( \frac{\partial f}{\partial A}  E[A] \right)^2+\left( \frac{\partial f}{\partial B}  E[B] \right)^2+\cdots}
+\end{equation}
+
+<p>
+Therefore, we need to calculate the <i>partial</i> derivatives of the function f with respect to each independent variable.
+</p>
+</div>
+</div>
+<div id="outline-container-org72657c1" class="outline-2">
+<h2 id="org72657c1"><span class="section-number-2">3.</span> Evaluation with a computer</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-orga0f009b" class="outline-3">
+<h3 id="orga0f009b"><span class="section-number-3">3.1.</span> Example: Volume and surface area of a cylinder</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+Lets calculate the error of some properties of a physical object, namely a cylinder.Lets assume we have measured a cylinder and found the following dimensions: * \(r = 2.47 \pm 0.01 ~ m\) * \(h = 0.27 \pm 0.01 ~ m\)
+</p>
+
+<p>
+The radius \(r=2.47~m\) is measured with a meter stick and the error is estimated to be \(E[r] = 1~cm\). (The error of the radius is estimated by the experimenter and based on the accuracy of the measurement device)
+</p>
+
+<p>
+The volume of a cylinder is
+</p>
+
+<p>
+\[V = \pi r^2 h\]
+</p>
+
+<p>
+The error in the volume would then be the result of the following equation:
+</p>
+
+<p>
+\[E[V] = \sqrt{ \left( \frac{\partial V}{\partial r} E[r] \right)^2 + \left( \frac{\partial V}{\partial h} E[h] \right)^2}\]
+</p>
+
+<p>
+Lets use python to calculate this derivative and substitute the measured
+values in to arrive at the final volume calculation:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #e45649;">import</span> numpy <span style="color: #e45649;">as</span> np
+<span style="color: #e45649;">import</span> sympy
+sympy.init_printing(use_latex=<span style="color: #50a14f;">'mathjax'</span>)
+<span style="color: #e45649;">import</span> matplotlib <span style="color: #e45649;">as</span> mpl
+<span style="color: #e45649;">import</span> matplotlib.pyplot <span style="color: #e45649;">as</span> plt
+
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">initialize all symbolic variables the equation</span>
+sympy.var(<span style="color: #50a14f;">'eqn, error, r, E_r, h, E_h'</span>)
+
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">Function to perform error propogation on (must be symbolic)</span>
+eqn = sympy.pi * r**<span style="color: #da8548; font-weight: bold;">2</span> * h
+
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">list of measured values (note: double ==)</span>
+measure=[
+      (sympy.pi,<span style="color: #da8548; font-weight: bold;">3.14159</span>), <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">pi</span>
+      (r,<span style="color: #da8548; font-weight: bold;">2.47</span>), <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">radius in meters</span>
+      (E_r,<span style="color: #da8548; font-weight: bold;">0.01</span>), <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">error of radius measurement</span>
+      (h,<span style="color: #da8548; font-weight: bold;">1.73</span>), <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">height in meters</span>
+      (E_h,<span style="color: #da8548; font-weight: bold;">0.01</span>) <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">error of height measurement</span>
+     ]
+
+<span style="color: #9ca0a4;">#</span><span style="color: #9ca0a4;">The error formula: E[eqn]</span>
+error = sympy.sqrt(
+            (sympy.diff(eqn,r) * E_r)**<span style="color: #da8548; font-weight: bold;">2</span> +
+            (sympy.diff(eqn,h) * E_h)**<span style="color: #da8548; font-weight: bold;">2</span>
+)
+
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">display the equation and its error</span>
+display(eqn)
+display(error.simplify())
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">substitute measurements into eqn and error functions</span>
+<span style="color: #a626a4;">print</span>(eqn.subs(measure),<span style="color: #50a14f;">"+-"</span>,error.subs(measure))
+</pre>
+</div>
+
+<p>
+\(\displaystyle \pi h r^{2}\)
+</p>
+
+<p>
+\(\displaystyle \pi \sqrt{r^{2} \left(E_{h}^{2} r^{2} + 4 E_{r}^{2} h^{2}\right)}\)
+</p>
+
+<pre class="example" id="org24f37e9">
+  33.1580907256300 +- 0.329879688527488
+</pre>
+
+<p>
+The volume is calculated to be \(V = 33.15 \pm 0.33 ~ m^3\). This is a
+result that you could quote in an abstract (the result has: value, error
+and units).
+</p>
+</div>
+</div>
+<div id="outline-container-org1c0e266" class="outline-3">
+<h3 id="org1c0e266"><span class="section-number-3">3.2.</span> Exercise 1: Surface area of a cylinder</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+The surface area of a cylinder is
+</p>
+
+<p>
+\[A = 2 \pi r (r+h) \]
+</p>
+
+<p>
+Try to edit above code to calculate the surface area and its associated error. (Answer: \(A = 65.18 \pm 0.45 ~ m^2\))
+</p>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">Calculate surface area error here. Please reuse the code from above!</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org22e7021" class="outline-3">
+<h3 id="org22e7021"><span class="section-number-3">3.3.</span> Exercise 2: Universal law of gravitation</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+The Universal law of gravitation states the acceleration due to gravity
+is
+</p>
+
+<p>
+\[a = G \frac{m}{r^2}\]
+</p>
+
+<p>
+Where G the universal gravitation constant, m is the mass of the earth,
+and r is the radius of earth
+</p>
+
+<p>
+\(G =(6.67408 \pm 0.00030 ) \times 10^{-11} ~m^3kg^{−1}s^{−2}\)
+</p>
+
+<p>
+\(m = (5.9722 \pm 0.0006) \times 10^{24}~ kg\)
+</p>
+
+<p>
+\(r = (6.368 \pm 0.011) \times 10^6~m\)
+</p>
+
+<p>
+(Answer: \(g =9.829 +- 0.034~m/s^2\) which includes our normally used
+value of \(g=9.8~m/s^2\))
+</p>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #e45649;">import</span> numpy <span style="color: #e45649;">as</span> np
+<span style="color: #e45649;">import</span> sympy
+sympy.init_printing(use_latex=<span style="color: #50a14f;">'mathjax'</span>)
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">Calculate surface area error here. Please reuse the code from above!</span>
+
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">initialize all symbolic variables the equation</span>
+sympy.var(<span style="color: #50a14f;">'eqn, error, G, E_G, m, E_m, r, E_r'</span>)
+
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">Function to perform error propogation on (must be symbolic)</span>
+eqn = G*m/r**<span style="color: #da8548; font-weight: bold;">2</span>
+
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">list of measured values (note: double ==)</span>
+measure=[
+      (G,<span style="color: #da8548; font-weight: bold;">6</span>.67408e-<span style="color: #da8548; font-weight: bold;">11</span>),
+      (E_G,<span style="color: #da8548; font-weight: bold;">0</span>.00030e-<span style="color: #da8548; font-weight: bold;">11</span>),
+      (m,<span style="color: #da8548; font-weight: bold;">5</span>.9722e24),
+      (E_m,<span style="color: #da8548; font-weight: bold;">00</span>.0006e24),
+      (r,<span style="color: #da8548; font-weight: bold;">6</span>.368e6),
+      (E_r,<span style="color: #da8548; font-weight: bold;">0</span>.011e6)
+     ]
+
+<span style="color: #9ca0a4;">#</span><span style="color: #9ca0a4;">The error formula: E[eqn]</span>
+error = sympy.sqrt(
+            (sympy.diff(eqn,G) * E_G)**<span style="color: #da8548; font-weight: bold;">2</span> +
+            (sympy.diff(eqn,m) * E_m)**<span style="color: #da8548; font-weight: bold;">2</span> +
+            (sympy.diff(eqn,r) * E_r)**<span style="color: #da8548; font-weight: bold;">2</span>
+)
+
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">display the equation and its error</span>
+display(eqn)
+display(error.simplify())
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">substitute measurements into eqn and error functions</span>
+<span style="color: #a626a4;">print</span>(eqn.subs(measure),<span style="color: #50a14f;">"+-"</span>,error.subs(measure))
+</pre>
+</div>
+
+<p>
+\(\displaystyle \frac{G m}{r^{2}}\)
+</p>
+
+<p>
+\(\displaystyle \sqrt{\frac{4 E_{r}^{2} G^{2} m^{2} + r^{2} \left(E_{G}^{2} m^{2} + E_{m}^{2} G^{2}\right)}{r^{6}}}\)
+</p>
+
+<pre class="example" id="org33122a1">
+  9.82923326588975 +- 0.0339750064834568
+</pre>
+
+<p>
+Please note that the above calculation is entirely algorithmic. You will
+still need to edit a portion of the code when you are entering your
+functions, but the complicated parts of the calculation (the
+derivatives) are handled by the computer.
+</p>
+
+<p>
+The final value for the acceleration is then quoted in your report as:
+\(a = 9.829 \pm 0.034 ~ m/s^2\). This range includes the cannonical value
+of acceleration due to gravity \(9.81~ m/s^2\).
+</p>
+</div>
+</div>
+<div id="outline-container-error-propagation-for-ball-launcher" class="outline-3">
+<h3 id="error-propagation-for-ball-launcher"><span class="section-number-3">3.4.</span> Error propagation for ball launcher</h3>
+<div class="outline-text-3" id="text-error-propagation-for-ball-launcher">
+<p>
+The propagation formula for experiment 2 (ball launcher) is much longer
+(but not all that much harder) to calculate. Lets let the computer do
+all of this work for us! I want to find the error in the ball velocity
+which was measured in the last experiment.
+</p>
+
+<p>
+Recall you launched a ball horizontally from the table. You used the
+following equations to find the initial velocity of the ball:
+</p>
+
+<p>
+\[ y_f = y_i + v_{iy}~t + \tfrac12 a~t^2\]
+</p>
+
+<p>
+Solving this equaiton for t yields:
+</p>
+
+<p>
+\[t = \sqrt{\frac{2(y_f-y_i)}{a}}\]
+</p>
+
+<p>
+Your first task is to calculate the error in this time measurement:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #e45649;">import</span> numpy <span style="color: #e45649;">as</span> np
+<span style="color: #e45649;">import</span> sympy
+sympy.init_printing(use_latex=<span style="color: #50a14f;">'mathjax'</span>)
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">initialize all symbolic variables the equation</span>
+sympy.var(<span style="color: #50a14f;">'eqn, error, y, Ey, y_i, Ey_i, a, Ea'</span>)
+
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">Function to perform error propogation on (must be symbolic)</span>
+eqn = sympy.sqrt(<span style="color: #da8548; font-weight: bold;">2</span>*(y - y_i)/a)
+
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">list of measured values (note: double ==)</span>
+measure=[(y,.<span style="color: #da8548; font-weight: bold;">5</span>),
+         (Ey,<span style="color: #da8548; font-weight: bold;">0.02</span>),
+         (y_i,<span style="color: #da8548; font-weight: bold;">0</span>),
+         (Ey_i,<span style="color: #da8548; font-weight: bold;">0</span>),
+         (a,<span style="color: #da8548; font-weight: bold;">9.829</span>),
+         (Ea,<span style="color: #da8548; font-weight: bold;">0.033</span>)
+        ]
+
+<span style="color: #9ca0a4;">#</span><span style="color: #9ca0a4;">The error formula: E[eqn]</span>
+error = sympy.sqrt(
+            (sympy.diff(eqn,y) * Ey)**<span style="color: #da8548; font-weight: bold;">2</span> +
+            (sympy.diff(eqn,y_i) * Ey_i)**<span style="color: #da8548; font-weight: bold;">2</span> +
+            (sympy.diff(eqn,a) * Ea)**<span style="color: #da8548; font-weight: bold;">2</span>
+)
+
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">display the equation and its error</span>
+display(eqn)
+display(error.simplify())
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">substitute measurements into eqn and error functions</span>
+<span style="color: #a626a4;">print</span>(eqn.subs(measure),<span style="color: #50a14f;">"+-"</span>,error.subs(measure))
+</pre>
+</div>
+
+<p>
+\(\displaystyle \sqrt{\frac{2 y - 2 y_{i}}{a}}\)
+</p>
+
+<p>
+\(\displaystyle \frac{\sqrt{2} \sqrt{\frac{\frac{Ea^{2} \left(y - y_{i}\right)}{a^{2}} + \frac{Ey^{2} + Ey_{i}^{2}}{y - y_{i}}}{a}}}{2}\)
+</p>
+
+<pre class="example" id="orgf576a4f">
+  0.318966690612383 +- 0.00640176600131754
+</pre>
+
+<p>
+After calculating the time it took for the ball to reach the ground, you
+then were able to use the x-direction to solve for the velocity of the
+ball coming out of the launcher. Your task is to use the error above to
+find the error in the velocity of the ball. The equation of motion to
+solve for velocity in the x-direction is:
+</p>
+
+<p>
+\[x_f = x_i + v_{xi}~t + \tfrac12 a_x ~t^2\]
+</p>
+
+<p>
+Solving this equaiton for \(v_{xi}\) yields:
+</p>
+
+<p>
+\[ v_{xi} = \frac{x_f - x_i}{t}\]
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
