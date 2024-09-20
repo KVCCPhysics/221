@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-09-20 Fri 15:10 -->
+<!-- 2024-09-20 Fri 15:55 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Lab 2 - Motion In 2D</title>
@@ -556,16 +556,22 @@ plt.show()
 </div>
 
 <pre class="example">
-first 10 numbers: [ 0.23438993 -1.05147699 -1.55892545 -1.56863975  0.50300723 -2.40439536
-  0.05258973 -1.62956068 -1.43044506  0.6985148   1.31261274 -0.5724708
-  0.2428474   0.30246981 -1.23232615 -1.4710712   1.97616636  0.33673659
-  1.85934131 -0.02973466 -1.74903646 -0.65974212  0.15290762 -1.03849662
-  0.86577302 -0.72861746 -0.46712866  0.08271407 -1.56120636 -0.82386314]
+first 10 numbers: [-1.93507767  0.95477823 -1.27177695 -0.01040008  0.01683712  0.44711461
+  0.66236298  1.41645135  0.71793696  0.20451794 -0.3376051  -0.05655032
+ -1.02233023 -0.23939084  0.51523748 -2.35661197  0.8385665   0.01352455
+ -0.40145227  0.08269303 -0.15155827 -0.25646739  1.95028132  0.161934
+  0.37498446  0.67792546 -0.6631531  -0.42630134 -1.15925488 -0.73822766]
 </pre>
 
 
-<div id="orge8d1d9e" class="figure">
-<p><img src="./.ob-jupyter/d5fc8793e36df548939aefb45ad140e6b886eb39.png" alt="d5fc8793e36df548939aefb45ad140e6b886eb39.png" />
+<div id="org9b2e8db" class="figure">
+<p><img src="./.ob-jupyter/fc055852231da51b717e9aec74e4d6fea29c7fad.png" alt="fc055852231da51b717e9aec74e4d6fea29c7fad.png" />
+</p>
+</div>
+
+
+<div id="org2aed0a7" class="figure">
+<p><img src="./gaussian_dist.png" alt="gaussian_dist.png" />
 </p>
 </div>
 </div>
@@ -613,7 +619,9 @@ The main advantage of the Monte Carlo method is how generic the application is t
   <span style="color: #e45649;">if</span> i&lt;<span style="color: #da8548; font-weight: bold;">500</span>:
     plt.plot(guessx,guessy,<span style="color: #50a14f;">'ro'</span>)
 
-plt.plot([numpy.cos(q) <span style="color: #e45649;">for</span> q <span style="color: #e45649;">in</span> numpy.arange(<span style="color: #da8548; font-weight: bold;">0</span>,<span style="color: #da8548; font-weight: bold;">2</span>*numpy.pi,<span style="color: #da8548; font-weight: bold;">0.01</span>)],[numpy.sin(q) <span style="color: #e45649;">for</span> q <span style="color: #e45649;">in</span> numpy.arange(<span style="color: #da8548; font-weight: bold;">0</span>,<span style="color: #da8548; font-weight: bold;">2</span>*numpy.pi,<span style="color: #da8548; font-weight: bold;">0.01</span>)])
+plt.plot(
+      [numpy.cos(q) <span style="color: #e45649;">for</span> q <span style="color: #e45649;">in</span> numpy.arange(<span style="color: #da8548; font-weight: bold;">0</span>,<span style="color: #da8548; font-weight: bold;">2</span>*numpy.pi,<span style="color: #da8548; font-weight: bold;">0.01</span>)],
+      [numpy.sin(q) <span style="color: #e45649;">for</span> q <span style="color: #e45649;">in</span> numpy.arange(<span style="color: #da8548; font-weight: bold;">0</span>,<span style="color: #da8548; font-weight: bold;">2</span>*numpy.pi,<span style="color: #da8548; font-weight: bold;">0.01</span>)])
 plt.gca().set_aspect(<span style="color: #50a14f;">'equal'</span>)
 
 <span style="color: #a626a4;">print</span>(guessx,guessy)
@@ -626,11 +634,12 @@ plt.gca().set_aspect(<span style="color: #50a14f;">'equal'</span>)
 <span style="color: #a626a4;">print</span>(<span style="color: #50a14f;">"Pi: "</span>,<span style="color: #da8548; font-weight: bold;">4</span>*inside/guesses)
 
 plt.show()
+
 </pre>
 </div>
 
 <pre class="example">
--0.8425095970615195 0.8189545878439897
+0.5188168397512896 0.9686614523536945
 Inside:  79
 Outside:  21
 inside shots:  79.0 % of area
@@ -638,10 +647,11 @@ Pi:  3.16
 </pre>
 
 
-<div id="org41b5428" class="figure">
-<p><img src="./.ob-jupyter/74fb7fca7dc96f09d795902a0be5f524cde10e2d.png" alt="74fb7fca7dc96f09d795902a0be5f524cde10e2d.png" />
+<div id="orgede31fc" class="figure">
+<p><img src="./.ob-jupyter/9c7ac3353fbf2723c8e59a0bdfa057bc3e90c518.png" alt="9c7ac3353fbf2723c8e59a0bdfa057bc3e90c518.png" />
 </p>
 </div>
+
 
 <p>
 Here is a smaller version of the above code, which excludes the figures:
@@ -659,7 +669,7 @@ Here is a smaller version of the above code, which excludes the figures:
 </div>
 
 <pre class="example">
-3.143156
+3.14146
 </pre>
 </div>
 </div>
@@ -714,7 +724,7 @@ plt.show()
 
 
 <div id="orgfd16695" class="figure">
-<p><img src="./.ob-jupyter/b1c75cc7b3b0b37f49efe75d1cbbba5a2f7b52d4.png" alt="b1c75cc7b3b0b37f49efe75d1cbbba5a2f7b52d4.png" />
+<p><img src="./.ob-jupyter/0a302e379698e5a16a6132c7d43afa5612cbf521.png" alt="0a302e379698e5a16a6132c7d43afa5612cbf521.png" />
 </p>
 </div>
 
@@ -765,16 +775,16 @@ returns the horizontal range:
 </div>
 
 <pre class="example">
-random shot 0 : 3.0055622286438712
-random shot 1 : 2.9831305237842094
-random shot 2 : 2.823009942688963
-random shot 3 : 3.0084778109362285
-random shot 4 : 2.9846044918228314
-random shot 5 : 2.915175855992633
-random shot 6 : 2.8913261861914994
-random shot 7 : 2.8675454192962726
-random shot 8 : 2.9205283628450527
-random shot 9 : 3.0841019250027473
+random shot 0 : 2.9175300026274327
+random shot 1 : 2.8394465371423214
+random shot 2 : 2.890141461313407
+random shot 3 : 3.1046553803662444
+random shot 4 : 3.0383679559443117
+random shot 5 : 2.926752391315506
+random shot 6 : 2.972234517828857
+random shot 7 : 2.9372410120262273
+random shot 8 : 2.754118709450034
+random shot 9 : 2.948729128686842
 </pre>
 
 
@@ -791,12 +801,12 @@ plt.show()
 </div>
 
 <pre class="example">
-Range:  2.944852933319097 +- 0.0791141908089303 m
+Range:  2.9866678662552313 +- 0.07876676716894418 m
 </pre>
 
 
-<div id="orgcb70993" class="figure">
-<p><img src="./.ob-jupyter/b52304530fdc5750f4a338b19973aaabaf7642bf.png" alt="b52304530fdc5750f4a338b19973aaabaf7642bf.png" />
+<div id="org7975aab" class="figure">
+<p><img src="./.ob-jupyter/e088dc7bed191f084975e20072682d01a4a94429.png" alt="e088dc7bed191f084975e20072682d01a4a94429.png" />
 </p>
 </div>
 
