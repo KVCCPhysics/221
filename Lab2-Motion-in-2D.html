@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-09-20 Fri 15:55 -->
+<!-- 2024-09-20 Fri 16:41 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Lab 2 - Motion In 2D</title>
@@ -551,27 +551,25 @@ plt.plot(x, stats.norm.pdf(x, meas_mean,meas_sigma))
 <span style="color: #6a1868;">random_list</span>=numpy.array([random.normal(meas_mean,meas_sigma) <span style="color: #e45649;">for</span> i <span style="color: #e45649;">in</span> <span style="color: #a626a4;">range</span>(samples)])
 <span style="color: #a626a4;">print</span>(<span style="color: #50a14f;">"first 10 numbers:"</span>, random_list[<span style="color: #da8548; font-weight: bold;">0</span>:<span style="color: #da8548; font-weight: bold;">30</span>])
 plt.hist(random_list,<span style="color: #da8548; font-weight: bold;">30</span>,stacked=<span style="color: #b751b6;">True</span>,density=<span style="color: #b751b6;">True</span>)
-plt.show()
+
+plt.savefig(<span style="color: #50a14f;">"img/02-gaussiandist.png"</span>,bbox_inches=<span style="color: #50a14f;">'tight'</span>)
+plt.close()
+<span style="color: #9ca0a4;">#</span><span style="color: #9ca0a4;">plt.show()</span>
 </pre>
 </div>
 
 <pre class="example">
-first 10 numbers: [-1.93507767  0.95477823 -1.27177695 -0.01040008  0.01683712  0.44711461
-  0.66236298  1.41645135  0.71793696  0.20451794 -0.3376051  -0.05655032
- -1.02233023 -0.23939084  0.51523748 -2.35661197  0.8385665   0.01352455
- -0.40145227  0.08269303 -0.15155827 -0.25646739  1.95028132  0.161934
-  0.37498446  0.67792546 -0.6631531  -0.42630134 -1.15925488 -0.73822766]
+first 10 numbers: [-0.58470604  0.84858639  0.8671866  -1.62185893  0.37688367  0.54335245
+ -0.03019735  0.45717222 -1.17256198 -1.66901275  0.39347224 -0.54302757
+  0.20077843  1.48525223  0.93978824 -3.3397188  -0.60618195 -0.61667165
+ -0.79906254 -0.31684732 -0.45556636  0.54010648 -0.66596071  0.79386902
+  0.52824317  1.83989479  2.216019   -1.38384583  0.00399558 -1.51280628]
 </pre>
 
 
-<div id="org9b2e8db" class="figure">
-<p><img src="./.ob-jupyter/fc055852231da51b717e9aec74e4d6fea29c7fad.png" alt="fc055852231da51b717e9aec74e4d6fea29c7fad.png" />
-</p>
-</div>
 
-
-<div id="org2aed0a7" class="figure">
-<p><img src="./gaussian_dist.png" alt="gaussian_dist.png" />
+<div id="orgf3dcf00" class="figure">
+<p><img src="./img/02-gaussiandist.png" alt="02-gaussiandist.png" />
 </p>
 </div>
 </div>
@@ -625,33 +623,31 @@ plt.plot(
 plt.gca().set_aspect(<span style="color: #50a14f;">'equal'</span>)
 
 <span style="color: #a626a4;">print</span>(guessx,guessy)
-
 <span style="color: #a626a4;">print</span>(<span style="color: #50a14f;">"Inside: "</span>,inside)
 <span style="color: #a626a4;">print</span>(<span style="color: #50a14f;">"Outside: "</span>,outside)
-
 <span style="color: #a626a4;">print</span>(<span style="color: #50a14f;">"inside shots: "</span>,inside/guesses*<span style="color: #da8548; font-weight: bold;">100</span>,<span style="color: #50a14f;">"% of area"</span>)
-<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">A = pi*r**2 = pi*d**2/4  -&gt;  pi = 4*A/d**2 = 4*A</span>
 <span style="color: #a626a4;">print</span>(<span style="color: #50a14f;">"Pi: "</span>,<span style="color: #da8548; font-weight: bold;">4</span>*inside/guesses)
 
-plt.show()
-
+plt.savefig(<span style="color: #50a14f;">"img/02-dartboard.png"</span>,bbox_inches=<span style="color: #50a14f;">'tight'</span>)
+plt.close()
+<span style="color: #9ca0a4;">#</span><span style="color: #9ca0a4;">plt.show()</span>
 </pre>
 </div>
 
 <pre class="example">
-0.5188168397512896 0.9686614523536945
-Inside:  79
-Outside:  21
-inside shots:  79.0 % of area
-Pi:  3.16
+-0.09227000200754243 0.006990429106159768
+Inside:  77
+Outside:  23
+inside shots:  77.0 % of area
+Pi:  3.08
 </pre>
 
 
-<div id="orgede31fc" class="figure">
-<p><img src="./.ob-jupyter/9c7ac3353fbf2723c8e59a0bdfa057bc3e90c518.png" alt="9c7ac3353fbf2723c8e59a0bdfa057bc3e90c518.png" />
+
+<div id="org2a74b62" class="figure">
+<p><img src="./img/02-dartboard.png" alt="02-dartboard.png" />
 </p>
 </div>
-
 
 <p>
 Here is a smaller version of the above code, which excludes the figures:
@@ -669,7 +665,7 @@ Here is a smaller version of the above code, which excludes the figures:
 </div>
 
 <pre class="example">
-3.14146
+3.140092
 </pre>
 </div>
 </div>
@@ -718,13 +714,15 @@ plt.ylabel(<span style="color: #50a14f;">'Vertical Position (m)'</span>)
 plt.title(<span style="color: #50a14f;">'Projectile Motion'</span>)
 plt.gca().set_aspect(<span style="color: #50a14f;">'equal'</span>)
 
-plt.show()
+plt.savefig(<span style="color: #50a14f;">"img/02-projectile.png"</span>,bbox_inches=<span style="color: #50a14f;">'tight'</span>)
+plt.close()
+<span style="color: #9ca0a4;">#</span><span style="color: #9ca0a4;">plt.show()</span>
 </pre>
 </div>
 
 
-<div id="orgfd16695" class="figure">
-<p><img src="./.ob-jupyter/0a302e379698e5a16a6132c7d43afa5612cbf521.png" alt="0a302e379698e5a16a6132c7d43afa5612cbf521.png" />
+<div id="org99014cb" class="figure">
+<p><img src="./img/02-projectile.png" alt="02-projectile.png" />
 </p>
 </div>
 
@@ -775,16 +773,16 @@ returns the horizontal range:
 </div>
 
 <pre class="example">
-random shot 0 : 2.9175300026274327
-random shot 1 : 2.8394465371423214
-random shot 2 : 2.890141461313407
-random shot 3 : 3.1046553803662444
-random shot 4 : 3.0383679559443117
-random shot 5 : 2.926752391315506
-random shot 6 : 2.972234517828857
-random shot 7 : 2.9372410120262273
-random shot 8 : 2.754118709450034
-random shot 9 : 2.948729128686842
+random shot 0 : 3.013987394988694
+random shot 1 : 2.941407881032775
+random shot 2 : 3.0504217927223185
+random shot 3 : 2.9088157158121
+random shot 4 : 2.8840354288716843
+random shot 5 : 3.08708814434523
+random shot 6 : 2.9553009427488566
+random shot 7 : 2.94093987388364
+random shot 8 : 3.0605279272372057
+random shot 9 : 2.8728756577713064
 </pre>
 
 
@@ -796,20 +794,23 @@ plt.hist(shots,<span style="color: #da8548; font-weight: bold;">30</span>)
 plt.xlabel(<span style="color: #50a14f;">'Range (m)'</span>)
 plt.ylabel(<span style="color: #50a14f;">'Frequency'</span>)
 plt.title(<span style="color: #50a14f;">'Range Distribution'</span>)
-plt.show()
+
+plt.savefig(<span style="color: #50a14f;">"img/02-range.png"</span>,bbox_inches=<span style="color: #50a14f;">'tight'</span>)
+plt.close()
+<span style="color: #9ca0a4;">#</span><span style="color: #9ca0a4;">plt.show()</span>
 </pre>
 </div>
 
 <pre class="example">
-Range:  2.9866678662552313 +- 0.07876676716894418 m
+Range:  2.9568954149224664 +- 0.0965741676952232 m
 </pre>
 
 
-<div id="org7975aab" class="figure">
-<p><img src="./.ob-jupyter/e088dc7bed191f084975e20072682d01a4a94429.png" alt="e088dc7bed191f084975e20072682d01a4a94429.png" />
+
+<div id="org37e11c5" class="figure">
+<p><img src="./img/02-range.png" alt="02-range.png" />
 </p>
 </div>
-
 
 
 <blockquote>
