@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-09-10 Tue 11:24 -->
+<!-- 2024-09-20 Fri 12:12 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Lab 1 - Measurement</title>
@@ -396,7 +396,7 @@ Here is an example of minimal lab notes highlighting these four essentials. I en
 </p>
 
 
-<div id="orga9f4ee9" class="figure">
+<div id="orgd42407f" class="figure">
 <p><img src="./img/Lab01_Notes.png" alt="Lab01_Notes.png" width="600" style="border:1px solid black;" />
 </p>
 </div>
@@ -456,47 +456,9 @@ Approximately 68% of all measurements will fall into the &ldquo;one standard dev
 \[E[x] = \mu \pm \sigma\]
 </p>
 
-<div class="org-src-container">
-<pre class="src src-jupyter-python"><span style="color: #e45649;">import</span> matplotlib <span style="color: #e45649;">as</span> mpl
-<span style="color: #e45649;">import</span> matplotlib.pyplot <span style="color: #e45649;">as</span> plt
-<span style="color: #e45649;">import</span> numpy <span style="color: #e45649;">as</span> np
 
-<span style="color: #6a1868;">mu</span> = <span style="color: #da8548; font-weight: bold;">0.0</span>
-<span style="color: #6a1868;">sigma</span>= <span style="color: #da8548; font-weight: bold;">1.0</span>
-
-<span style="color: #6a1868;">x</span>=np.linspace(-<span style="color: #da8548; font-weight: bold;">3</span>*sigma,<span style="color: #da8548; font-weight: bold;">3</span>*sigma,num=<span style="color: #da8548; font-weight: bold;">500</span>)
-f=<span style="color: #da8548; font-weight: bold;">1</span>/np.sqrt(<span style="color: #da8548; font-weight: bold;">2</span>*np.pi*sigma**<span style="color: #da8548; font-weight: bold;">2</span>) * np.exp(- (x-mu)**<span style="color: #da8548; font-weight: bold;">2</span>/(<span style="color: #da8548; font-weight: bold;">2</span>*sigma**<span style="color: #da8548; font-weight: bold;">2</span>))
-
-xfill=np.linspace(-sigma+mu,sigma+mu,num=<span style="color: #da8548; font-weight: bold;">500</span>)
-zfill=np.zeros(<span style="color: #da8548; font-weight: bold;">500</span>)
-ffill=<span style="color: #da8548; font-weight: bold;">1</span>/np.sqrt(<span style="color: #da8548; font-weight: bold;">2</span>*np.pi*sigma**<span style="color: #da8548; font-weight: bold;">2</span>) * np.exp(- (xfill-mu)**<span style="color: #da8548; font-weight: bold;">2</span>/(<span style="color: #da8548; font-weight: bold;">2</span>*sigma**<span style="color: #da8548; font-weight: bold;">2</span>))
-
-fig, ax = plt.subplots()  <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">a figure with a single Axes</span>
-
-plt.title(<span style="color: #50a14f;">"The Normal Distribution"</span>)
-ax.text(-<span style="color: #da8548; font-weight: bold;">0.2</span>, <span style="color: #da8548; font-weight: bold;">0.2</span>, <span style="color: #50a14f;">"~68%"</span>, fontsize=<span style="color: #da8548; font-weight: bold;">15</span>)
-ax.text(-<span style="color: #da8548; font-weight: bold;">1.1</span>, -<span style="color: #da8548; font-weight: bold;">0.05</span>, r<span style="color: #50a14f;">'$-\sigma$'</span>, fontsize=<span style="color: #da8548; font-weight: bold;">15</span>)
-ax.text(<span style="color: #da8548; font-weight: bold;">0.9</span>, -<span style="color: #da8548; font-weight: bold;">0.05</span>, r<span style="color: #50a14f;">'$+\sigma$'</span>, fontsize=<span style="color: #da8548; font-weight: bold;">15</span>)
-ax.text(-<span style="color: #da8548; font-weight: bold;">0.1</span>, -<span style="color: #da8548; font-weight: bold;">0.05</span>, r<span style="color: #50a14f;">'$\mu$'</span>, fontsize=<span style="color: #da8548; font-weight: bold;">15</span>)
-
-plt.yticks([])
-plt.xticks([])
-plt.ylim([-<span style="color: #da8548; font-weight: bold;">0.07</span>,<span style="color: #da8548; font-weight: bold;">0.42</span>])
-
-
-ax.plot(x,f,color=<span style="color: #50a14f;">'black'</span>)
-ax.plot([-<span style="color: #da8548; font-weight: bold;">1</span>,-<span style="color: #da8548; font-weight: bold;">1</span>],[-<span style="color: #da8548; font-weight: bold;">0.01</span>,<span style="color: #da8548; font-weight: bold;">0.01</span>],color=<span style="color: #50a14f;">'black'</span>,alpha=<span style="color: #da8548; font-weight: bold;">0.2</span>)
-ax.plot([-<span style="color: #da8548; font-weight: bold;">3</span>*sigma,<span style="color: #da8548; font-weight: bold;">3</span>*sigma],[<span style="color: #da8548; font-weight: bold;">0</span>,<span style="color: #da8548; font-weight: bold;">0</span>],color=<span style="color: #50a14f;">'black'</span>,alpha=<span style="color: #da8548; font-weight: bold;">0.2</span>)
-ax.plot([<span style="color: #da8548; font-weight: bold;">0</span>,<span style="color: #da8548; font-weight: bold;">0</span>],[-<span style="color: #da8548; font-weight: bold;">0.01</span>,<span style="color: #da8548; font-weight: bold;">0.01</span>],color=<span style="color: #50a14f;">'black'</span>,alpha=<span style="color: #da8548; font-weight: bold;">0.2</span>)
-ax.plot([<span style="color: #da8548; font-weight: bold;">1</span>,<span style="color: #da8548; font-weight: bold;">1</span>],[-<span style="color: #da8548; font-weight: bold;">0.01</span>,<span style="color: #da8548; font-weight: bold;">0.01</span>],color=<span style="color: #50a14f;">'black'</span>,alpha=<span style="color: #da8548; font-weight: bold;">0.2</span>)
-ax.fill_between(xfill,zfill,ffill, facecolor=<span style="color: #50a14f;">'black'</span>, alpha=<span style="color: #da8548; font-weight: bold;">0.05</span>)
-plt.show()
-</pre>
-</div>
-
-
-<div id="orgdd6cd9a" class="figure">
-<p><img src="./ob-jupyter/378486fefd890c98d21d58acd09a6251702137b8.png" alt="378486fefd890c98d21d58acd09a6251702137b8.png" />
+<div id="orgf333204" class="figure">
+<p><img src="./.ob-jupyter/378486fefd890c98d21d58acd09a6251702137b8.png" alt="378486fefd890c98d21d58acd09a6251702137b8.png" />
 </p>
 </div>
 </div>
@@ -581,8 +543,8 @@ plt.show()
 </div>
 
 
-<div id="orgf333204" class="figure">
-<p><img src="./ob-jupyter/66add9f236c4083cee79104c4fde2fe2b214d279.png" alt="66add9f236c4083cee79104c4fde2fe2b214d279.png" />
+<div id="orgfdde475" class="figure">
+<p><img src="./.ob-jupyter/66add9f236c4083cee79104c4fde2fe2b214d279.png" alt="66add9f236c4083cee79104c4fde2fe2b214d279.png" />
 </p>
 </div>
 </div>

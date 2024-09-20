@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-08-14 Wed 15:31 -->
+<!-- 2024-09-20 Fri 12:12 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Lab 2 - Motion In 2D</title>
@@ -330,41 +330,6 @@ Place a piece of white paper on the floor at the approximate impact point. Tape 
 </ul>
 </blockquote>
 </div>
-<div id="outline-container-org92bb182" class="outline-3">
-<h3 id="org92bb182">Error propagation</h3>
-<div class="outline-text-3" id="text-org92bb182">
-<ol class="org-ol">
-<li>Write down each algebraic equation you used calculate these results. First write an algebraic expression for \(t\), then write one for \(v_{ix}\). You will use these equations to propagate error.
-\[t(y) = \qquad\qquad\qquad v_{ix}(x_f,t)=\]</li>
-
-<li><p>
-Use the error propagation formula to find the propagated error in time
-</p>
-
-<p>
-\[E[t] = \sqrt{\left( \frac{\partial t}{\partial y} \cdot E[y] \right)^2 } = \frac{\partial t}{\partial y} \cdot E[y]\]
-</p></li>
-
-<li><p>
-Use the error propagation formula to find the propagated error in velocity
-</p>
-
-<p>
-\[E[v_{ix}] = \sqrt{\left( \frac{\partial v_{ix}}{\partial t} \cdot E[t] \right)^2 + \left( \frac{\partial v_{ix}}{\partial x_f} \cdot E[x_f] \right)^2 }\]
-</p></li>
-</ol>
-
-<blockquote>
-<p>
-<b>Checkpoint:</b>
-</p>
-<ul class="org-ul">
-<li>derivation of error formulae for time and velocity</li>
-<li>propagated error in velocity \(E[v_{ix}]\)</li>
-</ul>
-</blockquote>
-</div>
-</div>
 </div>
 <div id="outline-container-orgbe9467a" class="outline-2">
 <h2 id="orgbe9467a">Experiment 2: Inclined Shot</h2>
@@ -466,12 +431,51 @@ Use your knowledge of kinematics to calculate the minimum and maximum range usin
 <div id="outline-container-org41aa8a8" class="outline-3">
 <h3 id="org41aa8a8">Error Propagation - Finding the expected range</h3>
 <div class="outline-text-3" id="text-org41aa8a8">
-<p>
-Even for kinematics (a simple case), propagating error leads to complications. If you attempt to go headlong into the math, you arrive at the following: (This includes clever trick which you will need for the first exam)
+</div>
+<div id="outline-container-org1b1c59e" class="outline-4">
+<h4 id="org1b1c59e">Error propagation for Horizontal Shot</h4>
+<div class="outline-text-4" id="text-org1b1c59e">
+<ol class="org-ol">
+<li>Write down each algebraic equation you used calculate these results. First write an algebraic expression for \(t\), then write one for \(v_{ix}\). You will use these equations to propagate error.
+\[t(y) = \qquad\qquad\qquad v_{ix}(x_f,t)=\]</li>
+
+<li><p>
+Use the error propagation formula to find the propagated error in time
 </p>
 
 <p>
-solving for range in 2D free fall without knowing time:
+\[E[t] = \sqrt{\left( \frac{\partial t}{\partial y} \cdot E[y] \right)^2 } = \frac{\partial t}{\partial y} \cdot E[y]\]
+</p></li>
+
+<li><p>
+Use the error propagation formula to find the propagated error in velocity
+</p>
+
+<p>
+\[E[v_{ix}] = \sqrt{\left( \frac{\partial v_{ix}}{\partial t} \cdot E[t] \right)^2 + \left( \frac{\partial v_{ix}}{\partial x_f} \cdot E[x_f] \right)^2 }\]
+</p></li>
+</ol>
+
+<blockquote>
+<p>
+<b>Checkpoint:</b>
+</p>
+<ul class="org-ul">
+<li>derivation of error formulae for time and velocity</li>
+<li>propagated error in velocity \(E[v_{ix}]\)</li>
+</ul>
+</blockquote>
+</div>
+</div>
+<div id="outline-container-org1351741" class="outline-4">
+<h4 id="org1351741">Error propagation for Inclined Shot</h4>
+<div class="outline-text-4" id="text-org1351741">
+<p>
+Propagating error leads to complications even in simple cases such as kinematics. If you attempt to go headlong into the math, you arrive at the following: (This includes clever substitute-eliminate trick)
+</p>
+
+<p>
+Process for solving for range in 2D free fall without knowing time:
 </p>
 <ul class="org-ul">
 <li>write out the kinematic equations
@@ -481,23 +485,321 @@ solving for range in 2D free fall without knowing time:
 \[t=\frac{x_f - x_i}{v_{i}cos(\theta)}\]</li>
 <li>substitute this result into \(y_f\) equation
 \[y_f = y_i + v_i sin(\theta)\left(\frac{x_f - x_i}{v_{i}cos(\theta)}\right) + \frac12 a \, \left(\frac{x_f - x_i}{v_{i}cos(\theta)}\right)^2\]
-\[y_f = y_i (x_f - x_i) tan(\theta) + \frac12 a \, \left(\frac{x_f - x_i}{v_{i}cos(\theta)}\right)^2\]</li>
+\[y_f = y_i + (x_f - x_i) tan(\theta) + \frac12 a \, \left(\frac{x_f - x_i}{v_{i}cos(\theta)}\right)^2\]h</li>
 </ul>
 
 <p>
-this is a useful result to use for solving physics problems. But realize the part we are after for this experiment is actually the \((x_f - x_i\)) term, which is quadratic. Yikes! This is a show stopper and other methods must be used (sampling or other simulations).
+this is a useful result to use for solving physics problems (like the first exam question). But realize the part we are after for this experiment is actually the \((x_f - x_i\)) term, which is quadratic. Yikes! This is a show stopper and other methods must be used (sampling or other simulations).
 </p>
 
 <p>
-The simplest sampling method is normally a Monte Carlo Simulation. This seems like a nice homework problem :)
+The &rsquo;simplest&rsquo; sampling method is usually a Monte Carlo type simulation. Monte Carlo simply uses raw compute power and random numbers to brute force a result. In our case, this means inputting our initial conditions and running a script which calculates the posterior distribution of landing points. Lets start with a simple example of monte carlo: Calculating the number \(\pi\):
 </p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgf9127c7" class="outline-3">
+<h3 id="orgf9127c7">Monte Carlo Sampling (Simulation)</h3>
+<div class="outline-text-3" id="text-orgf9127c7">
+</div>
+<div id="outline-container-orgfbcb2eb" class="outline-4">
+<h4 id="orgfbcb2eb">Gaussian Random Numbers</h4>
+<div class="outline-text-4" id="text-orgfbcb2eb">
+<p>
+Before we begin, lets look at Gaussian Random Number Generators (RNG). These numbers are different than regular rand functions (uniform between 0 and 1) as they return a normally distributed number.
+</p>
+
+<p>
+Some setup of external code libraries. * <code>import</code> statements pull in external libraries to use * numpy - numerical python routines and data structures * matplotlib - plotting library used to create figures * scipy - library of scientific routines and functions * <code>%matplotlib inline</code> allows you to see the graphics interactively in your web browser
+</p>
+
+<p>
+<b>Note:</b> these libraries are imported for every subsequent cell, until you reset the runtime (see clickable dropdown menus):
+</p>
+
+<p>
+Lets now generate a list of random numbers and look at their distribution as the number of samples increases
+</p>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #e45649;">import</span> numpy
+<span style="color: #e45649;">import</span> matplotlib.pyplot <span style="color: #e45649;">as</span> plt
+<span style="color: #e45649;">import</span> numpy.random <span style="color: #e45649;">as</span> random
+<span style="color: #e45649;">import</span> scipy.stats <span style="color: #e45649;">as</span> stats
+%matplotlib inline
+
+<span style="color: #6a1868;">samples</span>=<span style="color: #da8548; font-weight: bold;">50</span>
+<span style="color: #6a1868;">meas_mean</span>=<span style="color: #da8548; font-weight: bold;">0.0</span>
+<span style="color: #6a1868;">meas_sigma</span>=<span style="color: #da8548; font-weight: bold;">1.0</span>
+
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">create a list of 100 equally spaced numbers from -3sigma to 3sigma</span>
+<span style="color: #6a1868;">x</span> = numpy.linspace(meas_mean-<span style="color: #da8548; font-weight: bold;">3</span>*meas_sigma,meas_mean+<span style="color: #da8548; font-weight: bold;">3</span>*meas_sigma, <span style="color: #da8548; font-weight: bold;">100</span>)
+plt.plot(x, stats.norm.pdf(x, meas_mean,meas_sigma))
+
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">list comprehension to generate a list of normally distributed numbers</span>
+<span style="color: #6a1868;">random_list</span>=numpy.array([random.normal(meas_mean,meas_sigma) <span style="color: #e45649;">for</span> i <span style="color: #e45649;">in</span> <span style="color: #a626a4;">range</span>(samples)])
+<span style="color: #a626a4;">print</span>(<span style="color: #50a14f;">"first 10 numbers:"</span>, random_list[<span style="color: #da8548; font-weight: bold;">0</span>:<span style="color: #da8548; font-weight: bold;">30</span>])
+plt.hist(random_list,<span style="color: #da8548; font-weight: bold;">30</span>,stacked=<span style="color: #b751b6;">True</span>,density=<span style="color: #b751b6;">True</span>)
+plt.show()
+</pre>
+</div>
+
+<pre class="example">
+first 10 numbers: [-0.88123574 -0.97036702  0.70387294 -0.33276245  0.51567221 -0.17278818
+ -0.21355229 -0.89700843  1.82208869 -0.35194476 -1.36967197 -0.2697192
+ -1.28072043 -0.75699804 -0.91825177 -0.07864165  0.90636243 -0.09404579
+ -0.63244794 -0.88639174  0.11393478 -0.78456955 -0.89940379  0.1982493
+  0.11766323 -1.52312735  1.38073541 -0.62694972  0.83237067  0.07784822]
+</pre>
+
+
+<div id="org6c42ec1" class="figure">
+<p><img src="./.ob-jupyter/c01d20add6fc5e99a8236b9519f53a5a898e8b0f.png" alt="c01d20add6fc5e99a8236b9519f53a5a898e8b0f.png" />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgaffd0e0" class="outline-4">
+<h4 id="orgaffd0e0">Monte Carlo: Calculating pi</h4>
+<div class="outline-text-4" id="text-orgaffd0e0">
+<p>
+Monte Carlo simulation is a somewhat generic term used to describe repeated sampling (simulation) using random numbers as inputs. Lets explore a common example of Monte Carlo sampling: <b>using a dart board to calculate the value of \(\pi\)</b>
+</p>
+
+<p>
+Imagine you have a dart board of radius 1m and can randomly throw darts at this board over the square range {-1m to 1m} in both the x and y directions. \(\pi\) can be calulated by &ldquo;throwing&rdquo; many darts uniformly over this range and counting the ones which land within r=1 of the center. Successful dart throws are used to calculate pi with the following ratios:
+</p>
+
+<p>
+\[\text{ratio}=\frac{\text{inner}}{\text{total}} = \frac{\pi r^2}{\ell \cdot w} = \frac{\pi}{4}\]
+</p>
+
+<p>
+\[\pi = 4\cdot \text{ratio}\]
+</p>
+
+<p>
+The main advantage of the Monte Carlo method is how generic the application is to almost any problem. Simply create random numbers and let the computer hit the problem with a sledge hammer method. Much like a real sledge hammer, the Monte Carlo method is amazing at getting a job done quickly. Unfortunately sledge hammer methods are almost never the fastest at getting the job finished. <b>Convergance for Monte Carlo is extremely slow</b>. This negative property can be overcome with modern computers on simple problems. Specific sampling methods with much better convergance and more realistic properties exist in every field of science and engineering.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">Set up counters</span>
+<span style="color: #6a1868;">inside</span>=<span style="color: #da8548; font-weight: bold;">0</span>
+<span style="color: #6a1868;">outside</span>=<span style="color: #da8548; font-weight: bold;">0</span>
+
+<span style="color: #6a1868;">guesses</span>=<span style="color: #da8548; font-weight: bold;">100</span>
+
+<span style="color: #e45649;">for</span> i <span style="color: #e45649;">in</span> <span style="color: #a626a4;">range</span>(guesses):
+  <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">use a random guess for x and y between -1 and 1</span>
+  <span style="color: #6a1868;">guessx</span> = random.rand()*<span style="color: #da8548; font-weight: bold;">2</span>-<span style="color: #da8548; font-weight: bold;">1</span>
+  <span style="color: #6a1868;">guessy</span> = random.rand()*<span style="color: #da8548; font-weight: bold;">2</span>-<span style="color: #da8548; font-weight: bold;">1</span>
+
+  <span style="color: #e45649;">if</span> guessx**<span style="color: #da8548; font-weight: bold;">2</span>+guessy**<span style="color: #da8548; font-weight: bold;">2</span>&lt;<span style="color: #da8548; font-weight: bold;">1</span>:
+    <span style="color: #6a1868;">inside</span>+=<span style="color: #da8548; font-weight: bold;">1</span>
+  <span style="color: #e45649;">else</span>:
+    outside+=<span style="color: #da8548; font-weight: bold;">1</span>
+
+  <span style="color: #e45649;">if</span> i&lt;<span style="color: #da8548; font-weight: bold;">500</span>:
+    plt.plot(guessx,guessy,<span style="color: #50a14f;">'ro'</span>)
+
+plt.plot([numpy.cos(q) <span style="color: #e45649;">for</span> q <span style="color: #e45649;">in</span> numpy.arange(<span style="color: #da8548; font-weight: bold;">0</span>,<span style="color: #da8548; font-weight: bold;">2</span>*numpy.pi,<span style="color: #da8548; font-weight: bold;">0.01</span>)],[numpy.sin(q) <span style="color: #e45649;">for</span> q <span style="color: #e45649;">in</span> numpy.arange(<span style="color: #da8548; font-weight: bold;">0</span>,<span style="color: #da8548; font-weight: bold;">2</span>*numpy.pi,<span style="color: #da8548; font-weight: bold;">0.01</span>)])
+plt.gca().set_aspect(<span style="color: #50a14f;">'equal'</span>)
+
+<span style="color: #a626a4;">print</span>(guessx,guessy)
+
+<span style="color: #a626a4;">print</span>(<span style="color: #50a14f;">"Inside: "</span>,inside)
+<span style="color: #a626a4;">print</span>(<span style="color: #50a14f;">"Outside: "</span>,outside)
+
+<span style="color: #a626a4;">print</span>(<span style="color: #50a14f;">"inside shots: "</span>,inside/guesses*<span style="color: #da8548; font-weight: bold;">100</span>,<span style="color: #50a14f;">"% of area"</span>)
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">A = pi*r**2 = pi*d**2/4  -&gt;  pi = 4*A/d**2 = 4*A</span>
+<span style="color: #a626a4;">print</span>(<span style="color: #50a14f;">"Pi: "</span>,<span style="color: #da8548; font-weight: bold;">4</span>*inside/guesses)
+
+plt.show()
+</pre>
+</div>
+
+<pre class="example">
+0.7808474837384893 0.8514635048097479
+Inside:  80
+Outside:  20
+inside shots:  80.0 % of area
+Pi:  3.2
+</pre>
+
+
+<div id="orgeae540e" class="figure">
+<p><img src="./.ob-jupyter/25f34c4c9e779d3f3effb38b410539708bc94518.png" alt="25f34c4c9e779d3f3effb38b410539708bc94518.png" />
+</p>
+</div>
+
+<p>
+Here is a smaller version of the above code, which excludes the figures:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">Compact version of Monte Carlo estimation of pi</span>
+<span style="color: #6a1868;">guesses</span>=<span style="color: #da8548; font-weight: bold;">1000000</span>
+<span style="color: #6a1868;">inside</span>=<span style="color: #da8548; font-weight: bold;">0</span>
+<span style="color: #e45649;">for</span> i <span style="color: #e45649;">in</span> <span style="color: #a626a4;">range</span>(guesses):
+  <span style="color: #e45649;">if</span> random.rand()**<span style="color: #da8548; font-weight: bold;">2</span>+random.rand()**<span style="color: #da8548; font-weight: bold;">2</span>&lt;<span style="color: #da8548; font-weight: bold;">1</span>:
+    <span style="color: #6a1868;">inside</span>+=<span style="color: #da8548; font-weight: bold;">1</span>
+<span style="color: #a626a4;">print</span>(<span style="color: #da8548; font-weight: bold;">4</span>*inside/guesses)
+</pre>
+</div>
+
+<pre class="example">
+3.140852
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-monte-carlo-for-kinematics" class="outline-3">
+<h3 id="monte-carlo-for-kinematics">Monte Carlo: Kinematics in 2D</h3>
+<div class="outline-text-3" id="text-monte-carlo-for-kinematics">
+<p>
+Lets now use the Monte Carlo method to simulate our ball launch.
+</p>
+
+<p>
+Simply using the kinematics equations and giving normally distributed
+random values for the initial height, initial velocity, and angle of
+incline.
+</p>
+
+<p>
+Code
+</p>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #e45649;">from</span> numpy.random <span style="color: #e45649;">import</span> normal <span style="color: #e45649;">as</span> randnorm <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">import and alias RNG as randnorm</span>
+
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">Declare measured initial conditions</span>
+<span style="color: #6a1868;">yi</span>, <span style="color: #6a1868;">Eyi</span> = <span style="color: #da8548; font-weight: bold;">1</span>, <span style="color: #da8548; font-weight: bold;">0.002</span>
+<span style="color: #6a1868;">vi</span>, <span style="color: #6a1868;">Evi</span> = <span style="color: #da8548; font-weight: bold;">4.6</span>, <span style="color: #da8548; font-weight: bold;">0.1</span>
+<span style="color: #6a1868;">theta</span>, <span style="color: #6a1868;">Etheta</span> = <span style="color: #da8548; font-weight: bold;">30</span>*numpy.pi/<span style="color: #da8548; font-weight: bold;">180</span>, <span style="color: #da8548; font-weight: bold;">1</span>*numpy.pi/<span style="color: #da8548; font-weight: bold;">180</span>
+<span style="color: #6a1868;">ay</span> = -<span style="color: #da8548; font-weight: bold;">9.8027</span>
+
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">create a list of uniforly spaced numbers for the time axis</span>
+<span style="color: #6a1868;">time</span>=numpy.array(numpy.arange(<span style="color: #da8548; font-weight: bold;">0</span>,<span style="color: #da8548; font-weight: bold;">1</span>,<span style="color: #da8548; font-weight: bold;">0.01</span>))
+
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">perform the kinematics calculation a bunch o times</span>
+<span style="color: #e45649;">for</span> i <span style="color: #e45649;">in</span> <span style="color: #a626a4;">range</span>(<span style="color: #da8548; font-weight: bold;">100</span>):
+  <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">x=xi+vix*t = 0 + vi*sin(theta)*t</span>
+  <span style="color: #6a1868;">xpath</span>=randnorm(vi,Evi)*numpy.cos(randnorm(theta,Etheta))*time
+  <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">y=yi+viy*t-4.9t^2 = yi + vi*sin(theta)*t-49.t^2</span>
+  <span style="color: #6a1868;">ypath</span>=randnorm(yi,Eyi)+randnorm(vi,Evi)*numpy.sin(randnorm(theta,Etheta))*time+<span style="color: #da8548; font-weight: bold;">0.5</span>*ay*time**<span style="color: #da8548; font-weight: bold;">2</span>
+
+  plt.plot(xpath,ypath)
+
+plt.ylim(<span style="color: #da8548; font-weight: bold;">0</span>,<span style="color: #da8548; font-weight: bold;">1.4</span>)
+plt.xlabel(<span style="color: #50a14f;">'Horizontal Position (m)'</span>)
+plt.ylabel(<span style="color: #50a14f;">'Vertical Position (m)'</span>)
+plt.title(<span style="color: #50a14f;">'Projectile Motion'</span>)
+plt.gca().set_aspect(<span style="color: #50a14f;">'equal'</span>)
+
+plt.show()
+</pre>
+</div>
+
+
+<div id="orgfd16695" class="figure">
+<p><img src="./.ob-jupyter/d1c84afa1db1ae56926ac7c707c6b99be1faa326.png" alt="d1c84afa1db1ae56926ac7c707c6b99be1faa326.png" />
+</p>
+</div>
+
+<p>
+This is a very nice figure, but the code is not calculating what we
+want. The above code calculates x and y for a list of times (perfect for
+making a plot of the trajectories) but we want a distribution of ranges
+at a specific value of <b>height</b>. To proceed with the above data, you
+could search thru the list and find the time which the vertical position
+becomes negative. This sounds like a fine exercise for a programming
+class, but I wish to proceed in a different direction.
+</p>
+
+<p>
+Lets just follow the standard method of calculating the range of an
+inclined shot from physics lecture: 1. Break up the velocity vector into
+components 1. Use the y direction to solve for time (quadratic eqn) 2.
+Use the calculated time to find the range
+</p>
+
+<p>
+First I will write a function which calculates the ballistic motion and
+returns the horizontal range:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #e45649;">from</span> numpy.random <span style="color: #e45649;">import</span> normal <span style="color: #e45649;">as</span> randnorm <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">import and alias RNG as randnorm</span>
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">vars to use as input: vi, theta, yi</span>
+
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">Kinematics in y-direction: 0=yi+vi*sin(theta)*t - 4.9 t^2</span>
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">qadratic equation with a=-4.9 b=vi*sin(theta) c=yi</span>
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">t = (-b - sqrt(b*b - 4*a*c))/(2*a)</span>
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">Kinematics in x-direction:</span>
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">x = xi + vi*cos(q)*t</span>
+
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">requires 3 inputs: vi, theta, yi</span>
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">outputs the calculated range</span>
+<span style="color: #e45649;">def</span> <span style="color: #a626a4;">ballistic_sim</span>(vi,theta,yi):
+  <span style="color: #6a1868;">a</span>,<span style="color: #6a1868;">b</span>,<span style="color: #6a1868;">c</span>=-<span style="color: #da8548; font-weight: bold;">4.9</span>, vi*numpy.sin(theta), yi
+  <span style="color: #6a1868;">t</span> = (-b - numpy.sqrt(b*b - <span style="color: #da8548; font-weight: bold;">4</span>*a*c))/(<span style="color: #da8548; font-weight: bold;">2</span>*a)
+  <span style="color: #e45649;">return</span> vi*numpy.cos(theta)*t
+
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">Calculate the trajectory for a randomly chosen set of input parameters</span>
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">uses randnorm() to generate random input values for vi, theta, and yi</span>
+<span style="color: #e45649;">for</span> i <span style="color: #e45649;">in</span> <span style="color: #a626a4;">range</span>(<span style="color: #da8548; font-weight: bold;">10</span>):
+  <span style="color: #a626a4;">print</span>(<span style="color: #50a14f;">"random shot"</span>,i,<span style="color: #50a14f;">":"</span>,ballistic_sim(randnorm(vi,Evi),randnorm(theta,Etheta),randnorm(yi,Eyi)) )
+</pre>
+</div>
+
+<pre class="example">
+random shot 0 : 2.9990366947159965
+random shot 1 : 2.9443691087346617
+random shot 2 : 2.9001335594706483
+random shot 3 : 2.9902739816943824
+random shot 4 : 2.867903768398249
+random shot 5 : 2.8780163113402324
+random shot 6 : 3.0260540617276455
+random shot 7 : 2.9942454790279585
+random shot 8 : 2.8670220114980216
+random shot 9 : 3.0105382516412695
+</pre>
+
+
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #6a1868;">shots</span>=[ballistic_sim(randnorm(vi,Evi),randnorm(theta,Etheta),randnorm(yi,Eyi)) <span style="color: #e45649;">for</span> i <span style="color: #e45649;">in</span> <span style="color: #a626a4;">range</span>(<span style="color: #da8548; font-weight: bold;">50</span>)]
+<span style="color: #a626a4;">print</span>(<span style="color: #50a14f;">"Range: "</span>,numpy.mean(shots),<span style="color: #50a14f;">"+-"</span>, numpy.std(shots),<span style="color: #50a14f;">"m"</span>)
+plt.hist(shots,<span style="color: #da8548; font-weight: bold;">30</span>)
+plt.xlabel(<span style="color: #50a14f;">'Range (m)'</span>)
+plt.ylabel(<span style="color: #50a14f;">'Frequency'</span>)
+plt.title(<span style="color: #50a14f;">'Range Distribution'</span>)
+plt.show()
+</pre>
+</div>
+
+<pre class="example">
+Range:  2.959290068651896 +- 0.11959297138730622 m
+</pre>
+
+
+<div id="orgbab5deb" class="figure">
+<p><img src="./.ob-jupyter/0f78e676b833406921871b8a97b620d12c2d9a29.png" alt="0f78e676b833406921871b8a97b620d12c2d9a29.png" />
+</p>
+</div>
+
+
 
 <blockquote>
 <p>
 <b>Checkpoint:</b>
 </p>
 <ul class="org-ul">
-<li></li>
+<li>Make sure you can run the above code! (you will need this for the abstract)</li>
+<li>Propagate error for the initial velocity for the horizontal shot</li>
+<li>Record values for the angle and height (with measurement error)</li>
+<li>Use Monte Carlo to calculate the expected range for the inclined shot</li>
 </ul>
 </blockquote>
 </div>
@@ -518,6 +820,9 @@ To finish this lab exercise, you will practice <a href="./LabResources-Abstract.
 <p>
 <b>Checkpoint:</b>
 </p>
+<ul class="org-ul">
+<li>Write your abstract and submit!</li>
+</ul>
 </blockquote>
 </div>
 </div>
