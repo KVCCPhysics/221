@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-09-20 Fri 16:41 -->
+<!-- 2024-09-21 Sat 07:09 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Lab 2 - Motion In 2D</title>
@@ -239,7 +239,8 @@
 <ul>
 <li><a href="#org4a896c3">1. Experiment 1: Horizontal Shot</a></li>
 <li><a href="#orgbe9467a">2. Experiment 2: Inclined Shot</a></li>
-<li><a href="#org2c155ef">3. Practice: Writing an Abstract</a></li>
+<li><a href="#org510ba61">3. Part 3: Analysis of Error</a></li>
+<li><a href="#org1f44282">4. Part 4: Writing an Abstract</a></li>
 </ul>
 </div>
 </div>
@@ -435,13 +436,16 @@ Use your knowledge of kinematics to calculate the minimum and maximum range usin
 <b>Checkpoint:</b>
 </p>
 <ul class="org-ul">
-<li></li>
+<li>Calculate the theoretical range of the shot using your average</li>
+<li>Measure a sample shot to verify your results agree with experiment</li>
+<li>Make sure you are comfortable with this before Exam 1</li>
 </ul>
 </blockquote>
 </div>
-<div id="outline-container-org41aa8a8" class="outline-3">
-<h3 id="org41aa8a8"><span class="section-number-3">2.1.</span> Error Propagation - Finding the expected range</h3>
-<div class="outline-text-3" id="text-2-1">
+</div>
+<div id="outline-container-org510ba61" class="outline-2">
+<h2 id="org510ba61"><span class="section-number-2">3.</span> Part 3: Analysis of Error</h2>
+<div class="outline-text-2" id="text-3">
 </div>
 <div id="outline-container-org1b1c59e" class="outline-4">
 <h4 id="org1b1c59e">Error propagation for Horizontal Shot</h4>
@@ -472,21 +476,21 @@ Use the error propagation formula to find the propagated error in velocity
 <b>Checkpoint:</b>
 </p>
 <ul class="org-ul">
-<li>derivation of error formulae for time and velocity</li>
-<li>propagated error in velocity \(E[v_{ix}]\)</li>
+<li>Complete the derivation of error formulae for time and velocity</li>
+<li>Propagate error in velocity \(E[v_{ix}]\)</li>
 </ul>
 </blockquote>
 </div>
 </div>
-<div id="outline-container-org1351741" class="outline-4">
-<h4 id="org1351741">Error propagation for Inclined Shot</h4>
-<div class="outline-text-4" id="text-org1351741">
+<div id="outline-container-org1813bf5" class="outline-4">
+<h4 id="org1813bf5">Error propagation for Inclined Shot (a dead end)</h4>
+<div class="outline-text-4" id="text-org1813bf5">
 <p>
-Propagating error leads to complications even in simple cases such as kinematics. If you attempt to go headlong into the math, you arrive at the following: (This includes clever substitute-eliminate trick)
+Propagating error leads to complications even in simple cases, such as kinematics. If you attempt to go headlong into the math, you arrive at the following: (This includes a clever substitute-eliminate trick)
 </p>
 
 <p>
-Process for solving for range in 2D free fall without knowing time:
+Process to solve for range in 2D free fall without knowing time:
 </p>
 <ul class="org-ul">
 <li>write out the kinematic equations
@@ -496,11 +500,11 @@ Process for solving for range in 2D free fall without knowing time:
 \[t=\frac{x_f - x_i}{v_{i}cos(\theta)}\]</li>
 <li>substitute this result into \(y_f\) equation
 \[y_f = y_i + v_i sin(\theta)\left(\frac{x_f - x_i}{v_{i}cos(\theta)}\right) + \frac12 a \, \left(\frac{x_f - x_i}{v_{i}cos(\theta)}\right)^2\]
-\[y_f = y_i + (x_f - x_i) tan(\theta) + \frac12 a \, \left(\frac{x_f - x_i}{v_{i}cos(\theta)}\right)^2\]h</li>
+\[y_f = y_i + (x_f - x_i) tan(\theta) + \frac12 a \, \left(\frac{x_f - x_i}{v_{i}cos(\theta)}\right)^2\]</li>
 </ul>
 
 <p>
-this is a useful result to use for solving physics problems (like the first exam question). But realize the part we are after for this experiment is actually the \((x_f - x_i\)) term, which is quadratic. Yikes! This is a show stopper and other methods must be used (sampling or other simulations).
+this is a useful result to use for solving physics problems (this technique is used for the first exam). But realize the part we are after for this experiment is actually the \((x_f - x_i\)) term, which is quadratic. Yikes! This is a show stopper and other methods must be used (sampling or other simulations).
 </p>
 
 <p>
@@ -508,10 +512,9 @@ The &rsquo;simplest&rsquo; sampling method is usually a Monte Carlo type simulat
 </p>
 </div>
 </div>
-</div>
 <div id="outline-container-orgf9127c7" class="outline-3">
-<h3 id="orgf9127c7"><span class="section-number-3">2.2.</span> Monte Carlo Sampling (Simulation)</h3>
-<div class="outline-text-3" id="text-2-2">
+<h3 id="orgf9127c7"><span class="section-number-3">3.1.</span> Monte Carlo Sampling (Simulation)</h3>
+<div class="outline-text-3" id="text-3-1">
 </div>
 <div id="outline-container-orgfbcb2eb" class="outline-4">
 <h4 id="orgfbcb2eb">Gaussian Random Numbers</h4>
@@ -559,16 +562,16 @@ plt.close()
 </div>
 
 <pre class="example">
-first 10 numbers: [-0.58470604  0.84858639  0.8671866  -1.62185893  0.37688367  0.54335245
- -0.03019735  0.45717222 -1.17256198 -1.66901275  0.39347224 -0.54302757
-  0.20077843  1.48525223  0.93978824 -3.3397188  -0.60618195 -0.61667165
- -0.79906254 -0.31684732 -0.45556636  0.54010648 -0.66596071  0.79386902
-  0.52824317  1.83989479  2.216019   -1.38384583  0.00399558 -1.51280628]
+first 10 numbers: [-1.12791208  0.02267157  0.76136966  1.3782528   1.10235277 -0.29955542
+ -0.38499687 -2.08893535 -0.81121354  3.11484643  1.2719866  -0.78073957
+  1.4096583   0.2801297   0.87401175  0.31639182 -0.92468353  0.86279128
+  2.47864457  1.88533173 -0.19636245 -0.57951262  0.20758656  1.43220802
+ -0.23202011  0.29353851  1.48611417  1.20400842 -0.08364697 -1.40718433]
 </pre>
 
 
 
-<div id="orgf3dcf00" class="figure">
+<div id="org844f332" class="figure">
 <p><img src="./img/02-gaussiandist.png" alt="02-gaussiandist.png" />
 </p>
 </div>
@@ -635,17 +638,17 @@ plt.close()
 </div>
 
 <pre class="example">
--0.09227000200754243 0.006990429106159768
-Inside:  77
-Outside:  23
-inside shots:  77.0 % of area
-Pi:  3.08
+0.2007078238538793 0.06633611593415711
+Inside:  72
+Outside:  28
+inside shots:  72.0 % of area
+Pi:  2.88
 </pre>
 
 
 
-<div id="org2a74b62" class="figure">
-<p><img src="./img/02-dartboard.png" alt="02-dartboard.png" />
+<div id="orgf1f595f" class="figure">
+<p><img src="./img/02-dartboard.png" alt="figure of a circle showing 100 random darts" />
 </p>
 </div>
 
@@ -665,30 +668,24 @@ Here is a smaller version of the above code, which excludes the figures:
 </div>
 
 <pre class="example">
-3.140092
+3.143496
 </pre>
 </div>
 </div>
 </div>
 <div id="outline-container-org3e2b59e" class="outline-3">
-<h3 id="org3e2b59e"><span class="section-number-3">2.3.</span> Monte Carlo: Kinematics in 2D</h3>
-<div class="outline-text-3" id="text-2-3">
+<h3 id="org3e2b59e"><span class="section-number-3">3.2.</span> Monte Carlo: Kinematics in 2D</h3>
+<div class="outline-text-3" id="text-3-2">
 <p>
 Lets now use the Monte Carlo method to simulate our ball launch.
 </p>
 
 <p>
-Simply using the kinematics equations and giving normally distributed
-random values for the initial height, initial velocity, and angle of
-incline.
-</p>
-
-<p>
-Code
+Simply using the kinematics equations and giving normally distributed random values for the initial height, initial velocity, and angle of incline.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-jupyter-python"><span style="color: #e45649;">from</span> numpy.random <span style="color: #e45649;">import</span> normal <span style="color: #e45649;">as</span> randnorm <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">import and alias RNG as randnorm</span>
+<pre class="src src-jupyter-python"><span style="color: #e45649;">from</span> numpy.random <span style="color: #e45649;">import</span> normal <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">import Gaussian RNG</span>
 
 <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">Declare measured initial conditions</span>
 <span style="color: #6a1868;">yi</span>, <span style="color: #6a1868;">Eyi</span> = <span style="color: #da8548; font-weight: bold;">1</span>, <span style="color: #da8548; font-weight: bold;">0.002</span>
@@ -702,9 +699,9 @@ Code
 <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">perform the kinematics calculation a bunch o times</span>
 <span style="color: #e45649;">for</span> i <span style="color: #e45649;">in</span> <span style="color: #a626a4;">range</span>(<span style="color: #da8548; font-weight: bold;">100</span>):
   <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">x=xi+vix*t = 0 + vi*sin(theta)*t</span>
-  <span style="color: #6a1868;">xpath</span>=randnorm(vi,Evi)*numpy.cos(randnorm(theta,Etheta))*time
+  <span style="color: #6a1868;">xpath</span>=normal(vi,Evi)*numpy.cos(normal(theta,Etheta))*time
   <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">y=yi+viy*t-4.9t^2 = yi + vi*sin(theta)*t-49.t^2</span>
-  <span style="color: #6a1868;">ypath</span>=randnorm(yi,Eyi)+randnorm(vi,Evi)*numpy.sin(randnorm(theta,Etheta))*time+<span style="color: #da8548; font-weight: bold;">0.5</span>*ay*time**<span style="color: #da8548; font-weight: bold;">2</span>
+  <span style="color: #6a1868;">ypath</span>=normal(yi,Eyi)+normal(vi,Evi)*numpy.sin(normal(theta,Etheta))*time+<span style="color: #da8548; font-weight: bold;">0.5</span>*ay*time**<span style="color: #da8548; font-weight: bold;">2</span>
 
   plt.plot(xpath,ypath)
 
@@ -721,74 +718,69 @@ plt.close()
 </div>
 
 
-<div id="org99014cb" class="figure">
+<div id="orgadf54d6" class="figure">
 <p><img src="./img/02-projectile.png" alt="02-projectile.png" />
 </p>
 </div>
 
 <p>
-This is a very nice figure, but the code is not calculating what we
-want. The above code calculates x and y for a list of times (perfect for
-making a plot of the trajectories) but we want a distribution of ranges
-at a specific value of <b>height</b>. To proceed with the above data, you
-could search thru the list and find the time which the vertical position
-becomes negative. This sounds like a fine exercise for a programming
-class, but I wish to proceed in a different direction.
+This is a very illustrative figure, but the code is not calculating what we want (you need an estimate of the horizontal range to report to the boss in an &rsquo;abstract&rsquo;). The above code calculates x and y for a list of <b>times</b> (perfect for making a plot of the trajectories) but we want a distribution of horizontal ranges at a specific value of <b>height</b>. To proceed with the above data, you could search thru the list and find the list index (corresponding to a time) which the vertical position becomes negative. This sounds like a fine exercise for a programming assignment, but I wish to proceed in a different direction.
 </p>
 
 <p>
-Lets just follow the standard method of calculating the range of an
-inclined shot from physics lecture: 1. Break up the velocity vector into
-components 1. Use the y direction to solve for time (quadratic eqn) 2.
-Use the calculated time to find the range
+Instead, follow the standard method of calculating the range of an inclined shot from physics theory:
 </p>
+<ol class="org-ol">
+<li>Break up the velocity vector into components</li>
+<li>Use the y direction to solve for time (quadratic equation)</li>
+<li>Use the calculated time to find the range</li>
+</ol>
 
 <p>
-First I will write a function which calculates the ballistic motion and
-returns the horizontal range:
+Lets write a function to evaluate the solutions to the kinematic equations:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-jupyter-python"><span style="color: #e45649;">from</span> numpy.random <span style="color: #e45649;">import</span> normal <span style="color: #e45649;">as</span> randnorm <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">import and alias RNG as randnorm</span>
+<pre class="src src-jupyter-python"><span style="color: #e45649;">from</span> numpy.random <span style="color: #e45649;">import</span> normal <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">import Gaussian RNG</span>
 <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">vars to use as input: vi, theta, yi</span>
 
-<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">Kinematics in y-direction: 0=yi+vi*sin(theta)*t - 4.9 t^2</span>
-<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">qadratic equation with a=-4.9 b=vi*sin(theta) c=yi</span>
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">Step 1: vix=vi*cos(theta) viy=vi*sin(theta)</span>
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">Step 2: Kinematics in y-direction: 0=yi+vi*sin(theta)*t - 4.9 t^2</span>
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">this is a qadratic equation with a=-4.9 b=vi*sin(theta) c=yi</span>
 <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">t = (-b - sqrt(b*b - 4*a*c))/(2*a)</span>
-<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">Kinematics in x-direction:</span>
-<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">x = xi + vi*cos(q)*t</span>
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">Step 3: Kinematics x-direction: x = xi + vi*cos(q)*t</span>
 
 <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">requires 3 inputs: vi, theta, yi</span>
-<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">outputs the calculated range</span>
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">returns the calculated horizontal range</span>
 <span style="color: #e45649;">def</span> <span style="color: #a626a4;">ballistic_sim</span>(vi,theta,yi):
   <span style="color: #6a1868;">a</span>,<span style="color: #6a1868;">b</span>,<span style="color: #6a1868;">c</span>=-<span style="color: #da8548; font-weight: bold;">4.9</span>, vi*numpy.sin(theta), yi
   <span style="color: #6a1868;">t</span> = (-b - numpy.sqrt(b*b - <span style="color: #da8548; font-weight: bold;">4</span>*a*c))/(<span style="color: #da8548; font-weight: bold;">2</span>*a)
   <span style="color: #e45649;">return</span> vi*numpy.cos(theta)*t
 
 <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">Calculate the trajectory for a randomly chosen set of input parameters</span>
-<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">uses randnorm() to generate random input values for vi, theta, and yi</span>
+<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">uses numpy.random.normal() to generate random input values for vi, theta, and yi</span>
 <span style="color: #e45649;">for</span> i <span style="color: #e45649;">in</span> <span style="color: #a626a4;">range</span>(<span style="color: #da8548; font-weight: bold;">10</span>):
-  <span style="color: #a626a4;">print</span>(<span style="color: #50a14f;">"random shot"</span>,i,<span style="color: #50a14f;">":"</span>,ballistic_sim(randnorm(vi,Evi),randnorm(theta,Etheta),randnorm(yi,Eyi)) )
+  <span style="color: #a626a4;">print</span>(<span style="color: #50a14f;">"random shot"</span>,i,<span style="color: #50a14f;">":"</span>,ballistic_sim(normal (vi,Evi),normal(theta,Etheta),normal(yi,Eyi)) )
 </pre>
 </div>
 
 <pre class="example">
-random shot 0 : 3.013987394988694
-random shot 1 : 2.941407881032775
-random shot 2 : 3.0504217927223185
-random shot 3 : 2.9088157158121
-random shot 4 : 2.8840354288716843
-random shot 5 : 3.08708814434523
-random shot 6 : 2.9553009427488566
-random shot 7 : 2.94093987388364
-random shot 8 : 3.0605279272372057
-random shot 9 : 2.8728756577713064
+random shot 0 : 3.0070286688694203
+random shot 1 : 2.9928607727448004
+random shot 2 : 2.965964260055365
+random shot 3 : 2.9844486897377296
+random shot 4 : 2.926879343977118
+random shot 5 : 3.011818641528456
+random shot 6 : 2.9352301531500022
+random shot 7 : 3.131149315738854
+random shot 8 : 2.988433690618236
+random shot 9 : 2.844099505124472
 </pre>
 
 
 
 <div class="org-src-container">
-<pre class="src src-jupyter-python"><span style="color: #6a1868;">shots</span>=[ballistic_sim(randnorm(vi,Evi),randnorm(theta,Etheta),randnorm(yi,Eyi)) <span style="color: #e45649;">for</span> i <span style="color: #e45649;">in</span> <span style="color: #a626a4;">range</span>(<span style="color: #da8548; font-weight: bold;">50</span>)]
+<pre class="src src-jupyter-python"><span style="color: #6a1868;">shots</span>=[ballistic_sim(normal(vi,Evi),normal(theta,Etheta),normal(yi,Eyi)) <span style="color: #e45649;">for</span> i <span style="color: #e45649;">in</span> <span style="color: #a626a4;">range</span>(<span style="color: #da8548; font-weight: bold;">50</span>)]
 <span style="color: #a626a4;">print</span>(<span style="color: #50a14f;">"Range: "</span>,numpy.mean(shots),<span style="color: #50a14f;">"+-"</span>, numpy.std(shots),<span style="color: #50a14f;">"m"</span>)
 plt.hist(shots,<span style="color: #da8548; font-weight: bold;">30</span>)
 plt.xlabel(<span style="color: #50a14f;">'Range (m)'</span>)
@@ -802,23 +794,22 @@ plt.close()
 </div>
 
 <pre class="example">
-Range:  2.9568954149224664 +- 0.0965741676952232 m
+Range:  2.9500026087393927 +- 0.10824790202216723 m
 </pre>
 
 
 
-<div id="org37e11c5" class="figure">
+<div id="org9584374" class="figure">
 <p><img src="./img/02-range.png" alt="02-range.png" />
 </p>
 </div>
-
 
 <blockquote>
 <p>
 <b>Checkpoint:</b>
 </p>
 <ul class="org-ul">
-<li>Make sure you can run the above code! (you will need this for the abstract)</li>
+<li>Make sure you can run the above code! (you must use your own data for the abstract)</li>
 <li>Propagate error for the initial velocity for the horizontal shot</li>
 <li>Record values for the angle and height (with measurement error)</li>
 <li>Use Monte Carlo to calculate the expected range for the inclined shot</li>
@@ -827,9 +818,9 @@ Range:  2.9568954149224664 +- 0.0965741676952232 m
 </div>
 </div>
 </div>
-<div id="outline-container-org2c155ef" class="outline-2">
-<h2 id="org2c155ef"><span class="section-number-2">3.</span> Practice: Writing an Abstract</h2>
-<div class="outline-text-2" id="text-3">
+<div id="outline-container-org1f44282" class="outline-2">
+<h2 id="org1f44282"><span class="section-number-2">4.</span> Part 4: Writing an Abstract</h2>
+<div class="outline-text-2" id="text-4">
 <p>
 <b>Note:</b> We are Math people. English is <code>hard</code>. Writing lab reports takes real effort and time. Writing an <code>Abstract</code> however, should only take you 10 or 15 minutes to complete.
 </p>
