@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-09-21 Sat 07:09 -->
+<!-- 2025-09-02 Tue 01:08 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Lab 2 - Motion In 2D</title>
@@ -237,10 +237,10 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org4a896c3">1. Experiment 1: Horizontal Shot</a></li>
-<li><a href="#orgbe9467a">2. Experiment 2: Inclined Shot</a></li>
-<li><a href="#org510ba61">3. Part 3: Analysis of Error</a></li>
-<li><a href="#org1f44282">4. Part 4: Writing an Abstract</a></li>
+<li><a href="#org69f0653">1. Experiment 1: Horizontal Shot</a></li>
+<li><a href="#org725a4d1">2. Experiment 2: Inclined Shot</a></li>
+<li><a href="#orge2ff324">3. Part 3: Analysis of Error</a></li>
+<li><a href="#org91d9ea2">4. Part 4: Writing an Abstract</a></li>
 </ul>
 </div>
 </div>
@@ -253,8 +253,8 @@ In this lab, you will use the <b>Kinematic Equations</b> to first measure, and t
 \[ v_f = v_i + a \, t\]
 \[ v_f^2 =  v_i^2  +2\, a (x_f - x_i)\]
 </p>
-<div id="outline-container-org4a896c3" class="outline-2">
-<h2 id="org4a896c3"><span class="section-number-2">1.</span> Experiment 1: Horizontal Shot</h2>
+<div id="outline-container-org69f0653" class="outline-2">
+<h2 id="org69f0653"><span class="section-number-2">1.</span> Experiment 1: Horizontal Shot</h2>
 <div class="outline-text-2" id="text-1">
 <ol class="org-ol">
 <li>Clamp the Ballistic Pendulum to the edge of a sturdy table. Make sure that the launcher is firing as close as possible to horizontal (make a note of this systematic error. ask the instructor if you are confused).</li>
@@ -343,8 +343,8 @@ Place a piece of white paper on the floor at the approximate impact point. Tape 
 </blockquote>
 </div>
 </div>
-<div id="outline-container-orgbe9467a" class="outline-2">
-<h2 id="orgbe9467a"><span class="section-number-2">2.</span> Experiment 2: Inclined Shot</h2>
+<div id="outline-container-org725a4d1" class="outline-2">
+<h2 id="org725a4d1"><span class="section-number-2">2.</span> Experiment 2: Inclined Shot</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Now you will incline the launcher, which will increase the range of the launcher.
@@ -443,13 +443,13 @@ Use your knowledge of kinematics to calculate the minimum and maximum range usin
 </blockquote>
 </div>
 </div>
-<div id="outline-container-org510ba61" class="outline-2">
-<h2 id="org510ba61"><span class="section-number-2">3.</span> Part 3: Analysis of Error</h2>
+<div id="outline-container-orge2ff324" class="outline-2">
+<h2 id="orge2ff324"><span class="section-number-2">3.</span> Part 3: Analysis of Error</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org1b1c59e" class="outline-4">
-<h4 id="org1b1c59e">Error propagation for Horizontal Shot</h4>
-<div class="outline-text-4" id="text-org1b1c59e">
+<div id="outline-container-org7363029" class="outline-4">
+<h4 id="org7363029">Error propagation for Horizontal Shot</h4>
+<div class="outline-text-4" id="text-org7363029">
 <ol class="org-ol">
 <li>Write down each algebraic equation you used calculate these results. First write an algebraic expression for \(t\), then write one for \(v_{ix}\). You will use these equations to propagate error.
 \[t(y) = \qquad\qquad\qquad v_{ix}(x_f,t)=\]</li>
@@ -482,9 +482,9 @@ Use the error propagation formula to find the propagated error in velocity
 </blockquote>
 </div>
 </div>
-<div id="outline-container-org1813bf5" class="outline-4">
-<h4 id="org1813bf5">Error propagation for Inclined Shot (a dead end)</h4>
-<div class="outline-text-4" id="text-org1813bf5">
+<div id="outline-container-org5d05759" class="outline-4">
+<h4 id="org5d05759">Error propagation for Inclined Shot (a dead end)</h4>
+<div class="outline-text-4" id="text-org5d05759">
 <p>
 Propagating error leads to complications even in simple cases, such as kinematics. If you attempt to go headlong into the math, you arrive at the following: (This includes a clever substitute-eliminate trick)
 </p>
@@ -512,13 +512,13 @@ The &rsquo;simplest&rsquo; sampling method is usually a Monte Carlo type simulat
 </p>
 </div>
 </div>
-<div id="outline-container-orgf9127c7" class="outline-3">
-<h3 id="orgf9127c7"><span class="section-number-3">3.1.</span> Monte Carlo Sampling (Simulation)</h3>
+<div id="outline-container-orgd084cfe" class="outline-3">
+<h3 id="orgd084cfe"><span class="section-number-3">3.1.</span> Monte Carlo Sampling (Simulation)</h3>
 <div class="outline-text-3" id="text-3-1">
 </div>
-<div id="outline-container-orgfbcb2eb" class="outline-4">
-<h4 id="orgfbcb2eb">Gaussian Random Numbers</h4>
-<div class="outline-text-4" id="text-orgfbcb2eb">
+<div id="outline-container-orgba1dcdf" class="outline-4">
+<h4 id="orgba1dcdf">Gaussian Random Numbers</h4>
+<div class="outline-text-4" id="text-orgba1dcdf">
 <p>
 Before we begin, lets look at Gaussian Random Number Generators (RNG). These numbers are different than regular rand functions (uniform between 0 and 1) as they return a normally distributed number.
 </p>
@@ -542,18 +542,18 @@ Lets now generate a list of random numbers and look at their distribution as the
 <span style="color: #e45649;">import</span> scipy.stats <span style="color: #e45649;">as</span> stats
 %matplotlib inline
 
-<span style="color: #6a1868;">samples</span>=<span style="color: #da8548; font-weight: bold;">50</span>
-<span style="color: #6a1868;">meas_mean</span>=<span style="color: #da8548; font-weight: bold;">0.0</span>
-<span style="color: #6a1868;">meas_sigma</span>=<span style="color: #da8548; font-weight: bold;">1.0</span>
+<span style="color: #6a1868;">samples</span>=50
+<span style="color: #6a1868;">meas_mean</span>=0.0
+<span style="color: #6a1868;">meas_sigma</span>=1.0
 
 <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">create a list of 100 equally spaced numbers from -3sigma to 3sigma</span>
-<span style="color: #6a1868;">x</span> = numpy.linspace(meas_mean-<span style="color: #da8548; font-weight: bold;">3</span>*meas_sigma,meas_mean+<span style="color: #da8548; font-weight: bold;">3</span>*meas_sigma, <span style="color: #da8548; font-weight: bold;">100</span>)
+<span style="color: #6a1868;">x</span> = numpy.linspace(meas_mean-3*meas_sigma,meas_mean+3*meas_sigma, 100)
 plt.plot(x, stats.norm.pdf(x, meas_mean,meas_sigma))
 
 <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">list comprehension to generate a list of normally distributed numbers</span>
 <span style="color: #6a1868;">random_list</span>=numpy.array([random.normal(meas_mean,meas_sigma) <span style="color: #e45649;">for</span> i <span style="color: #e45649;">in</span> <span style="color: #a626a4;">range</span>(samples)])
-<span style="color: #a626a4;">print</span>(<span style="color: #50a14f;">"first 10 numbers:"</span>, random_list[<span style="color: #da8548; font-weight: bold;">0</span>:<span style="color: #da8548; font-weight: bold;">30</span>])
-plt.hist(random_list,<span style="color: #da8548; font-weight: bold;">30</span>,stacked=<span style="color: #b751b6;">True</span>,density=<span style="color: #b751b6;">True</span>)
+<span style="color: #a626a4;">print</span>(<span style="color: #50a14f;">"first 10 numbers:"</span>, random_list[0:30])
+plt.hist(random_list,30,stacked=<span style="color: #b751b6;">True</span>,density=<span style="color: #b751b6;">True</span>)
 
 plt.savefig(<span style="color: #50a14f;">"img/02-gaussiandist.png"</span>,bbox_inches=<span style="color: #50a14f;">'tight'</span>)
 plt.close()
@@ -562,24 +562,24 @@ plt.close()
 </div>
 
 <pre class="example">
-first 10 numbers: [-1.12791208  0.02267157  0.76136966  1.3782528   1.10235277 -0.29955542
- -0.38499687 -2.08893535 -0.81121354  3.11484643  1.2719866  -0.78073957
-  1.4096583   0.2801297   0.87401175  0.31639182 -0.92468353  0.86279128
-  2.47864457  1.88533173 -0.19636245 -0.57951262  0.20758656  1.43220802
- -0.23202011  0.29353851  1.48611417  1.20400842 -0.08364697 -1.40718433]
+first 10 numbers: [-0.49004868 -0.14171638  0.23341224  0.39229994 -1.31942264  0.82618835
+ -0.69710779  0.92931334 -1.16921004 -0.72532608  0.1609775  -0.30756453
+  0.82764932 -0.54204071 -0.05133896  0.57414181 -0.47638761  0.18651862
+  0.20735    -0.10836992  0.22742707 -0.6075268  -0.16529172  0.44219725
+  0.39189751  0.73377883  2.81121827 -1.57282986 -1.75038443 -0.05461524]
 </pre>
 
 
 
-<div id="org844f332" class="figure">
+<div id="org5fab33f" class="figure">
 <p><img src="./img/02-gaussiandist.png" alt="02-gaussiandist.png" />
 </p>
 </div>
 </div>
 </div>
-<div id="outline-container-orgaffd0e0" class="outline-4">
-<h4 id="orgaffd0e0">Monte Carlo: Calculating pi</h4>
-<div class="outline-text-4" id="text-orgaffd0e0">
+<div id="outline-container-org1a23667" class="outline-4">
+<h4 id="org1a23667">Monte Carlo: Calculating pi</h4>
+<div class="outline-text-4" id="text-org1a23667">
 <p>
 Monte Carlo simulation is a somewhat generic term used to describe repeated sampling (simulation) using random numbers as inputs. Lets explore a common example of Monte Carlo sampling: <b>using a dart board to calculate the value of \(\pi\)</b>
 </p>
@@ -602,34 +602,34 @@ The main advantage of the Monte Carlo method is how generic the application is t
 
 <div class="org-src-container">
 <pre class="src src-jupyter-python"><span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">Set up counters</span>
-<span style="color: #6a1868;">inside</span>=<span style="color: #da8548; font-weight: bold;">0</span>
-<span style="color: #6a1868;">outside</span>=<span style="color: #da8548; font-weight: bold;">0</span>
+<span style="color: #6a1868;">inside</span>=0
+<span style="color: #6a1868;">outside</span>=0
 
-<span style="color: #6a1868;">guesses</span>=<span style="color: #da8548; font-weight: bold;">100</span>
+<span style="color: #6a1868;">guesses</span>=100
 
 <span style="color: #e45649;">for</span> i <span style="color: #e45649;">in</span> <span style="color: #a626a4;">range</span>(guesses):
   <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">use a random guess for x and y between -1 and 1</span>
-  <span style="color: #6a1868;">guessx</span> = random.rand()*<span style="color: #da8548; font-weight: bold;">2</span>-<span style="color: #da8548; font-weight: bold;">1</span>
-  <span style="color: #6a1868;">guessy</span> = random.rand()*<span style="color: #da8548; font-weight: bold;">2</span>-<span style="color: #da8548; font-weight: bold;">1</span>
+  <span style="color: #6a1868;">guessx</span> = random.rand()*2-1
+  <span style="color: #6a1868;">guessy</span> = random.rand()*2-1
 
-  <span style="color: #e45649;">if</span> guessx**<span style="color: #da8548; font-weight: bold;">2</span>+guessy**<span style="color: #da8548; font-weight: bold;">2</span>&lt;<span style="color: #da8548; font-weight: bold;">1</span>:
-    <span style="color: #6a1868;">inside</span>+=<span style="color: #da8548; font-weight: bold;">1</span>
+  <span style="color: #e45649;">if</span> guessx**2+guessy**2&lt;1:
+    <span style="color: #6a1868;">inside</span>+=1
   <span style="color: #e45649;">else</span>:
-    outside+=<span style="color: #da8548; font-weight: bold;">1</span>
+    <span style="color: #6a1868;">outside</span>+=1
 
-  <span style="color: #e45649;">if</span> i&lt;<span style="color: #da8548; font-weight: bold;">500</span>:
+  <span style="color: #e45649;">if</span> i&lt;500:
     plt.plot(guessx,guessy,<span style="color: #50a14f;">'ro'</span>)
 
 plt.plot(
-      [numpy.cos(q) <span style="color: #e45649;">for</span> q <span style="color: #e45649;">in</span> numpy.arange(<span style="color: #da8548; font-weight: bold;">0</span>,<span style="color: #da8548; font-weight: bold;">2</span>*numpy.pi,<span style="color: #da8548; font-weight: bold;">0.01</span>)],
-      [numpy.sin(q) <span style="color: #e45649;">for</span> q <span style="color: #e45649;">in</span> numpy.arange(<span style="color: #da8548; font-weight: bold;">0</span>,<span style="color: #da8548; font-weight: bold;">2</span>*numpy.pi,<span style="color: #da8548; font-weight: bold;">0.01</span>)])
+      [numpy.cos(q) <span style="color: #e45649;">for</span> q <span style="color: #e45649;">in</span> numpy.arange(0,2*numpy.pi,0.01)],
+      [numpy.sin(q) <span style="color: #e45649;">for</span> q <span style="color: #e45649;">in</span> numpy.arange(0,2*numpy.pi,0.01)])
 plt.gca().set_aspect(<span style="color: #50a14f;">'equal'</span>)
 
 <span style="color: #a626a4;">print</span>(guessx,guessy)
 <span style="color: #a626a4;">print</span>(<span style="color: #50a14f;">"Inside: "</span>,inside)
 <span style="color: #a626a4;">print</span>(<span style="color: #50a14f;">"Outside: "</span>,outside)
-<span style="color: #a626a4;">print</span>(<span style="color: #50a14f;">"inside shots: "</span>,inside/guesses*<span style="color: #da8548; font-weight: bold;">100</span>,<span style="color: #50a14f;">"% of area"</span>)
-<span style="color: #a626a4;">print</span>(<span style="color: #50a14f;">"Pi: "</span>,<span style="color: #da8548; font-weight: bold;">4</span>*inside/guesses)
+<span style="color: #a626a4;">print</span>(<span style="color: #50a14f;">"inside shots: "</span>,inside/guesses*100,<span style="color: #50a14f;">"% of area"</span>)
+<span style="color: #a626a4;">print</span>(<span style="color: #50a14f;">"Pi: "</span>,4*inside/guesses)
 
 plt.savefig(<span style="color: #50a14f;">"img/02-dartboard.png"</span>,bbox_inches=<span style="color: #50a14f;">'tight'</span>)
 plt.close()
@@ -638,16 +638,16 @@ plt.close()
 </div>
 
 <pre class="example">
-0.2007078238538793 0.06633611593415711
-Inside:  72
-Outside:  28
-inside shots:  72.0 % of area
-Pi:  2.88
+0.7011790903571216 0.9676352457448025
+Inside:  84
+Outside:  16
+inside shots:  84.0 % of area
+Pi:  3.36
 </pre>
 
 
 
-<div id="orgf1f595f" class="figure">
+<div id="orgf1d6c89" class="figure">
 <p><img src="./img/02-dartboard.png" alt="figure of a circle showing 100 random darts" />
 </p>
 </div>
@@ -658,23 +658,23 @@ Here is a smaller version of the above code, which excludes the figures:
 
 <div class="org-src-container">
 <pre class="src src-jupyter-python"><span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">Compact version of Monte Carlo estimation of pi</span>
-<span style="color: #6a1868;">guesses</span>=<span style="color: #da8548; font-weight: bold;">1000000</span>
-<span style="color: #6a1868;">inside</span>=<span style="color: #da8548; font-weight: bold;">0</span>
+<span style="color: #6a1868;">guesses</span>=1000000
+<span style="color: #6a1868;">inside</span>=0
 <span style="color: #e45649;">for</span> i <span style="color: #e45649;">in</span> <span style="color: #a626a4;">range</span>(guesses):
-  <span style="color: #e45649;">if</span> random.rand()**<span style="color: #da8548; font-weight: bold;">2</span>+random.rand()**<span style="color: #da8548; font-weight: bold;">2</span>&lt;<span style="color: #da8548; font-weight: bold;">1</span>:
-    <span style="color: #6a1868;">inside</span>+=<span style="color: #da8548; font-weight: bold;">1</span>
-<span style="color: #a626a4;">print</span>(<span style="color: #da8548; font-weight: bold;">4</span>*inside/guesses)
+  <span style="color: #e45649;">if</span> random.rand()**2+random.rand()**2&lt;1:
+    <span style="color: #6a1868;">inside</span>+=1
+<span style="color: #a626a4;">print</span>(4*inside/guesses)
 </pre>
 </div>
 
 <pre class="example">
-3.143496
+3.138804
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org3e2b59e" class="outline-3">
-<h3 id="org3e2b59e"><span class="section-number-3">3.2.</span> Monte Carlo: Kinematics in 2D</h3>
+<div id="outline-container-orgcf69f98" class="outline-3">
+<h3 id="orgcf69f98"><span class="section-number-3">3.2.</span> Monte Carlo: Kinematics in 2D</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 Lets now use the Monte Carlo method to simulate our ball launch.
@@ -688,24 +688,24 @@ Simply using the kinematics equations and giving normally distributed random val
 <pre class="src src-jupyter-python"><span style="color: #e45649;">from</span> numpy.random <span style="color: #e45649;">import</span> normal <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">import Gaussian RNG</span>
 
 <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">Declare measured initial conditions</span>
-<span style="color: #6a1868;">yi</span>, <span style="color: #6a1868;">Eyi</span> = <span style="color: #da8548; font-weight: bold;">1</span>, <span style="color: #da8548; font-weight: bold;">0.002</span>
-<span style="color: #6a1868;">vi</span>, <span style="color: #6a1868;">Evi</span> = <span style="color: #da8548; font-weight: bold;">4.6</span>, <span style="color: #da8548; font-weight: bold;">0.1</span>
-<span style="color: #6a1868;">theta</span>, <span style="color: #6a1868;">Etheta</span> = <span style="color: #da8548; font-weight: bold;">30</span>*numpy.pi/<span style="color: #da8548; font-weight: bold;">180</span>, <span style="color: #da8548; font-weight: bold;">1</span>*numpy.pi/<span style="color: #da8548; font-weight: bold;">180</span>
-<span style="color: #6a1868;">ay</span> = -<span style="color: #da8548; font-weight: bold;">9.8027</span>
+<span style="color: #6a1868;">yi</span>, <span style="color: #6a1868;">Eyi</span> = 1, 0.002
+<span style="color: #6a1868;">vi</span>, <span style="color: #6a1868;">Evi</span> = 4.6, 0.1
+<span style="color: #6a1868;">theta</span>, <span style="color: #6a1868;">Etheta</span> = 30*numpy.pi/180, 1*numpy.pi/180
+<span style="color: #6a1868;">ay</span> = -9.8027
 
 <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">create a list of uniforly spaced numbers for the time axis</span>
-<span style="color: #6a1868;">time</span>=numpy.array(numpy.arange(<span style="color: #da8548; font-weight: bold;">0</span>,<span style="color: #da8548; font-weight: bold;">1</span>,<span style="color: #da8548; font-weight: bold;">0.01</span>))
+<span style="color: #6a1868;">time</span>=numpy.array(numpy.arange(0,1,0.01))
 
 <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">perform the kinematics calculation a bunch o times</span>
-<span style="color: #e45649;">for</span> i <span style="color: #e45649;">in</span> <span style="color: #a626a4;">range</span>(<span style="color: #da8548; font-weight: bold;">100</span>):
+<span style="color: #e45649;">for</span> i <span style="color: #e45649;">in</span> <span style="color: #a626a4;">range</span>(100):
   <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">x=xi+vix*t = 0 + vi*sin(theta)*t</span>
   <span style="color: #6a1868;">xpath</span>=normal(vi,Evi)*numpy.cos(normal(theta,Etheta))*time
   <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">y=yi+viy*t-4.9t^2 = yi + vi*sin(theta)*t-49.t^2</span>
-  <span style="color: #6a1868;">ypath</span>=normal(yi,Eyi)+normal(vi,Evi)*numpy.sin(normal(theta,Etheta))*time+<span style="color: #da8548; font-weight: bold;">0.5</span>*ay*time**<span style="color: #da8548; font-weight: bold;">2</span>
+  <span style="color: #6a1868;">ypath</span>=normal(yi,Eyi)+normal(vi,Evi)*numpy.sin(normal(theta,Etheta))*time+0.5*ay*time**2
 
   plt.plot(xpath,ypath)
 
-plt.ylim(<span style="color: #da8548; font-weight: bold;">0</span>,<span style="color: #da8548; font-weight: bold;">1.4</span>)
+plt.ylim(0,1.4)
 plt.xlabel(<span style="color: #50a14f;">'Horizontal Position (m)'</span>)
 plt.ylabel(<span style="color: #50a14f;">'Vertical Position (m)'</span>)
 plt.title(<span style="color: #50a14f;">'Projectile Motion'</span>)
@@ -718,7 +718,7 @@ plt.close()
 </div>
 
 
-<div id="orgadf54d6" class="figure">
+<div id="org8853251" class="figure">
 <p><img src="./img/02-projectile.png" alt="02-projectile.png" />
 </p>
 </div>
@@ -753,36 +753,36 @@ Lets write a function to evaluate the solutions to the kinematic equations:
 <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">requires 3 inputs: vi, theta, yi</span>
 <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">returns the calculated horizontal range</span>
 <span style="color: #e45649;">def</span> <span style="color: #a626a4;">ballistic_sim</span>(vi,theta,yi):
-  <span style="color: #6a1868;">a</span>,<span style="color: #6a1868;">b</span>,<span style="color: #6a1868;">c</span>=-<span style="color: #da8548; font-weight: bold;">4.9</span>, vi*numpy.sin(theta), yi
-  <span style="color: #6a1868;">t</span> = (-b - numpy.sqrt(b*b - <span style="color: #da8548; font-weight: bold;">4</span>*a*c))/(<span style="color: #da8548; font-weight: bold;">2</span>*a)
+  <span style="color: #6a1868;">a</span>,<span style="color: #6a1868;">b</span>,<span style="color: #6a1868;">c</span>=-4.9, vi*numpy.sin(theta), yi
+  <span style="color: #6a1868;">t</span> = (-b - numpy.sqrt(b*b - 4*a*c))/(2*a)
   <span style="color: #e45649;">return</span> vi*numpy.cos(theta)*t
 
 <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">Calculate the trajectory for a randomly chosen set of input parameters</span>
 <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">uses numpy.random.normal() to generate random input values for vi, theta, and yi</span>
-<span style="color: #e45649;">for</span> i <span style="color: #e45649;">in</span> <span style="color: #a626a4;">range</span>(<span style="color: #da8548; font-weight: bold;">10</span>):
+<span style="color: #e45649;">for</span> i <span style="color: #e45649;">in</span> <span style="color: #a626a4;">range</span>(10):
   <span style="color: #a626a4;">print</span>(<span style="color: #50a14f;">"random shot"</span>,i,<span style="color: #50a14f;">":"</span>,ballistic_sim(normal (vi,Evi),normal(theta,Etheta),normal(yi,Eyi)) )
 </pre>
 </div>
 
 <pre class="example">
-random shot 0 : 3.0070286688694203
-random shot 1 : 2.9928607727448004
-random shot 2 : 2.965964260055365
-random shot 3 : 2.9844486897377296
-random shot 4 : 2.926879343977118
-random shot 5 : 3.011818641528456
-random shot 6 : 2.9352301531500022
-random shot 7 : 3.131149315738854
-random shot 8 : 2.988433690618236
-random shot 9 : 2.844099505124472
+random shot 0 : 2.8253864893107106
+random shot 1 : 2.943230448713085
+random shot 2 : 2.9486365004658768
+random shot 3 : 2.942945481287842
+random shot 4 : 3.0416240128377066
+random shot 5 : 2.9694014633532553
+random shot 6 : 2.889390480484175
+random shot 7 : 2.8857552630417675
+random shot 8 : 2.980195250559442
+random shot 9 : 2.9117698534023706
 </pre>
 
 
 
 <div class="org-src-container">
-<pre class="src src-jupyter-python"><span style="color: #6a1868;">shots</span>=[ballistic_sim(normal(vi,Evi),normal(theta,Etheta),normal(yi,Eyi)) <span style="color: #e45649;">for</span> i <span style="color: #e45649;">in</span> <span style="color: #a626a4;">range</span>(<span style="color: #da8548; font-weight: bold;">50</span>)]
+<pre class="src src-jupyter-python"><span style="color: #6a1868;">shots</span>=[ballistic_sim(normal(vi,Evi),normal(theta,Etheta),normal(yi,Eyi)) <span style="color: #e45649;">for</span> i <span style="color: #e45649;">in</span> <span style="color: #a626a4;">range</span>(50)]
 <span style="color: #a626a4;">print</span>(<span style="color: #50a14f;">"Range: "</span>,numpy.mean(shots),<span style="color: #50a14f;">"+-"</span>, numpy.std(shots),<span style="color: #50a14f;">"m"</span>)
-plt.hist(shots,<span style="color: #da8548; font-weight: bold;">30</span>)
+plt.hist(shots,30)
 plt.xlabel(<span style="color: #50a14f;">'Range (m)'</span>)
 plt.ylabel(<span style="color: #50a14f;">'Frequency'</span>)
 plt.title(<span style="color: #50a14f;">'Range Distribution'</span>)
@@ -794,12 +794,12 @@ plt.close()
 </div>
 
 <pre class="example">
-Range:  2.9500026087393927 +- 0.10824790202216723 m
+Range:  2.9589400681482583 +- 0.0942704914022101 m
 </pre>
 
 
 
-<div id="org9584374" class="figure">
+<div id="org6d0d494" class="figure">
 <p><img src="./img/02-range.png" alt="02-range.png" />
 </p>
 </div>
@@ -818,8 +818,8 @@ Range:  2.9500026087393927 +- 0.10824790202216723 m
 </div>
 </div>
 </div>
-<div id="outline-container-org1f44282" class="outline-2">
-<h2 id="org1f44282"><span class="section-number-2">4.</span> Part 4: Writing an Abstract</h2>
+<div id="outline-container-org91d9ea2" class="outline-2">
+<h2 id="org91d9ea2"><span class="section-number-2">4.</span> Part 4: Writing an Abstract</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 <b>Note:</b> We are Math people. English is <code>hard</code>. Writing lab reports takes real effort and time. Writing an <code>Abstract</code> however, should only take you 10 or 15 minutes to complete.

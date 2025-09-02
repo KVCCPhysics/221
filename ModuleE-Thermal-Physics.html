@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-08-14 Wed 15:31 -->
+<!-- 2025-09-02 Tue 01:08 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Temperature Equation Of State Of An Ideal Gas Heat And Energy</title>
@@ -235,9 +235,9 @@
 <p>
 <p align="center"><iframe width="640" height="360" src="https://www.youtube.com/embed/Wup00qiNwVI" frameborder="0" allowfullscreen></iframe></p>
 </p>
-<div id="outline-container-orgd15da37" class="outline-2">
-<h2 id="orgd15da37">Scales</h2>
-<div class="outline-text-2" id="text-orgd15da37">
+<div id="outline-container-orgad56e74" class="outline-2">
+<h2 id="orgad56e74">Scales</h2>
+<div class="outline-text-2" id="text-orgad56e74">
 <p>
 It is appropriate to begin thermodynamics with an explanation of the various temperature scales that are used in science and engineering (especially in America). The figure below displays the four most used scales:
 </p>
@@ -304,43 +304,9 @@ It is appropriate to begin thermodynamics with an explanation of the various tem
 <b>Kelvin</b> is the unit you should use for Science and Engineering! All of the units for all constants in this course are based of of the Kelvin temperature scale. There is one exception to this rule: When calculating the change in temperature \(\Delta T\) (for example in the specific heat equation), you can use temperature in Celsius. This is only true because the scales have the same rate of change with energy (slope on the chart below), and this implies the change is equivalent: \(\Delta T_K = \Delta T_C\). If a formula ever uses a temperature \(T\) (without the change), the unit must be Kelvin!
 </p>
 
-<div class="org-src-container">
-<pre class="src src-jupyter-python">%matplotlib inline
-<span style="color: #e45649;">import</span> numpy <span style="color: #e45649;">as</span> np
-<span style="color: #e45649;">import</span> matplotlib
-<span style="color: #e45649;">import</span> matplotlib.pyplot <span style="color: #e45649;">as</span> plt
-<span style="color: #e45649;">import</span> math
-matplotlib.rc_file(<span style="color: #50a14f;">"matplotlibrc"</span>)
 
-<span style="color: #6a1868;">fig</span> = plt.figure()
-<span style="color: #6a1868;">ax</span> = fig.add_subplot(<span style="color: #da8548; font-weight: bold;">1</span>, <span style="color: #da8548; font-weight: bold;">1</span>, <span style="color: #da8548; font-weight: bold;">1</span>)
-
-<span style="color: #6a1868;">T</span>=np.linspace(<span style="color: #da8548; font-weight: bold;">0</span>,<span style="color: #da8548; font-weight: bold;">400</span>,<span style="color: #da8548; font-weight: bold;">100</span>)
-<span style="color: #6a1868;">TC</span>=T-<span style="color: #da8548; font-weight: bold;">273.16</span>
-<span style="color: #6a1868;">TF</span>=<span style="color: #da8548; font-weight: bold;">9</span>/<span style="color: #da8548; font-weight: bold;">5</span>*TC+<span style="color: #da8548; font-weight: bold;">32</span>
-<span style="color: #6a1868;">TR</span>=TF-TF[<span style="color: #da8548; font-weight: bold;">0</span>]
-
-ax.plot(TC,T,label=r<span style="color: #50a14f;">'Kelvin $(K)$'</span>)
-ax.plot(TC,TC,label=r<span style="color: #50a14f;">'Celcius $(^\circ C)$'</span>)
-ax.plot(TC,TF,label=r<span style="color: #50a14f;">'Fahrenheit $(^\circ F)$'</span>)
-<span style="color: #9ca0a4;">#</span><span style="color: #9ca0a4;">ax.plot(TC,TR,label=r'Rankine $(^\circ R)$')</span>
-
-ax.set_xticks([-<span style="color: #da8548; font-weight: bold;">273.15</span>,<span style="color: #da8548; font-weight: bold;">0</span>,<span style="color: #da8548; font-weight: bold;">100</span>])
-ax.set_xticklabels([<span style="color: #50a14f;">'Abs Zero'</span>, <span style="color: #50a14f;">'Ice/Water'</span>, <span style="color: #50a14f;">'Water/Steam'</span>])
-
-ax.set_title(r<span style="color: #50a14f;">'Temperature Scales'</span>)
-ax.set_ylabel(r<span style="color: #50a14f;">'Temperature'</span>)
-ax.set_xlabel(r<span style="color: #50a14f;">''</span>)
-
-plt.legend(loc=<span style="color: #da8548; font-weight: bold;">0</span>)
-
-plt.show()
-</pre>
-</div>
-
-
-<div id="orga921b7f" class="figure">
-<p><img src="./obipy-resources/p2DHbJ.png" alt="p2DHbJ.png" />
+<div id="org52a6f5a" class="figure">
+<p><img src="./.ob-jupyter/bf2d449e1bdb5b83ff294ba6b8ccadc80ad0fdf8.png" alt="bf2d449e1bdb5b83ff294ba6b8ccadc80ad0fdf8.png" />
 </p>
 </div>
 <p>
@@ -350,39 +316,9 @@ plt.show()
 <p align="center"><iframe width="640" height="360" src="https://www.youtube.com/embed/rsKPXdUO5ag" frameborder="0" allowfullscreen></iframe></p>
 </p>
 
-<div class="org-src-container">
-<pre class="src src-jupyter-python">%matplotlib inline
-<span style="color: #e45649;">import</span> numpy <span style="color: #e45649;">as</span> np
-<span style="color: #e45649;">import</span> matplotlib
-<span style="color: #e45649;">import</span> matplotlib.pyplot <span style="color: #e45649;">as</span> plt
-<span style="color: #e45649;">import</span> math
-matplotlib.rc_file(<span style="color: #50a14f;">"matplotlibrc"</span>)
 
-<span style="color: #6a1868;">fig</span> = plt.figure()
-<span style="color: #6a1868;">ax</span> = fig.add_subplot(<span style="color: #da8548; font-weight: bold;">1</span>, <span style="color: #da8548; font-weight: bold;">1</span>, <span style="color: #da8548; font-weight: bold;">1</span>)
-
-
-<span style="color: #6a1868;">ci</span> = <span style="color: #da8548; font-weight: bold;">2090</span>
-<span style="color: #6a1868;">cw</span> = <span style="color: #da8548; font-weight: bold;">4096</span>
-<span style="color: #6a1868;">cs</span> = <span style="color: #da8548; font-weight: bold;">2010</span>
-
-ax.plot([x <span style="color: #e45649;">for</span> x <span style="color: #e45649;">in</span> np.arange(<span style="color: #da8548; font-weight: bold;">0</span>,<span style="color: #da8548; font-weight: bold;">62700</span>,<span style="color: #da8548; font-weight: bold;">100</span>)], [x/ci - <span style="color: #da8548; font-weight: bold;">30</span> <span style="color: #e45649;">for</span> x <span style="color: #e45649;">in</span> np.arange(<span style="color: #da8548; font-weight: bold;">0</span>,<span style="color: #da8548; font-weight: bold;">62700</span>,<span style="color: #da8548; font-weight: bold;">100</span>)],color=<span style="color: #50a14f;">'blue'</span>)
-ax.plot([x <span style="color: #e45649;">for</span> x <span style="color: #e45649;">in</span> np.arange(<span style="color: #da8548; font-weight: bold;">62700</span>,<span style="color: #da8548; font-weight: bold;">395700</span>,<span style="color: #da8548; font-weight: bold;">100</span>)], [<span style="color: #da8548; font-weight: bold;">0</span> <span style="color: #e45649;">for</span> x <span style="color: #e45649;">in</span> np.arange(<span style="color: #da8548; font-weight: bold;">62700</span>,<span style="color: #da8548; font-weight: bold;">395700</span>,<span style="color: #da8548; font-weight: bold;">100</span>)],color=<span style="color: #50a14f;">'red'</span>)
-ax.plot([x <span style="color: #e45649;">for</span> x <span style="color: #e45649;">in</span> np.arange(<span style="color: #da8548; font-weight: bold;">395700</span>,<span style="color: #da8548; font-weight: bold;">807100</span>,<span style="color: #da8548; font-weight: bold;">100</span>)], [x/cw - <span style="color: #da8548; font-weight: bold;">395700</span>/cw <span style="color: #e45649;">for</span> x <span style="color: #e45649;">in</span> np.arange(<span style="color: #da8548; font-weight: bold;">395700</span>,<span style="color: #da8548; font-weight: bold;">807100</span>,<span style="color: #da8548; font-weight: bold;">100</span>)],color=<span style="color: #50a14f;">'blue'</span>)
-ax.plot([x <span style="color: #e45649;">for</span> x <span style="color: #e45649;">in</span> np.arange(<span style="color: #da8548; font-weight: bold;">814300</span>,<span style="color: #da8548; font-weight: bold;">3074300</span>,<span style="color: #da8548; font-weight: bold;">100</span>)], [<span style="color: #da8548; font-weight: bold;">100</span> <span style="color: #e45649;">for</span> x <span style="color: #e45649;">in</span> np.arange(<span style="color: #da8548; font-weight: bold;">814300</span>,<span style="color: #da8548; font-weight: bold;">3074300</span>,<span style="color: #da8548; font-weight: bold;">100</span>)],color=<span style="color: #50a14f;">'red'</span>)
-ax.plot([x <span style="color: #e45649;">for</span> x <span style="color: #e45649;">in</span> np.arange(<span style="color: #da8548; font-weight: bold;">3074300</span>,<span style="color: #da8548; font-weight: bold;">3200000</span>,<span style="color: #da8548; font-weight: bold;">100</span>)], [x/ci - <span style="color: #da8548; font-weight: bold;">3074300</span>/ci+<span style="color: #da8548; font-weight: bold;">100</span> <span style="color: #e45649;">for</span> x <span style="color: #e45649;">in</span> np.arange(<span style="color: #da8548; font-weight: bold;">3074300</span>,<span style="color: #da8548; font-weight: bold;">3200000</span>,<span style="color: #da8548; font-weight: bold;">100</span>)],color=<span style="color: #50a14f;">'blue'</span>)
-
-ax.set_title(r<span style="color: #50a14f;">'Boiling an ice cube'</span>)
-ax.set_ylabel(r<span style="color: #50a14f;">'Temperature (Celcius)'</span>)
-ax.set_xlabel(r<span style="color: #50a14f;">'Energy Added (Joules)'</span>)
-
-plt.show()
-</pre>
-</div>
-
-
-<div id="org25e362c" class="figure">
-<p><img src="./obipy-resources/HHry0v.png" alt="HHry0v.png" />
+<div id="org2fcc754" class="figure">
+<p><img src="./.ob-jupyter/1b20ce2f5d08aa6fab3b082e890042f4ad22b82e.png" alt="1b20ce2f5d08aa6fab3b082e890042f4ad22b82e.png" />
 </p>
 </div>
 

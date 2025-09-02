@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-08-14 Wed 15:31 -->
+<!-- 2025-09-02 Tue 01:08 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Lab Resources: Video Processing</title>
@@ -218,9 +218,9 @@ You will need to install Handbrake and ImageJ to complete this guide. This is al
 
 <li>This guide will also use <b>ffmpeg</b>, but you do not need to install on your personal computer as it is included with Google Cocalc. Note: ffmpeg is messy to install on Windows, please use the Jupyter interface instead (outlined below).</li>
 </ul>
-<div id="outline-container-org0d1a184" class="outline-2">
-<h2 id="org0d1a184">Step 1: Recording the event</h2>
-<div class="outline-text-2" id="text-org0d1a184">
+<div id="outline-container-orge6abeba" class="outline-2">
+<h2 id="orge6abeba">Step 1: Recording the event</h2>
+<div class="outline-text-2" id="text-orge6abeba">
 <p>
 A very useful technique for measurement of mechanical systems is simply to record the motion using a camera. Cameras have become very good at taking somewhat high speed video (120 FPS is common, with some phones even being able to record at 1000FPS), and very interesting phenomena can be investigated using the footage.
 </p>
@@ -240,9 +240,9 @@ Some advice:
 </ul>
 </div>
 </div>
-<div id="outline-container-org7e083d9" class="outline-2">
-<h2 id="org7e083d9">Step 2: Using Handbrake to trim the video</h2>
-<div class="outline-text-2" id="text-org7e083d9">
+<div id="outline-container-org125e7a5" class="outline-2">
+<h2 id="org125e7a5">Step 2: Using Handbrake to trim the video</h2>
+<div class="outline-text-2" id="text-org125e7a5">
 <p>
 After you record the raw footage, move the video file to a computer. Use a media player to find the time range which includes the relevant parts of the motion. Be sure to get all of the motion you think is important, add a second to the beginning if you are unsure (you can further trim the video in step 2). Then use Handbreak to cut the important motion our of the raw video:
 </p>
@@ -265,9 +265,9 @@ Please review the output video to see if the entire event is captured.
 </p>
 </div>
 </div>
-<div id="outline-container-org93c3f45" class="outline-2">
-<h2 id="org93c3f45">Step 2: Trim the video</h2>
-<div class="outline-text-2" id="text-org93c3f45">
+<div id="outline-container-orgee4122a" class="outline-2">
+<h2 id="orgee4122a">Step 2: Trim the video</h2>
+<div class="outline-text-2" id="text-orgee4122a">
 <p>
 This is an optional but encouraged step. Here, you take the rough trimmed video (<i>event.m4v</i>) and isolate only the frames which you find important. To accomplish this, I find it easiest to add the frame number to the video with ffmpeg, and then use handbrake to reprocess the video to create a new video file. This will help keep your file size to a minimum in the later analysis and let you focus only on the important part of the motion.
 </p>
@@ -292,9 +292,9 @@ Add frame numbers to the video with ffmpeg
 </p>
 </div>
 </div>
-<div id="outline-container-org3da191d" class="outline-2">
-<h2 id="org3da191d">Step 3: Convert to mjpeg</h2>
-<div class="outline-text-2" id="text-org3da191d">
+<div id="outline-container-orgf351333" class="outline-2">
+<h2 id="orgf351333">Step 3: Convert to mjpeg</h2>
+<div class="outline-text-2" id="text-orgf351333">
 <p>
 In this step, you will take your raw video and cut out the important parts in preparation for further analysis. ImageJ requires a somewhat primitive video format called mjpeg, which is essentially a series of jpeg images all glued together. This file format will create files which are much larger than a normal mp4 or m4v file (format which youtube uses). You will be uploading your file to Google Colab and doing the video processing using a command line transcoding software called ffmpeg.
 </p>
@@ -328,9 +328,9 @@ Success! Now you should be left with a clip of your event which can be imported 
 </p>
 </div>
 </div>
-<div id="outline-container-org98a5be7" class="outline-2">
-<h2 id="org98a5be7">Step 4: Opening video in ImageJ</h2>
-<div class="outline-text-2" id="text-org98a5be7">
+<div id="outline-container-org1705693" class="outline-2">
+<h2 id="org1705693">Step 4: Opening video in ImageJ</h2>
+<div class="outline-text-2" id="text-org1705693">
 <ol class="org-ol">
 <li>Download ImageJ and extract the folder. Double click on the ImageJ applicaiton to start. You should see a horizontal bar with a bunch of buttons and no words&#x2026;</li>
 <li>Click File-&gt;Open and select the mjpeg file. Please be sure to select the mjpeg file, as ImageJ cannot open M4V or MP4 file types.</li>

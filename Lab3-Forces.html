@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-08-14 Wed 15:31 -->
+<!-- 2025-09-02 Tue 01:08 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Lab 3 - Forces</title>
@@ -237,19 +237,19 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org2d8c611">1. Balancing Forces in 2D - part 1</a></li>
-<li><a href="#org89fabd3">2. Balancing forces in 2D - part 2</a></li>
-<li><a href="#org29d9265">3. Numerical Equation Solvers</a></li>
-<li><a href="#orge9d3e8d">4. Numerical Solvers: Five forces in equilibrium</a></li>
-<li><a href="#org4de0df0">5. Numerical Solvers: Three connected rings</a></li>
+<li><a href="#org289944f">1. Balancing Forces in 2D - part 1</a></li>
+<li><a href="#org5efbd53">2. Balancing forces in 2D - part 2</a></li>
+<li><a href="#org22b096a">3. Numerical Equation Solvers</a></li>
+<li><a href="#org5baf8b5">4. Numerical Solvers: Five forces in equilibrium</a></li>
+<li><a href="#org437079f">5. Numerical Solvers: Three connected rings</a></li>
 </ul>
 </div>
 </div>
 <p>
 In this lab, you will explore forces in static equilibrium (where all forces cancel with each other). You will use a Free Body Diagram to graphically display the forces and solve problems by applying Newtons 2nd Law (summation of vector forces).
 </p>
-<div id="outline-container-org2d8c611" class="outline-2">
-<h2 id="org2d8c611"><span class="section-number-2">1.</span> Balancing Forces in 2D - part 1</h2>
+<div id="outline-container-org289944f" class="outline-2">
+<h2 id="org289944f"><span class="section-number-2">1.</span> Balancing Forces in 2D - part 1</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Lets start with a warm up problem.
@@ -365,8 +365,8 @@ Calculate the <b>component</b> of each of the tension forces along your coordina
 </blockquote>
 </div>
 </div>
-<div id="outline-container-org89fabd3" class="outline-2">
-<h2 id="org89fabd3"><span class="section-number-2">2.</span> Balancing forces in 2D - part 2</h2>
+<div id="outline-container-org5efbd53" class="outline-2">
+<h2 id="org5efbd53"><span class="section-number-2">2.</span> Balancing forces in 2D - part 2</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Now let me make the problem a bit more challenging by removing the 4th string. For this setup, you have 3 tensions which are initially out of balance. You are tasked to find the combination of masses which should be added to the existing hangers which will bring the system to equilibrium.
@@ -432,8 +432,8 @@ Set up the force table with the below angles. In this setup, you know \(F_1=m_1 
 </blockquote>
 </div>
 </div>
-<div id="outline-container-org29d9265" class="outline-2">
-<h2 id="org29d9265"><span class="section-number-2">3.</span> Numerical Equation Solvers</h2>
+<div id="outline-container-org22b096a" class="outline-2">
+<h2 id="org22b096a"><span class="section-number-2">3.</span> Numerical Equation Solvers</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 In the remainder of the lab you will explore some Python scripts or programs used to solve systems of linear and non-linear equations. Linear Algebra is a branch of mathematics which studies systems of equations with n equations and n unknowns. Linear equations dominate many fields of science and engineering including civil, structural, mechanical and even forms the basis of all of the recent machine learning (AI) technology. Non-Linear equations are also found in many fields and can be problematic to solve if care is not taken. Lets use the force table to explore these complicated topics!
@@ -443,8 +443,8 @@ In the remainder of the lab you will explore some Python scripts or programs use
 <b><b>Basic Mathematical Thought: A system of equations is well defined when there are n independent equations and n unknowns</b></b>. Thinking about the ring in the middle of the force table, we have 2 dimensions (x and y) so can only solve a problem with 2 unknowns. Before diving into the physics, lets look at some python code:
 </p>
 </div>
-<div id="outline-container-org5a46be4" class="outline-3">
-<h3 id="org5a46be4"><span class="section-number-3">3.1.</span> Python: Code syntax refresher</h3>
+<div id="outline-container-org4b0bd66" class="outline-3">
+<h3 id="org4b0bd66"><span class="section-number-3">3.1.</span> Python: Code syntax refresher</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 This lab requires some use of Python, it is not necessary to know any coding beforehand, just try to pick up what you can. Here is a brief overview of how to <b><b>import modules</b></b>, use <b><b>lists</b></b> and declare <b><b>functions</b></b> in Python:
@@ -458,16 +458,16 @@ This lab requires some use of Python, it is not necessary to know any coding bef
 <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">show output using the print() method</span>
 <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">print can show multiple "strings" and calculations together</span>
 <span style="color: #a626a4;">print</span>(<span style="color: #50a14f;">"Hello World!"</span>)
-<span style="color: #a626a4;">print</span>(<span style="color: #da8548; font-weight: bold;">2</span>+<span style="color: #da8548; font-weight: bold;">2</span>,<span style="color: #50a14f;">"equals four"</span>)
+<span style="color: #a626a4;">print</span>(2+2,<span style="color: #50a14f;">"equals four"</span>)
 
 <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">to access a function inside of numpy, use a dot (.)</span>
 <span style="color: #a626a4;">print</span>(numpy.pi)
-<span style="color: #a626a4;">print</span>(<span style="color: #50a14f;">"cos(pi/4)="</span>,numpy.cos(numpy.pi/<span style="color: #da8548; font-weight: bold;">4</span>))
+<span style="color: #a626a4;">print</span>(<span style="color: #50a14f;">"cos(pi/4)="</span>,numpy.cos(numpy.pi/4))
 
 <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">A list in python is denoted with square brackets [ ]</span>
 <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">Elements in a list can be accessed via index (starting at 0)</span>
-<span style="color: #6a1868;">listA</span> = [<span style="color: #da8548; font-weight: bold;">1</span>, <span style="color: #da8548; font-weight: bold;">3</span>, <span style="color: #da8548; font-weight: bold;">5</span>, <span style="color: #da8548; font-weight: bold;">7</span>]
-<span style="color: #a626a4;">print</span>(<span style="color: #50a14f;">"first element="</span>,listA[<span style="color: #da8548; font-weight: bold;">0</span>],<span style="color: #50a14f;">"Last element ="</span>,listA[-<span style="color: #da8548; font-weight: bold;">1</span>])
+<span style="color: #6a1868;">listA</span> = [1, 3, 5, 7]
+<span style="color: #a626a4;">print</span>(<span style="color: #50a14f;">"first element="</span>,listA[0],<span style="color: #50a14f;">"Last element ="</span>,listA[-1])
 
 <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">functions are declared using the def keyword</span>
 <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">these functions take arguments just like a calculus function would</span>
@@ -475,7 +475,7 @@ This lab requires some use of Python, it is not necessary to know any coding bef
 <span style="color: #e45649;">def</span> <span style="color: #a626a4;">power</span>(x,n):
     <span style="color: #e45649;">return</span> x**n
 <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">this kustom function can now be called at any point later in the code</span>
-<span style="color: #a626a4;">print</span>(<span style="color: #50a14f;">"2.3^3 = "</span>, power(<span style="color: #da8548; font-weight: bold;">2.3</span>,<span style="color: #da8548; font-weight: bold;">3</span>))
+<span style="color: #a626a4;">print</span>(<span style="color: #50a14f;">"2.3^3 = "</span>, power(2.3,3))
 </pre>
 </div>
 
@@ -489,8 +489,8 @@ first element= 1 Last element = 7
 </pre>
 </div>
 </div>
-<div id="outline-container-org952328a" class="outline-3">
-<h3 id="org952328a"><span class="section-number-3">3.2.</span> Python: Numerical root solver</h3>
+<div id="outline-container-org2e543c3" class="outline-3">
+<h3 id="org2e543c3"><span class="section-number-3">3.2.</span> Python: Numerical root solver</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 Almost all physics and engineering problems require solutions to algebraic equations. Many times these equations are non-linear and difficult to solve. Numerical methods can come to our rescue. The below code shows how to use a numeric root solver to find solutions to systems of equations:
@@ -514,23 +514,23 @@ Almost all physics and engineering problems require solutions to algebraic equat
 <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">x[0] is x and x[1] is y in the example below</span>
 <span style="color: #e45649;">def</span> <span style="color: #a626a4;">func</span>(x):
     <span style="color: #e45649;">return</span> [
-        x[<span style="color: #da8548; font-weight: bold;">0</span>] * numpy.cos(x[<span style="color: #da8548; font-weight: bold;">1</span>]) - <span style="color: #da8548; font-weight: bold;">4</span>,
-        x[<span style="color: #da8548; font-weight: bold;">1</span>] * x[<span style="color: #da8548; font-weight: bold;">0</span>] - x[<span style="color: #da8548; font-weight: bold;">1</span>] - <span style="color: #da8548; font-weight: bold;">5</span>
+        x[0] * numpy.cos(x[1]) - 4,
+        x[1] * x[0] - x[1] - 5
     ]
 
 <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">Find a numeric solution using guesses x=1 and y=0.5</span>
-<span style="color: #6a1868;">sols</span>=scipy.optimize.fsolve(func, [<span style="color: #da8548; font-weight: bold;">1</span>, <span style="color: #da8548; font-weight: bold;">0.5</span>])
+<span style="color: #6a1868;">sols</span>=scipy.optimize.fsolve(func, [1, 0.5])
 <span style="color: #a626a4;">print</span>(<span style="color: #50a14f;">"solutions x,y: "</span>,sols)
 
 <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">verify the solutions (should equal ~0)</span>
-<span style="color: #a626a4;">print</span>(<span style="color: #50a14f;">"A \'root\' means the function should evaluate to zero: \n"</span>,func(sols))
+<span style="color: #a626a4;">print</span>(<span style="color: #50a14f;">"A </span><span style="color: #b751b6;">\'</span><span style="color: #50a14f;">root</span><span style="color: #b751b6;">\'</span><span style="color: #50a14f;"> means the function should evaluate to zero: </span><span style="color: #b751b6;">\n</span><span style="color: #50a14f;">"</span>,func(sols))
 </pre>
 </div>
 
 <pre class="example">
 solutions x,y:  [6.50409711 0.90841421]
-A 'root' means the function should evaluate to zero:
- [7.105427357601002e-15, -3.552713678800501e-15]
+A 'root' means the function should evaluate to zero: 
+ [np.float64(6.217248937900877e-15), np.float64(-5.329070518200751e-15)]
 </pre>
 
 
@@ -547,23 +547,23 @@ A 'root' means the function should evaluate to zero:
 </div>
 </div>
 </div>
-<div id="outline-container-orge9d3e8d" class="outline-2">
-<h2 id="orge9d3e8d"><span class="section-number-2">4.</span> Numerical Solvers: Five forces in equilibrium</h2>
+<div id="outline-container-org5baf8b5" class="outline-2">
+<h2 id="org5baf8b5"><span class="section-number-2">4.</span> Numerical Solvers: Five forces in equilibrium</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 This lab requires some complicated (or at least tedious) calculations. The system we are studying has 5 tensions pointing in 5 directions. This complication level screams out for using a computer to perform the calculations. Many would use Excel, but I much prefer the power of a real programming language.
 </p>
 </div>
-<div id="outline-container-orgb665b5c" class="outline-3">
-<h3 id="orgb665b5c"><span class="section-number-3">4.1.</span> Free Body Diagrams and the Unit Circle</h3>
+<div id="outline-container-org9188df7" class="outline-3">
+<h3 id="org9188df7"><span class="section-number-3">4.1.</span> Free Body Diagrams and the Unit Circle</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 Draw a free body diagram of the top of the force table with 5 forces. We will have to use a rigid framework to define the angles which the forces point. This is what the unit circle was designed for! Recall the unit circle requires angles be measured starting at 0 on the horizontal-to-the-right direction:
 </p>
 </div>
 </div>
-<div id="outline-container-org15b9d0f" class="outline-3">
-<h3 id="org15b9d0f"><span class="section-number-3">4.2.</span> System of equations</h3>
+<div id="outline-container-orgaf70a7e" class="outline-3">
+<h3 id="orgaf70a7e"><span class="section-number-3">4.2.</span> System of equations</h3>
 <div class="outline-text-3" id="text-4-2">
 <p>
 Write out a system of 2 equations and 2 unknowns (Newtons second law): Lets analyze the system of equations:
@@ -598,27 +598,27 @@ The code below shows how to find the solutions to the top-most system above (unk
 <span style="color: #e45649;">import</span> scipy.optimize
 
 <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">Define the masses and the angles (4 each)</span>
-<span style="color: #6a1868;">m1</span>, <span style="color: #6a1868;">m2</span>, <span style="color: #6a1868;">m3</span>, <span style="color: #6a1868;">m4</span> = <span style="color: #da8548; font-weight: bold;">0.55</span>, <span style="color: #da8548; font-weight: bold;">0.45</span>, <span style="color: #da8548; font-weight: bold;">0.25</span>, <span style="color: #da8548; font-weight: bold;">0.65</span>
-<span style="color: #6a1868;">theta1</span>, <span style="color: #6a1868;">theta2</span>, <span style="color: #6a1868;">theta3</span>, <span style="color: #6a1868;">theta4</span> = <span style="color: #da8548; font-weight: bold;">0</span>, <span style="color: #da8548; font-weight: bold;">90</span>, <span style="color: #da8548; font-weight: bold;">180</span>, <span style="color: #da8548; font-weight: bold;">270</span>
+<span style="color: #6a1868;">m1</span>, <span style="color: #6a1868;">m2</span>, <span style="color: #6a1868;">m3</span>, <span style="color: #6a1868;">m4</span> = 0.55, 0.45, 0.25, 0.65
+<span style="color: #6a1868;">theta1</span>, <span style="color: #6a1868;">theta2</span>, <span style="color: #6a1868;">theta3</span>, <span style="color: #6a1868;">theta4</span> = 0, 90, 180, 270
 
 <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">REQUIRED STEP: Convert angles to radians -&gt; unit circle definitions for trig</span>
-<span style="color: #6a1868;">theta1</span> = theta1*numpy.pi/<span style="color: #da8548; font-weight: bold;">180</span>
-<span style="color: #6a1868;">theta2</span> = theta2*numpy.pi/<span style="color: #da8548; font-weight: bold;">180</span>
-<span style="color: #6a1868;">theta3</span> = theta3*numpy.pi/<span style="color: #da8548; font-weight: bold;">180</span>
-<span style="color: #6a1868;">theta4</span> = theta4*numpy.pi/<span style="color: #da8548; font-weight: bold;">180</span>
+<span style="color: #6a1868;">theta1</span> = theta1*numpy.pi/180
+<span style="color: #6a1868;">theta2</span> = theta2*numpy.pi/180
+<span style="color: #6a1868;">theta3</span> = theta3*numpy.pi/180
+<span style="color: #6a1868;">theta4</span> = theta4*numpy.pi/180
 
 <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">Calculate tension (from the weights) in each string</span>
-<span style="color: #6a1868;">T1</span>,<span style="color: #6a1868;">T2</span>,<span style="color: #6a1868;">T3</span>,<span style="color: #6a1868;">T4</span> = m1*<span style="color: #da8548; font-weight: bold;">9.8</span>,m2*<span style="color: #da8548; font-weight: bold;">9.8</span>,m3*<span style="color: #da8548; font-weight: bold;">9.8</span>,m4*<span style="color: #da8548; font-weight: bold;">9.8</span>
+<span style="color: #6a1868;">T1</span>,<span style="color: #6a1868;">T2</span>,<span style="color: #6a1868;">T3</span>,<span style="color: #6a1868;">T4</span> = m1*9.8,m2*9.8,m3*9.8,m4*9.8
 
 <span style="color: #e45649;">def</span> <span style="color: #a626a4;">tensions</span>(x):
     <span style="color: #e45649;">return</span> [
         T1*numpy.cos(theta1)+T2*numpy.cos(theta2)+T3*numpy.cos(theta3)+
-              T4*numpy.cos(theta4)+x[<span style="color: #da8548; font-weight: bold;">0</span>]*numpy.cos(x[<span style="color: #da8548; font-weight: bold;">1</span>])-<span style="color: #da8548; font-weight: bold;">0</span>,
+              T4*numpy.cos(theta4)+x[0]*numpy.cos(x[1])-0,
         T1*numpy.sin(theta1)+T2*numpy.sin(theta2)+T3*numpy.sin(theta3)+
-              T4*numpy.sin(theta4)+x[<span style="color: #da8548; font-weight: bold;">0</span>]*numpy.sin(x[<span style="color: #da8548; font-weight: bold;">1</span>])-<span style="color: #da8548; font-weight: bold;">0</span>,
+              T4*numpy.sin(theta4)+x[0]*numpy.sin(x[1])-0,
     ]
-<span style="color: #6a1868;">sols</span>=scipy.optimize.fsolve(tensions, [<span style="color: #da8548; font-weight: bold;">3</span>, <span style="color: #da8548; font-weight: bold;">1</span>])
-<span style="color: #a626a4;">print</span>(<span style="color: #50a14f;">"Place mass of"</span>,sols[<span style="color: #da8548; font-weight: bold;">0</span>]/<span style="color: #da8548; font-weight: bold;">9.8</span>,<span style="color: #50a14f;">"kg at angle"</span>, sols[<span style="color: #da8548; font-weight: bold;">1</span>]*<span style="color: #da8548; font-weight: bold;">180</span>/numpy.pi, <span style="color: #50a14f;">"degrees"</span>)
+<span style="color: #6a1868;">sols</span>=scipy.optimize.fsolve(tensions, [3, 1])
+<span style="color: #a626a4;">print</span>(<span style="color: #50a14f;">"Place mass of"</span>,sols[0]/9.8,<span style="color: #50a14f;">"kg at angle"</span>, sols[1]*180/numpy.pi, <span style="color: #50a14f;">"degrees"</span>)
 </pre>
 </div>
 
@@ -627,8 +627,8 @@ Place mass of 0.36055512754637475 kg at angle 146.30993247400784 degrees
 </pre>
 </div>
 </div>
-<div id="outline-container-org842e420" class="outline-3">
-<h3 id="org842e420"><span class="section-number-3">4.3.</span> Solving your own tension balance problem</h3>
+<div id="outline-container-orgf3758e9" class="outline-3">
+<h3 id="orgf3758e9"><span class="section-number-3">4.3.</span> Solving your own tension balance problem</h3>
 <div class="outline-text-3" id="text-4-3">
 <p>
 As a group, solve one of the other cases shown in the previous step. Pick reasonable (but somewhat random) angles and weights which form the knowns. As a group, write out the force balance equations and modify the above code to solve the problem you chose.
@@ -645,8 +645,8 @@ As a group, solve one of the other cases shown in the previous step. Pick reason
 </div>
 </div>
 </div>
-<div id="outline-container-org4de0df0" class="outline-2">
-<h2 id="org4de0df0"><span class="section-number-2">5.</span> Numerical Solvers: Three connected rings</h2>
+<div id="outline-container-org437079f" class="outline-2">
+<h2 id="org437079f"><span class="section-number-2">5.</span> Numerical Solvers: Three connected rings</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 Now lets solve a challenging problem (borrowed from WMU statics course). Try to follow the same steps as the force table problem to practice your techniques:
@@ -657,15 +657,15 @@ Now lets solve a challenging problem (borrowed from WMU statics course). Try to 
 <li>How many unknown tensions/angles are present?</li>
 </ul>
 </div>
-<div id="outline-container-org56750db" class="outline-3">
-<h3 id="org56750db"><span class="section-number-3">5.1.</span> Find the tension in each rope</h3>
+<div id="outline-container-orgb3f5f1b" class="outline-3">
+<h3 id="orgb3f5f1b"><span class="section-number-3">5.1.</span> Find the tension in each rope</h3>
 <div class="outline-text-3" id="text-5-1">
 <p>
 The lamp has a mass of 15 kg and is supported by the 6 cords shown below. Determine the tension in each cord and the angle \(\theta\) to reach equilibrium \(\sum \vec{F} = 0\)
 </p>
 
 
-<div id="org6b209e5" class="figure">
+<div id="org3f07747" class="figure">
 <p><img src="./img/lab-forces2-part2.jpg" alt="lab-forces2-part2.jpg" width="600px" />
 </p>
 </div>

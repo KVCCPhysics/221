@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-08-14 Wed 15:31 -->
+<!-- 2025-09-02 Tue 01:07 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Lab Resources - Error Analysis</title>
@@ -237,13 +237,13 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orga0363fb">1. Partial derivatives</a></li>
-<li><a href="#orgb2da50f">2. Propagation of error and reporting experimental values</a></li>
-<li><a href="#org72657c1">3. Evaluation with a computer</a>
+<li><a href="#orgf5d9511">1. Partial derivatives</a></li>
+<li><a href="#org165b322">2. Propagation of error and reporting experimental values</a></li>
+<li><a href="#org4843e0c">3. Evaluation with a computer</a>
 <ul>
-<li><a href="#orga0f009b">3.1. Example: Volume and surface area of a cylinder</a></li>
-<li><a href="#org1c0e266">3.2. Exercise 1: Surface area of a cylinder</a></li>
-<li><a href="#org22e7021">3.3. Exercise 2: Universal law of gravitation</a></li>
+<li><a href="#orgff8f08c">3.1. Example: Volume and surface area of a cylinder</a></li>
+<li><a href="#orga3ec715">3.2. Exercise 1: Surface area of a cylinder</a></li>
+<li><a href="#org2b7fcc9">3.3. Exercise 2: Universal law of gravitation</a></li>
 <li><a href="#error-propagation-for-ball-launcher">3.4. Error propagation for ball launcher</a></li>
 </ul>
 </li>
@@ -253,8 +253,8 @@
 <p>
 The experiments you will perform in this course are never going to be perfect. The magnitude of the error is determined  We will need to develop some machinery for calculating what error is present in a calculation. Fortunately, these calculations can be easily performed by applying a bit of calculus. I wish to introduce some special notation which will be used in this lab. A capital E followed by square braces, \(E[~]\), is defined to be the <b>error operator</b>, which can be either measured (\(E[\ell] = 0.01~m\)) or calculated using a theoretical expression.
 </p>
-<div id="outline-container-orga0363fb" class="outline-2">
-<h2 id="orga0363fb"><span class="section-number-2">1.</span> Partial derivatives</h2>
+<div id="outline-container-orgf5d9511" class="outline-2">
+<h2 id="orgf5d9511"><span class="section-number-2">1.</span> Partial derivatives</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Partial derivatives are wonderful things! You will study this type of derivative extensively in Calc III. I will give you a brief overview here.
@@ -277,8 +277,8 @@ The error calculation you use below will use partial derivitives of a function o
 </p>
 </div>
 </div>
-<div id="outline-container-orgb2da50f" class="outline-2">
-<h2 id="orgb2da50f"><span class="section-number-2">2.</span> Propagation of error and reporting experimental values</h2>
+<div id="outline-container-org165b322" class="outline-2">
+<h2 id="org165b322"><span class="section-number-2">2.</span> Propagation of error and reporting experimental values</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 The experiments you will perform in this course are never going to be perfect. The magnitude of the error is determined  We will need to develop some machinery for calculating what error is present in a calculation. Fortunately, these calculations can be easily performed by applying a bit of calculus. I wish to introduce some special notation which will be used in this lab. A capital E followed by square braces, \(E[~]\), is defined to be the <b>error operator</b>, which can be either measured (\(E[\ell] = 0.01~m\)) or calculated using a theoretical expression.
@@ -304,12 +304,12 @@ Therefore, we need to calculate the <i>partial</i> derivatives of the function f
 </p>
 </div>
 </div>
-<div id="outline-container-org72657c1" class="outline-2">
-<h2 id="org72657c1"><span class="section-number-2">3.</span> Evaluation with a computer</h2>
+<div id="outline-container-org4843e0c" class="outline-2">
+<h2 id="org4843e0c"><span class="section-number-2">3.</span> Evaluation with a computer</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orga0f009b" class="outline-3">
-<h3 id="orga0f009b"><span class="section-number-3">3.1.</span> Example: Volume and surface area of a cylinder</h3>
+<div id="outline-container-orgff8f08c" class="outline-3">
+<h3 id="orgff8f08c"><span class="section-number-3">3.1.</span> Example: Volume and surface area of a cylinder</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 Lets calculate the error of some properties of a physical object, namely a cylinder.Lets assume we have measured a cylinder and found the following dimensions: * \(r = 2.47 \pm 0.01 ~ m\) * \(h = 0.27 \pm 0.01 ~ m\)
@@ -351,21 +351,21 @@ sympy.init_printing(use_latex=<span style="color: #50a14f;">'mathjax'</span>)
 sympy.var(<span style="color: #50a14f;">'eqn, error, r, E_r, h, E_h'</span>)
 
 <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">Function to perform error propogation on (must be symbolic)</span>
-eqn = sympy.pi * r**<span style="color: #da8548; font-weight: bold;">2</span> * h
+<span style="color: #6a1868;">eqn</span> = sympy.pi * r**2 * h
 
 <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">list of measured values (note: double ==)</span>
-measure=[
-      (sympy.pi,<span style="color: #da8548; font-weight: bold;">3.14159</span>), <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">pi</span>
-      (r,<span style="color: #da8548; font-weight: bold;">2.47</span>), <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">radius in meters</span>
-      (E_r,<span style="color: #da8548; font-weight: bold;">0.01</span>), <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">error of radius measurement</span>
-      (h,<span style="color: #da8548; font-weight: bold;">1.73</span>), <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">height in meters</span>
-      (E_h,<span style="color: #da8548; font-weight: bold;">0.01</span>) <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">error of height measurement</span>
+<span style="color: #6a1868;">measure</span>=[
+      (sympy.pi,3.14159), <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">pi</span>
+      (r,2.47), <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">radius in meters</span>
+      (E_r,0.01), <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">error of radius measurement</span>
+      (h,1.73), <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">height in meters</span>
+      (E_h,0.01) <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">error of height measurement</span>
      ]
 
 <span style="color: #9ca0a4;">#</span><span style="color: #9ca0a4;">The error formula: E[eqn]</span>
-error = sympy.sqrt(
-            (sympy.diff(eqn,r) * E_r)**<span style="color: #da8548; font-weight: bold;">2</span> +
-            (sympy.diff(eqn,h) * E_h)**<span style="color: #da8548; font-weight: bold;">2</span>
+<span style="color: #6a1868;">error</span> = sympy.sqrt(
+            (sympy.diff(eqn,r) * E_r)**2 +
+            (sympy.diff(eqn,h) * E_h)**2
 )
 
 <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">display the equation and its error</span>
@@ -384,7 +384,7 @@ display(error.simplify())
 \(\displaystyle \pi \sqrt{r^{2} \left(E_{h}^{2} r^{2} + 4 E_{r}^{2} h^{2}\right)}\)
 </p>
 
-<pre class="example" id="org24f37e9">
+<pre class="example" id="orgaf0bd55">
   33.1580907256300 +- 0.329879688527488
 </pre>
 
@@ -395,8 +395,8 @@ and units).
 </p>
 </div>
 </div>
-<div id="outline-container-org1c0e266" class="outline-3">
-<h3 id="org1c0e266"><span class="section-number-3">3.2.</span> Exercise 1: Surface area of a cylinder</h3>
+<div id="outline-container-orga3ec715" class="outline-3">
+<h3 id="orga3ec715"><span class="section-number-3">3.2.</span> Exercise 1: Surface area of a cylinder</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 The surface area of a cylinder is
@@ -416,8 +416,8 @@ Try to edit above code to calculate the surface area and its associated error. (
 </div>
 </div>
 </div>
-<div id="outline-container-org22e7021" class="outline-3">
-<h3 id="org22e7021"><span class="section-number-3">3.3.</span> Exercise 2: Universal law of gravitation</h3>
+<div id="outline-container-org2b7fcc9" class="outline-3">
+<h3 id="org2b7fcc9"><span class="section-number-3">3.3.</span> Exercise 2: Universal law of gravitation</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 The Universal law of gravitation states the acceleration due to gravity
@@ -460,23 +460,23 @@ sympy.init_printing(use_latex=<span style="color: #50a14f;">'mathjax'</span>)
 sympy.var(<span style="color: #50a14f;">'eqn, error, G, E_G, m, E_m, r, E_r'</span>)
 
 <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">Function to perform error propogation on (must be symbolic)</span>
-eqn = G*m/r**<span style="color: #da8548; font-weight: bold;">2</span>
+<span style="color: #6a1868;">eqn</span> = G*m/r**2
 
 <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">list of measured values (note: double ==)</span>
-measure=[
-      (G,<span style="color: #da8548; font-weight: bold;">6</span>.67408e-<span style="color: #da8548; font-weight: bold;">11</span>),
-      (E_G,<span style="color: #da8548; font-weight: bold;">0</span>.00030e-<span style="color: #da8548; font-weight: bold;">11</span>),
-      (m,<span style="color: #da8548; font-weight: bold;">5</span>.9722e24),
-      (E_m,<span style="color: #da8548; font-weight: bold;">00</span>.0006e24),
-      (r,<span style="color: #da8548; font-weight: bold;">6</span>.368e6),
-      (E_r,<span style="color: #da8548; font-weight: bold;">0</span>.011e6)
+<span style="color: #6a1868;">measure</span>=[
+      (G,6.67408e-11),
+      (E_G,0.00030e-11),
+      (m,5.9722e24),
+      (E_m,00.0006e24),
+      (r,6.368e6),
+      (E_r,0.011e6)
      ]
 
 <span style="color: #9ca0a4;">#</span><span style="color: #9ca0a4;">The error formula: E[eqn]</span>
-error = sympy.sqrt(
-            (sympy.diff(eqn,G) * E_G)**<span style="color: #da8548; font-weight: bold;">2</span> +
-            (sympy.diff(eqn,m) * E_m)**<span style="color: #da8548; font-weight: bold;">2</span> +
-            (sympy.diff(eqn,r) * E_r)**<span style="color: #da8548; font-weight: bold;">2</span>
+<span style="color: #6a1868;">error</span> = sympy.sqrt(
+            (sympy.diff(eqn,G) * E_G)**2 +
+            (sympy.diff(eqn,m) * E_m)**2 +
+            (sympy.diff(eqn,r) * E_r)**2
 )
 
 <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">display the equation and its error</span>
@@ -495,7 +495,7 @@ display(error.simplify())
 \(\displaystyle \sqrt{\frac{4 E_{r}^{2} G^{2} m^{2} + r^{2} \left(E_{G}^{2} m^{2} + E_{m}^{2} G^{2}\right)}{r^{6}}}\)
 </p>
 
-<pre class="example" id="org33122a1">
+<pre class="example" id="orgadf4e7a">
   9.82923326588975 +- 0.0339750064834568
 </pre>
 
@@ -552,22 +552,22 @@ sympy.init_printing(use_latex=<span style="color: #50a14f;">'mathjax'</span>)
 sympy.var(<span style="color: #50a14f;">'eqn, error, y, Ey, y_i, Ey_i, a, Ea'</span>)
 
 <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">Function to perform error propogation on (must be symbolic)</span>
-eqn = sympy.sqrt(<span style="color: #da8548; font-weight: bold;">2</span>*(y - y_i)/a)
+<span style="color: #6a1868;">eqn</span> = sympy.sqrt(2*(y - y_i)/a)
 
 <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">list of measured values (note: double ==)</span>
-measure=[(y,.<span style="color: #da8548; font-weight: bold;">5</span>),
-         (Ey,<span style="color: #da8548; font-weight: bold;">0.02</span>),
-         (y_i,<span style="color: #da8548; font-weight: bold;">0</span>),
-         (Ey_i,<span style="color: #da8548; font-weight: bold;">0</span>),
-         (a,<span style="color: #da8548; font-weight: bold;">9.829</span>),
-         (Ea,<span style="color: #da8548; font-weight: bold;">0.033</span>)
+<span style="color: #6a1868;">measure</span>=[(y,.5),
+         (Ey,0.02),
+         (y_i,0),
+         (Ey_i,0),
+         (a,9.829),
+         (Ea,0.033)
         ]
 
 <span style="color: #9ca0a4;">#</span><span style="color: #9ca0a4;">The error formula: E[eqn]</span>
-error = sympy.sqrt(
-            (sympy.diff(eqn,y) * Ey)**<span style="color: #da8548; font-weight: bold;">2</span> +
-            (sympy.diff(eqn,y_i) * Ey_i)**<span style="color: #da8548; font-weight: bold;">2</span> +
-            (sympy.diff(eqn,a) * Ea)**<span style="color: #da8548; font-weight: bold;">2</span>
+<span style="color: #6a1868;">error</span> = sympy.sqrt(
+            (sympy.diff(eqn,y) * Ey)**2 +
+            (sympy.diff(eqn,y_i) * Ey_i)**2 +
+            (sympy.diff(eqn,a) * Ea)**2
 )
 
 <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">display the equation and its error</span>
@@ -586,7 +586,7 @@ display(error.simplify())
 \(\displaystyle \frac{\sqrt{2} \sqrt{\frac{\frac{Ea^{2} \left(y - y_{i}\right)}{a^{2}} + \frac{Ey^{2} + Ey_{i}^{2}}{y - y_{i}}}{a}}}{2}\)
 </p>
 
-<pre class="example" id="orgf576a4f">
+<pre class="example" id="org7596760">
   0.318966690612383 +- 0.00640176600131754
 </pre>
 

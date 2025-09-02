@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-08-14 Wed 15:31 -->
+<!-- 2025-09-02 Tue 01:08 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Wave Motion Traveling Wave Traveling Wave Sound Doppler Effect Standing Waves Beats</title>
@@ -257,9 +257,9 @@
 <p>
 <p align="center"><iframe width="640" height="360" src="https://www.youtube.com/embed/cO7VKA7b4v8" frameborder="0" allowfullscreen></iframe></p>
 </p>
-<div id="outline-container-orgca32b48" class="outline-2">
-<h2 id="orgca32b48">Beat Frequency</h2>
-<div class="outline-text-2" id="text-orgca32b48">
+<div id="outline-container-org3cd9faa" class="outline-2">
+<h2 id="org3cd9faa">Beat Frequency</h2>
+<div class="outline-text-2" id="text-org3cd9faa">
 <p>
 Sound waves often display an interesting characteristic of the superposition of waves. If two waves of slightly different frequencies are superimposed (added) on top of each other, the waves will create periodic interference based on the following equation:
 </p>
@@ -276,38 +276,9 @@ This interference is termed a &ldquo;beat frequency&rdquo; because the sound wil
 Below, two waves of frequency \(f_1 = 10 \,Hz\) and \(f_2 = 11 \, Hz\) are shown. From the beat equation, you would expect the beat frequency to be \(f_{beat} = 1 \, Hz\) and you can see this interference clearly below:
 </p>
 
-<div class="org-src-container">
-<pre class="src src-jupyter-python">%matplotlib inline
-<span style="color: #e45649;">import</span> numpy <span style="color: #e45649;">as</span> np
-<span style="color: #e45649;">import</span> matplotlib
-<span style="color: #e45649;">import</span> matplotlib.pyplot <span style="color: #e45649;">as</span> plt
-<span style="color: #e45649;">import</span> math
-matplotlib.rc_file(<span style="color: #50a14f;">"matplotlibrc"</span>)
 
-<span style="color: #6a1868;">fig</span> = plt.figure()
-<span style="color: #6a1868;">ax</span> = fig.add_subplot(<span style="color: #da8548; font-weight: bold;">1</span>, <span style="color: #da8548; font-weight: bold;">1</span>, <span style="color: #da8548; font-weight: bold;">1</span>)
-
-<span style="color: #6a1868;">f1</span> = <span style="color: #da8548; font-weight: bold;">10</span>
-<span style="color: #6a1868;">f2</span> = <span style="color: #da8548; font-weight: bold;">11</span>
-
-<span style="color: #6a1868;">time_series</span> = np.arange(<span style="color: #da8548; font-weight: bold;">0</span>,<span style="color: #da8548; font-weight: bold;">2</span>,<span style="color: #da8548; font-weight: bold;">0.001</span>)
-<span style="color: #6a1868;">time_data</span> = [t <span style="color: #e45649;">for</span> t <span style="color: #e45649;">in</span> time_series]
-<span style="color: #6a1868;">sin1_data</span> = [np.sin(<span style="color: #da8548; font-weight: bold;">2</span>*<span style="color: #da8548; font-weight: bold;">3.1415926</span>*f1*t) <span style="color: #e45649;">for</span> t <span style="color: #e45649;">in</span> time_series]
-<span style="color: #6a1868;">sin2_data</span> = [np.sin(<span style="color: #da8548; font-weight: bold;">2</span>*<span style="color: #da8548; font-weight: bold;">3.1415926</span>*f2*t) <span style="color: #e45649;">for</span> t <span style="color: #e45649;">in</span> time_series]
-
-ax.plot(time_data,sin1_data)
-ax.plot(time_data,sin2_data)
-ax.set_title(r<span style="color: #50a14f;">'Sound Interference: $\qquad f_1 = 10 Hz \qquad f_2 = 11 Hz$'</span>)
-ax.set_ylabel(r<span style="color: #50a14f;">'Sound Pressure Level'</span>)
-ax.set_xlabel(r<span style="color: #50a14f;">'time [s]'</span>)
-
-plt.show()
-</pre>
-</div>
-
-
-<div id="orgec04b62" class="figure">
-<p><img src="./.ob-jupyter/81c9c5dce343cfefc57646efd3079b6e40ffa9fb.png" alt="81c9c5dce343cfefc57646efd3079b6e40ffa9fb.png" />
+<div id="org3910c1f" class="figure">
+<p><img src="./.ob-jupyter/83578f44912502843939752fb5b83a095157d860.png" alt="83578f44912502843939752fb5b83a095157d860.png" />
 </p>
 </div>
 
@@ -319,43 +290,16 @@ Please observe the waves are aligned at first, but at 0.5 seconds the waves are 
 The addition of the two waves create an interesting pattern which shows how the waves constructively and destructively interfere with each other at a frequency of \(f_{beat} = 1\, Hz\)
 </p>
 
-<div class="org-src-container">
-<pre class="src src-jupyter-python">%matplotlib inline
-<span style="color: #e45649;">import</span> numpy <span style="color: #e45649;">as</span> np
-<span style="color: #e45649;">import</span> matplotlib
-<span style="color: #e45649;">import</span> matplotlib.pyplot <span style="color: #e45649;">as</span> plt
-<span style="color: #e45649;">import</span> math
-matplotlib.rc_file(<span style="color: #50a14f;">"matplotlibrc"</span>)
 
-<span style="color: #6a1868;">fig</span> = plt.figure()
-<span style="color: #6a1868;">ax</span> = fig.add_subplot(<span style="color: #da8548; font-weight: bold;">1</span>, <span style="color: #da8548; font-weight: bold;">1</span>, <span style="color: #da8548; font-weight: bold;">1</span>)
-
-<span style="color: #6a1868;">f1</span> = <span style="color: #da8548; font-weight: bold;">10</span>
-<span style="color: #6a1868;">f2</span> = <span style="color: #da8548; font-weight: bold;">11</span>
-
-<span style="color: #6a1868;">time_series</span> = np.arange(<span style="color: #da8548; font-weight: bold;">0</span>,<span style="color: #da8548; font-weight: bold;">2</span>,<span style="color: #da8548; font-weight: bold;">0.001</span>)
-<span style="color: #6a1868;">time_data</span> = [t <span style="color: #e45649;">for</span> t <span style="color: #e45649;">in</span> time_series]
-<span style="color: #6a1868;">sin1_data</span> = [np.sin(<span style="color: #da8548; font-weight: bold;">2</span>*<span style="color: #da8548; font-weight: bold;">3.1415926</span>*f1*t)+np.sin(<span style="color: #da8548; font-weight: bold;">2</span>*<span style="color: #da8548; font-weight: bold;">3.1415926</span>*f2*t) <span style="color: #e45649;">for</span> t <span style="color: #e45649;">in</span> time_series]
-
-ax.plot(time_data,sin1_data)
-ax.set_title(r<span style="color: #50a14f;">'Sound Interference: $f_1 + f_2$'</span>)
-ax.set_ylabel(r<span style="color: #50a14f;">'Sound Pressure Level'</span>)
-ax.set_xlabel(r<span style="color: #50a14f;">'time [s]'</span>)
-
-plt.show()
-</pre>
-</div>
-
-
-<div id="org1efd6a7" class="figure">
-<p><img src="./.ob-jupyter/d73d4eeb88e08b548113ea6cd110c4f1692bfacd.png" alt="d73d4eeb88e08b548113ea6cd110c4f1692bfacd.png" />
+<div id="orgf2c1fd7" class="figure">
+<p><img src="./.ob-jupyter/7dd1dc403700376e96f74d52b8346ebb69a05016.png" alt="7dd1dc403700376e96f74d52b8346ebb69a05016.png" />
 </p>
 </div>
 </div>
 </div>
-<div id="outline-container-org17befec" class="outline-2">
-<h2 id="org17befec">Simulation of beating waves</h2>
-<div class="outline-text-2" id="text-org17befec">
+<div id="outline-container-orgd9f81e9" class="outline-2">
+<h2 id="orgd9f81e9">Simulation of beating waves</h2>
+<div class="outline-text-2" id="text-orgd9f81e9">
 <p>
 \[y(x,t) = 2A \, \cos \left( 2\pi \left( \frac{f_1-f_2}{2} \right) t \right) \cos \left( 2 \pi \left(\frac{f_1 + f_2}{2}\right) t \right)\]
 </p>

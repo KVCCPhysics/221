@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-08-14 Wed 15:31 -->
+<!-- 2025-09-02 Tue 01:08 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Module C - Oscillations</title>
@@ -235,17 +235,17 @@
 <p>
 <p align="center"><iframe width="640" height="360" src="https://www.youtube.com/embed/Zt-tDBlq8GQ" frameborder="0" allowfullscreen></iframe></p>
 </p>
-<div id="outline-container-org69f371e" class="outline-2">
-<h2 id="org69f371e">Pendulum</h2>
-<div class="outline-text-2" id="text-org69f371e">
+<div id="outline-container-orgbfe3ea3" class="outline-2">
+<h2 id="orgbfe3ea3">Pendulum</h2>
+<div class="outline-text-2" id="text-orgbfe3ea3">
 <p>
 <p align="center"><iframe width="640" height="360" src="https://www.youtube.com/embed/lVDYtxAxUMw" frameborder="0" allowfullscreen></iframe></p>
 </p>
 </div>
 </div>
-<div id="outline-container-org39a504a" class="outline-2">
-<h2 id="org39a504a">Small Angle Approximation:</h2>
-<div class="outline-text-2" id="text-org39a504a">
+<div id="outline-container-orgf8fc037" class="outline-2">
+<h2 id="orgf8fc037">Small Angle Approximation:</h2>
+<div class="outline-text-2" id="text-orgf8fc037">
 <p>
 Pendulum motion (a mass swinging in a gravitational field)is an obvious example of harmonic motion. The swing is periodic and the equation of motion can be calculated exactly, but the exact solution is very complicated. To avoid this complication, an approximation can be made which will allow you to write the pendulum equation of motion as Simple Harmonic Oscillator (SHO).
 </p>
@@ -267,29 +267,9 @@ Recall, the SHO equation is takes the following form
 The transformation between the two equations uses the approximation that \(\sin(\theta) \approx \theta\). Lets take a closer look at this approximation.
 </p>
 
-<div class="org-src-container">
-<pre class="src src-jupyter-python">%matplotlib inline
-<span style="color: #e45649;">import</span> numpy <span style="color: #e45649;">as</span> np
-<span style="color: #e45649;">import</span> matplotlib
-<span style="color: #e45649;">import</span> matplotlib.pyplot <span style="color: #e45649;">as</span> plt
-<span style="color: #e45649;">import</span> math
-matplotlib.rc_file(<span style="color: #50a14f;">"matplotlibrc"</span>)
 
-<span style="color: #6a1868;">angle</span>=np.array([x <span style="color: #e45649;">for</span> x <span style="color: #e45649;">in</span> np.arange(<span style="color: #da8548; font-weight: bold;">0.1</span>,<span style="color: #da8548; font-weight: bold;">90</span>,<span style="color: #da8548; font-weight: bold;">1</span>)])
-<span style="color: #6a1868;">sine</span> =np.array([np.sin(x*np.pi/<span style="color: #da8548; font-weight: bold;">180</span>) <span style="color: #e45649;">for</span> x <span style="color: #e45649;">in</span> np.arange(<span style="color: #da8548; font-weight: bold;">0.1</span>,<span style="color: #da8548; font-weight: bold;">90</span>,<span style="color: #da8548; font-weight: bold;">1</span>)])
-<span style="color: #6a1868;">theta</span> = np.array([x*np.pi/<span style="color: #da8548; font-weight: bold;">180</span> <span style="color: #e45649;">for</span> x <span style="color: #e45649;">in</span> np.arange(<span style="color: #da8548; font-weight: bold;">0.1</span>,<span style="color: #da8548; font-weight: bold;">90</span>,<span style="color: #da8548; font-weight: bold;">1</span>)])
-plt.plot(angle,sine,color=<span style="color: #50a14f;">'red'</span>,label=r<span style="color: #50a14f;">'$\sin(\theta)$'</span>)
-plt.plot(angle,theta,color=<span style="color: #50a14f;">'blue'</span>,label=r<span style="color: #50a14f;">'$\theta$'</span>)
-plt.plot(angle,(theta-sine)/sine,color=<span style="color: #50a14f;">'black'</span>,linestyle=<span style="color: #50a14f;">'--'</span>,label=r<span style="color: #50a14f;">'% Error'</span>)
-plt.legend(loc=<span style="color: #da8548; font-weight: bold;">0</span>)
-plt.title(<span style="color: #50a14f;">'Small Angle Approximation (90 Degrees)'</span>)
-plt.show()
-</pre>
-</div>
-
-
-<div id="orgf4af930" class="figure">
-<p><img src="./.ob-jupyter/6e9db8d2cb9c17c834ceba35239e6c320b22cedf.png" alt="6e9db8d2cb9c17c834ceba35239e6c320b22cedf.png" />
+<div id="org13fa62b" class="figure">
+<p><img src="./.ob-jupyter/77a1457c7a43a348eb176a93132b96620e2d4629.png" alt="77a1457c7a43a348eb176a93132b96620e2d4629.png" />
 </p>
 </div>
 
@@ -301,30 +281,9 @@ As you can see above, when the angle is small, the sine function (shown in red) 
 \[\text{Percent Error} = \left| \frac{\sin(\theta) - \theta}{\sin(\theta)} \right|\]
 </p>
 
-<div class="org-src-container">
-<pre class="src src-jupyter-python">%matplotlib inline
-<span style="color: #e45649;">import</span> numpy <span style="color: #e45649;">as</span> np
-<span style="color: #e45649;">import</span> matplotlib
-<span style="color: #e45649;">import</span> matplotlib.pyplot <span style="color: #e45649;">as</span> plt
-<span style="color: #e45649;">import</span> math
-matplotlib.rc_file(<span style="color: #50a14f;">"matplotlibrc"</span>)
 
-<span style="color: #6a1868;">angle</span>=np.array([x <span style="color: #e45649;">for</span> x <span style="color: #e45649;">in</span> np.arange(<span style="color: #da8548; font-weight: bold;">0.1</span>,<span style="color: #da8548; font-weight: bold;">41</span>,<span style="color: #da8548; font-weight: bold;">1</span>)])
-<span style="color: #6a1868;">sine</span> =np.array([np.sin(x*np.pi/<span style="color: #da8548; font-weight: bold;">180</span>) <span style="color: #e45649;">for</span> x <span style="color: #e45649;">in</span> np.arange(<span style="color: #da8548; font-weight: bold;">0.1</span>,<span style="color: #da8548; font-weight: bold;">41</span>,<span style="color: #da8548; font-weight: bold;">1</span>)])
-<span style="color: #6a1868;">theta</span> = np.array([x*np.pi/<span style="color: #da8548; font-weight: bold;">180</span> <span style="color: #e45649;">for</span> x <span style="color: #e45649;">in</span> np.arange(<span style="color: #da8548; font-weight: bold;">0.1</span>,<span style="color: #da8548; font-weight: bold;">41</span>,<span style="color: #da8548; font-weight: bold;">1</span>)])
-<span style="color: #6a1868;">fig</span> = plt.figure()
-<span style="color: #6a1868;">ax</span> = fig.add_subplot(<span style="color: #da8548; font-weight: bold;">1</span>, <span style="color: #da8548; font-weight: bold;">1</span>, <span style="color: #da8548; font-weight: bold;">1</span>)
-ax.plot(angle,<span style="color: #da8548; font-weight: bold;">100</span>*(theta-sine)/sine,color=<span style="color: #50a14f;">'black'</span>,linestyle=<span style="color: #50a14f;">'--'</span>,label=r<span style="color: #50a14f;">'% Error'</span>)
-ax.set_title(r<span style="color: #50a14f;">'Error in the Small Angle Approximation ( Angle from $0^\circ$ to $40^\circ$ )'</span>)
-ax.set_xlabel(r<span style="color: #50a14f;">'$\theta$ [Degrees]'</span>)
-ax.set_ylabel(r<span style="color: #50a14f;">'Percent Error [%]'</span>)
-plt.show()
-</pre>
-</div>
-
-
-<div id="orge707745" class="figure">
-<p><img src="./.ob-jupyter/4e272bd5841df9528621a5840a2b09d0bf9ca42b.png" alt="4e272bd5841df9528621a5840a2b09d0bf9ca42b.png" />
+<div id="orgd0e3ea0" class="figure">
+<p><img src="./.ob-jupyter/c9d3f304a65a45e5486602075a0fdd5672710f16.png" alt="c9d3f304a65a45e5486602075a0fdd5672710f16.png" />
 </p>
 </div>
 
@@ -337,8 +296,8 @@ Please take a close look at the above figure. It shows the small angle approxima
 </p>
 </div>
 </div>
-<div id="outline-container-org8946c25" class="outline-2">
-<h2 id="org8946c25">Damped And Forced Oscillations</h2>
+<div id="outline-container-org80659da" class="outline-2">
+<h2 id="org80659da">Damped And Forced Oscillations</h2>
 </div>
 </div>
 </body>
