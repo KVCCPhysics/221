@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-09-02 Tue 09:11 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Unit 02</title>
+<meta name="author" content="Patrick Malsom" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<style type="text/css">body{ max-width:800px; margin: auto;font-family: LatoWeb, "Lato Extended", Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;}table.center{margin-left:auto; margin-right:auto;}</style>
+</div>
+<div id="content" class="content">
+<h1 class="title">Unit 02</h1>
+<div id="outline-container-orgc8b55e1" class="outline-2">
+<h2 id="orgc8b55e1">Fundamental Forces</h2>
+<div class="outline-text-2" id="text-orgc8b55e1">
+<p>
+Let me lay out a simple picture for a complicated universe: Physicists have only found <b>four</b> fundamental forces. That is it. These four forces create all of the universe, from supermassive black holes which gravitationally attract entire galaxys, to cells which absorb packets of light and transform them into little packets of chemical energy (photosynthesis). Everything we know and observe is a manifestation of these four forces:
+</p>
+</div>
+<div id="outline-container-org668617d" class="outline-3">
+<h3 id="org668617d">Gravitational Force</h3>
+<div class="outline-text-3" id="text-org668617d">
+<p>
+This force was uncovered by Isaac Newton and is the first of the classical forces to be discovered:
+</p>
+
+<p>
+\[F = G \frac{mM}{r^2}\]
+</p>
+
+<p>
+Where G is the universal gravitation constant, m and M are the masses of the two objects and r is the distance which the objects are separated. Please note that we use a simplification of this force when studying objects on the surgface of the earth. The <i>Weight</i> of an object is said to be equal to \(F_g = m\,g\) where \(g = 9.8~m/s^2\) is the gravitational acceleration on the surface of the earth. Please note that these forces are the same and that \(g = G\, \frac{M_{e}}{r_e^2}\) where the mass and the radius are for our planet Earth.
+</p>
+</div>
+</div>
+<div id="outline-container-orgaa1ad4b" class="outline-3">
+<h3 id="orgaa1ad4b">Electric and Magnetic Forces</h3>
+<div class="outline-text-3" id="text-orgaa1ad4b">
+<p>
+These forces are the subject of study for the second semester of physics.
+</p>
+
+<p>
+\[F_E = k_e \frac{q_1\,q_2}{r^2}\]
+</p>
+
+<p>
+The electric force is quite similar to the gravitational force (referred to as an inverse square law), with two major physical differences: First the constant k is 20 orders of magnitude larger than G from the gravitational force! This is an enormously large difference and explains why you can accelerate comfortably in a gravitational field (jumping out of an airplane) but suffer greatly when interacting with the electric force (hitting the ground&#x2026; ouch). The second difference is that the masses in the gravitational force can only be a positive value, but the charge (\(q_1\) and \(q_2\)) can be either positive or negative. This fact allows most of the large scale electric forces to cancel each other at large distances (by large I mean the size of a human hair). This means the gravitational force will dominate at large distances, and the electric force will dominate at small distances.
+</p>
+
+<p>
+\[ F_B = q \, v \times B\]
+</p>
+
+<p>
+The magnetic force is intimately related to the electric force, and they are grouped together in the physicists mind. The equations are written completely as &ldquo;Maxwells Equations&rdquo; and are extensively studied in the second semester of physics.
+</p>
+</div>
+</div>
+<div id="outline-container-orgc3c6de0" class="outline-3">
+<h3 id="orgc3c6de0">Weak Force</h3>
+<div class="outline-text-3" id="text-orgc3c6de0">
+<p>
+The Weak force is a quantum force which governs the change of a fundamental particle (say a proton) to another particle (say a neutron). This type of decay will happen in unstable nuclei and the force has an interesting &ldquo;mediator&rdquo; called the \(W^+\), \(W^-\) and \(Z^0\) Bosons. This force and its mediators become fundamentally important when studying radioactive decays, but are unimportant for the study of classical physics. This force is both weak (the same maginitude as the electric force) and very short range (much shorter than even the electric force), which relegates its study to very small objects such as individual atoms.
+</p>
+</div>
+</div>
+<div id="outline-container-org83bb3ad" class="outline-3">
+<h3 id="org83bb3ad">Strong Force</h3>
+<div class="outline-text-3" id="text-org83bb3ad">
+<p>
+The STRONG force is another quantum force, and is the force an atom uses to hold its nucleus together in a very compact positively charged central region. The mediator of this force is the &ldquo;gluon&rdquo; which defines how quarks behave inside of protons and neutrons. This force is extremely short range (\(10^{-15}\,m\)) but is extremely large, so much that it will overpower the very strong repulsive force created by the positively charged quarks in the center of a proton.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org7534a1f" class="outline-2">
+<h2 id="org7534a1f">Classical Forces</h2>
+<div class="outline-text-2" id="text-org7534a1f">
+<p>
+In this course, we are studying classical physics. This physics existed before we knew about any Quantum Mechanics or Electromagnetic interactions. These classical forces fall into the following categories:
+</p>
+<ol class="org-ol">
+<li>Weight: the force due to gravity (mg).</li>
+<li>Normal: Contanct force created by the electromagnetic repulsion of electrons in two different materials.</li>
+<li>Tension: Force created by pulling on a rope or string.</li>
+<li>Friction: Force created by rubbing two surfaces together.</li>
+</ol>
+
+<p>
+These are the forces that we will concern ourselves with for this course. Please always be aware that these forces are generalizations of the true <code>physics</code> forces (almost everything we interact with is the electromagnetic force).
+</p>
+
+
+<p>
+<p align="center"><iframe width="640" height="360" src="https://www.youtube.com/embed/bZk_EiXCMOA" frameborder="0" allowfullscreen></iframe></p>
+</p>
+</div>
+</div>
+<div id="outline-container-org2790a4a" class="outline-2">
+<h2 id="org2790a4a">Free Body Diagrams</h2>
+<div class="outline-text-2" id="text-org2790a4a">
+<p>
+FBD&rsquo;s are a critical communication tool used to explain your force problem/solution to others. They are simply a cartoon picture which display all of the forces applied on the object. Please be careful with these cartoons, they also drive the creation of the force laws (\(\Sigma F = ma\)). If something goes wrong with the FBD picture, most likely the equations will be incorrect and you will be led down a dead end.
+</p>
+
+<p>
+<b>A note for future classes</b>: Some engineering profs are very particular about the correct magnitude (length) for arrows on FBDs. Vectors can be fully described by an arrow, and if the prof requests, you should be able to make an FBD with the correct arrow lengths. Most likely, this means you have to go back after solving the problem and modify the lengths of the Force arrows to have correct magnitude to receive credit for the question. I will go easy on you and not require accurate magnitude for this class. I do require you to draw complete FBDs (no missing forces) with approximately correct direction to get full credit.
+</p>
+
+<p>
+There is no safety net with these pictures, so practice drawing them. Here are some examples to get you started:
+</p>
+
+<p>
+<p align="center"><iframe width="640" height="360" src="https://www.youtube.com/embed/jneUH5YPXjc" frameborder="0" allowfullscreen></iframe></p>
+</p>
+
+<p>
+Problem Solving Strategy for Force questions:
+</p>
+
+<ol class="org-ol">
+<li>Carefully Read the Problem
+<ul class="org-ul">
+<li>Take your time and pay attention to each word (starts from rest, stationary, balanced, etc..)</li>
+<li>Draw a picture</li>
+</ul></li>
+<li>Label any knowns/unknowns on a Free Body Diagram
+<ul class="org-ul">
+<li>Draw the FBD cartoon and create a coordinate system</li>
+<li>Take your time and think which direction the forces point</li>
+<li>Magnitude is not necessary</li>
+<li>Label directions with angles on the FBD</li>
+</ul></li>
+<li>Apply Newtons 2nd law (separate directions)
+<ul class="org-ul">
+<li>Each FBD gets its own set of \(\sum F = m a\) equations</li>
+<li>Break the forces into components along the coordinate directions</li>
+<li>Separate equations for x &amp; y directions
+<ul class="org-ul">
+<li>\(\sum F_x = m a_x\)</li>
+<li>\(\sum F_y = m a_y\)</li>
+</ul></li>
+</ul></li>
+<li>Solve the equations from step 3
+<ul class="org-ul">
+<li>If the number of equations is equal to the number of unknowns, you are done with physics and on to math!</li>
+<li>Use the system of equations algebra techniques</li>
+</ul></li>
+</ol>
+
+<p>
+<p align="center"><iframe width="640" height="360" src="https://www.youtube.com/embed/KcT8FaxOpco" frameborder="0" allowfullscreen></iframe></p>
+</p>
+
+<p>
+<p align="center"><iframe width="640" height="360" src="https://www.youtube.com/embed/wygOXOAMbO8" frameborder="0" allowfullscreen></iframe></p>
+</p>
+
+<p>
+<p align="center"><iframe width="640" height="360" src="https://www.youtube.com/embed/C_F_CcbP_iM" frameborder="0" allowfullscreen></iframe></p>
+</p>
+</div>
+</div>
+<div id="outline-container-org01de962" class="outline-2">
+<h2 id="org01de962">Friction</h2>
+<div class="outline-text-2" id="text-org01de962">
+<p>
+<p align="center"><iframe width="640" height="360" src="https://www.youtube.com/embed/18eQrDCCvKw" frameborder="0" allowfullscreen></iframe></p>
+</p>
+</div>
+<div id="outline-container-orga90db23" class="outline-3">
+<h3 id="orga90db23">Example Problems</h3>
+<div class="outline-text-3" id="text-orga90db23">
+<p>
+<p align="center"><iframe width="640" height="360" src="https://www.youtube.com/embed/B5QTtFdXjPc" frameborder="0" allowfullscreen></iframe></p>
+</p>
+
+<p>
+<p align="center"><iframe width="640" height="360" src="https://www.youtube.com/embed/jPoBVVNWqrY" frameborder="0" allowfullscreen></iframe></p>
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org4228858" class="outline-2">
+<h2 id="org4228858">Centripetal Force</h2>
+<div class="outline-text-2" id="text-org4228858">
+<p>
+<p align="center"><iframe width="640" height="360" src="https://www.youtube.com/embed/uRINYiw9ccA" frameborder="0" allowfullscreen></iframe></p>
+</p>
+</div>
+<div id="outline-container-org728610d" class="outline-3">
+<h3 id="org728610d">Example Problems</h3>
+<div class="outline-text-3" id="text-org728610d">
+<p>
+<p align="center"><iframe width="640" height="360" src="https://www.youtube.com/embed/Igvhlki_lfQ" frameborder="0" allowfullscreen></iframe></p>
+</p>
+
+<p>
+Note: I mistype in my calculator at the very end of the below video. The solution is still correct, but the final calculator entry is not&#x2026; (You can see this mistake in the last 30 seconds of the video, where I type an extra 2) The actual answer should be half of what I find in the calculation: \(\mu = 0.131\)
+</p>
+
+<p>
+<p align="center"><iframe width="640" height="360" src="https://www.youtube.com/embed/co5bCh7YYBk" frameborder="0" allowfullscreen></iframe></p>
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgdf30208" class="outline-2">
+<h2 id="orgdf30208">Energy</h2>
+<div class="outline-text-2" id="text-orgdf30208">
+<p>
+<p align="center"><iframe width="640" height="360" src="https://www.youtube.com/embed/8rCWB-LS-g4" frameborder="0" allowfullscreen></iframe></p>
+</p>
+
+<p>
+<p align="center"><iframe width="640" height="360" src="https://www.youtube.com/embed/unrp9S00aGo" frameborder="0" allowfullscreen></iframe></p>
+</p>
+</div>
+<div id="outline-container-orgf5065f0" class="outline-3">
+<h3 id="orgf5065f0">Examples</h3>
+<div class="outline-text-3" id="text-orgf5065f0">
+<p>
+<p align="center"><iframe width="640" height="360" src="https://www.youtube.com/embed/CxompMAOguA" frameborder="0" allowfullscreen></iframe></p>
+</p>
+
+<p>
+<p align="center"><iframe width="640" height="360" src="https://www.youtube.com/embed/n4sSjhUkBtk" frameborder="0" allowfullscreen></iframe></p>
+</p>
+
+<p>
+<p align="center"><iframe width="640" height="360" src="https://www.youtube.com/embed/4SUuc1yFpE4" frameborder="0" allowfullscreen></iframe></p>
+</p>
+
+
+<p>
+<p align="center"><iframe width="640" height="360" src="https://www.youtube.com/embed/CF3pRvOxAPE" frameborder="0" allowfullscreen></iframe></p>
+</p>
+
+<p>
+<p align="center"><iframe width="640" height="360" src="https://www.youtube.com/embed/YiQbIAo9mgI" frameborder="0" allowfullscreen></iframe></p>
+</p>
+</div>
+</div>
+<div id="outline-container-org4f49600" class="outline-3">
+<h3 id="org4f49600">Examples</h3>
+<div class="outline-text-3" id="text-org4f49600">
+<p>
+<p align="center"><iframe width="640" height="360" src="https://www.youtube.com/embed/4SUuc1yFpE4" frameborder="0" allowfullscreen></iframe></p>
+</p>
+
+<p>
+<p align="center"><iframe width="640" height="360" src="https://www.youtube.com/embed/w6R5Z-NROC4" frameborder="0" allowfullscreen></iframe></p>
+</p>
+
+<p>
+<p align="center"><iframe width="640" height="360" src="https://www.youtube.com/embed/sWcFUR3fYsg" frameborder="0" allowfullscreen></iframe></p>
+</p>
+
+
+
+<p>
+<p align="center"><iframe width="640" height="360" src="https://www.youtube.com/embed/7H26Z-0E3JI" frameborder="0" allowfullscreen></iframe></p>
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
