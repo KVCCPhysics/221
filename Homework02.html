@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-09-26 Fri 13:48 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="author" content="Patrick Malsom" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<style type="text/css">body{ max-width:800px; margin: auto;font-family: LatoWeb, "Lato Extended", Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;}table.center{margin-left:auto; margin-right:auto;}</style>
+</div>
+<div id="content" class="content">
+<div id="outline-container-org8c92c9f" class="outline-2">
+<h2 id="org8c92c9f">Phy 221 - Homework 02</h2>
+<div class="outline-text-2" id="text-org8c92c9f">
+<p>
+I will also include the problems which I had told you to skip from HW1:
+</p>
+</div>
+<div id="outline-container-org50a4d62" class="outline-3">
+<h3 id="org50a4d62">Problem 1.11</h3>
+<div class="outline-text-3" id="text-org50a4d62">
+<ol class="org-ol">
+<li>Can a particle moving with instantaneous speed \(3.00~m/s\) on a path with radius of curvature \(2.00~m\) have an acceleration of magnitude \(6.00~m/s^2\) ?</li>
+<li>Can it have an acceleration of magnitude \(4.00~m/s^2\)? In each case, if the answer is yes, explain how it can happen; if the answer is no, explain why not.</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org8b29320" class="outline-3">
+<h3 id="org8b29320">Problem 1.12</h3>
+<div class="outline-text-3" id="text-org8b29320">
+<p>
+An athlete swings a ball, connected to the end of a chain, in a horizontal circle. The athlete is able to rotate the ball at the rate of \(8.00~rev/s\) when the length of the chain is \(0.600~m\). When he increases the length to \(0.900~m\), he is able to rotate the ball only \(6.00~rev/s\).
+</p>
+
+<ol class="org-ol">
+<li>Which rate of rotation gives the greater speed for the ball?</li>
+<li>What is the centripetal acceleration of the ball at \(8.00~rev/s\)?</li>
+<li>What is the centripetal acceleration at \(6.00~rev/s\)?</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org2927c79" class="outline-3">
+<h3 id="org2927c79">Problem 2.1</h3>
+<div class="outline-text-3" id="text-org2927c79">
+<p>
+A bag of cement whose weight is \(F_g\) hangs in equilibrium from three wires as shown below. Two of the wires make angles \(\theta_1\) and \(\theta_2\) with the horizontal. Assuming the system is in equilibrium, show that the tension in the lefthand wire is
+\[ T_1 = \frac{F_g \, \cos \theta_2}{\sin(\theta_1 + \theta_2)}\]
+</p>
+
+
+<div id="org8f61a31" class="figure">
+<p><img src="./img/hw3_fig1.png" alt="hw3_fig1.png" width="400px" />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org5708970" class="outline-3">
+<h3 id="org5708970">Problem 2.2</h3>
+<div class="outline-text-3" id="text-org5708970">
+<p>
+Two objects are connected by a light string that passes over a frictionless pulley as shown below. Assume the incline is frictionless and take \(m_1 = 2.00~kg\), \(m_2 =6.00~kg\), and \(\theta = 55.0^\circ\).
+</p>
+
+<ol class="org-ol">
+<li>Draw free-body diagrams of both objects.</li>
+<li>Find the magnitude of the acceleration of the objects.</li>
+<li>Find the tension in the string.</li>
+<li>Find the speed of each object \(2.00~s\) after it is released from rest.</li>
+</ol>
+
+
+<div id="org52bd1fb" class="figure">
+<p><img src="./img/hw3_fig2.png" alt="hw3_fig2.png" width="400px" />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orga8065b3" class="outline-3">
+<h3 id="orga8065b3">Problem 2.3</h3>
+<div class="outline-text-3" id="text-orga8065b3">
+<p>
+A block is given an initial velocity of \(5.00~m/s\) up a frictionless incline of angle \(\theta = 20.0^\circ\) as shown below. How far up the incline does the block slide before coming to rest?
+</p>
+
+
+<div id="orgf619720" class="figure">
+<p><img src="./img/hw3_fig3.png" alt="hw3_fig3.png" width="400px" />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org6ecfa01" class="outline-3">
+<h3 id="org6ecfa01">Problem 2.4</h3>
+<div class="outline-text-3" id="text-org6ecfa01">
+<p>
+To determine the coefficients of friction between rubber and various surfaces, a student uses a rubber eraser and an incline. In one experiment, the eraser begins to slip down the incline when the angle of inclination is \(36.0^\circ\) and then moves down the incline with constant speed when the angle is reduced to \(30.0^\circ\). From these data, determine the coefficients of static and kinetic friction for this experiment.
+</p>
+</div>
+</div>
+<div id="outline-container-org6de6831" class="outline-3">
+<h3 id="org6de6831">Problem 2.5</h3>
+<div class="outline-text-3" id="text-org6de6831">
+<p>
+Two blocks connected by a rope of negligible mass are being dragged by a horizontal force, as shown below.  Suppose \(F = 68.0~N\), \(m_1 = 12.0~kg\), \(m_2 = 18.0~kg\), and the coefficient of kinetic friction between each block and the surface is \(\mu=0.100\).
+</p>
+
+<ol class="org-ol">
+<li>Draw a free-body diagram for each block.</li>
+<li>Determine the acceleration of the system and</li>
+<li>Determine the tension \(T\) in the rope.</li>
+</ol>
+
+
+<div id="org79d065d" class="figure">
+<p><img src="./img/hw3_fig4.png" alt="hw3_fig4.png" width="400px" />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org95a0711" class="outline-3">
+<h3 id="org95a0711">Problem 2.6</h3>
+<div class="outline-text-3" id="text-org95a0711">
+<p>
+A child’s toy consists of a small wedge that has an acute angle \(\theta\). The sloping side of the wedge is frictionless, and an object of mass \(m\) on it remains at constant height if the wedge is spun at a certain constant speed. The wedge is spun by rotating, as an axis, a vertical rod that is firmly attached to the wedge at the bottom end.  Show that, when the object sits at rest at a point at distance \(\ell\) up along the wedge, the speed of the object must be:
+</p>
+
+<p>
+\[v = \sqrt{g \ell \sin \theta}\]
+</p>
+
+
+<div id="org7eedb14" class="figure">
+<p><img src="./img/hw3_fig6.png" alt="hw3_fig6.png" width="400px" />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org5d081d1" class="outline-3">
+<h3 id="org5d081d1">Problem 2.7</h3>
+<div class="outline-text-3" id="text-org5d081d1">
+<p>
+A coin placed \(30.0~cm\) from the center of a rotating, horizontal turntable slips when its speed is \(50.0~cm/s\).
+</p>
+
+<ol class="org-ol">
+<li>What force causes the centripetal acceleration when the coin is stationary relative to the turntable?</li>
+<li>What is the coefficient of static friction between coin and turntable?</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org1721850" class="outline-3">
+<h3 id="org1721850">Problem 2.8</h3>
+<div class="outline-text-3" id="text-org1721850">
+<p>
+An air puck of mass \(m_1 = 0.25~kg\) is tied to a string and allowed to revolve in a circle of radius \(R=1.0~m\) on a frictionless horizontal table.
+The other end of the string passes through a hole in the center of the table, and a mass \(m_2 =1.0~kg\) is tied to it, as shown in the figure.
+The suspended mass remains in equilibrium while the pick on the tabletop revolves.
+</p>
+
+<ol class="org-ol">
+<li>What is the tension in the string?</li>
+<li>What is the horizontal force acting on the puck?</li>
+<li>What is the speed of the puck?</li>
+</ol>
+
+
+<div id="orgf034494" class="figure">
+<p><img src="./img/hw3_fig5.png" alt="hw3_fig5.png" width="400px" />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org10d2c23" class="outline-3">
+<h3 id="org10d2c23">Problem 2.9</h3>
+<div class="outline-text-3" id="text-org10d2c23">
+<p>
+Using the definition of the scalar product, find the angles between
+</p>
+
+<ol class="org-ol">
+<li>\(\vec{\mathbf{A}} = 3\,\hat{\mathbf{i}} - 2\,\hat{\mathbf{j}}\) and \(\vec{\mathbf{B}} = 4\,\hat{\mathbf{i}} - 4\,\hat{\mathbf{j}}\)</li>
+<li>\(\vec{\mathbf{A}} = -2\,\hat{\mathbf{i}} + 4\,\hat{\mathbf{j}}\) and \(\vec{\mathbf{B}} = 3\,\hat{\mathbf{i}} - 4\,\hat{\mathbf{j}} + 2\,\hat{\mathbf{k}}\)</li>
+<li>\(\vec{\mathbf{A}} = \hat{\mathbf{i}} - 2\,\hat{\mathbf{j}} + 2\,\hat{\mathbf{k}}\) and \(\vec{\mathbf{B}} = 3\,\hat{\mathbf{j}} + 4\,\hat{\mathbf{k}}\)</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org3c4e2f8" class="outline-3">
+<h3 id="org3c4e2f8">Problem 2.10</h3>
+<div class="outline-text-3" id="text-org3c4e2f8">
+<p>
+When an object is displaced by an amount \(x\) from stable equilibrium, a restoring force acts on it, tending to return the object to its equilibrium position. The magnitude of the restoring force can be a complicated function of \(x\). In such cases, we can generally imagine the force function \(F(x)\) to be expressed as a power series in \(x\) as
+\[F(x) = -(k_1\,x + k_2\,x^2 + k_3\,x^3 + \cdots)\]
+The first term here is just Hooke’s law, which describes the force exerted by a simple spring for small displacements. For small excursions from equilibrium, we generally ignore the higher-order terms, but in some cases it may be desirable to keep the second term as well.  If we model the restoring force as
+\[F = -(k_1\,x + k_2\,x^2)\]
+how much work is done on an object in displacing it from \(x = 0\) to \(x = x_{\text{max}}\) by an applied force \(-F\) ?
+</p>
+</div>
+</div>
+<div id="outline-container-orgef2fc17" class="outline-3">
+<h3 id="orgef2fc17">Problem 2.11</h3>
+<div class="outline-text-3" id="text-orgef2fc17">
+<p>
+A \(200~g\) block is pressed against a spring of force constant \(1.40~kN/m\) until the block compresses the spring \(10.0~cm\). The spring rests at the bottom of a ramp inclined at \(60.0^\circ\) to the horizontal. Using energy considerations, determine how far up the incline the block moves from its initial position before it stops
+</p>
+
+<ol class="org-ol">
+<li>If the ramp exerts no friction force on the block</li>
+<li>If the coefficient of kinetic friction is \(0.400\)</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org39c9689" class="outline-3">
+<h3 id="org39c9689">Problem 2.12</h3>
+<div class="outline-text-3" id="text-org39c9689">
+<p>
+An electric scooter has a battery capable of supplying \(120~Wh\) of energy. If friction forces and other losses account for 60.0% of the energy usage, what altitude change can a rider achieve when driving in hilly terrain if the rider and scooter have a combined weight of \(890~N\)?
+</p>
+</div>
+</div>
+<div id="outline-container-org6fa0acd" class="outline-3">
+<h3 id="org6fa0acd">Problem 2.13</h3>
+<div class="outline-text-3" id="text-org6fa0acd">
+<p>
+A \(10.0~kg\) block is released from rest at point A in the below figure. The track is frictionless except for the portion between points B and C, which has a length of \(6.00~m\). The block travels down the track, hits a spring of force constant \(2250~N/m\), and compresses the spring \(0.300~m\) from its equilibrium position before coming to rest momentarily. Determine the coefficient of kinetic friction between the block and the rough surface between points B and C.
+</p>
+
+
+<div id="org065424d" class="figure">
+<p><img src="./img/hw4_fig1.png" alt="hw4_fig1.png" width="400px" />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orge8b290a" class="outline-3">
+<h3 id="orge8b290a">Problem 2.14</h3>
+<div class="outline-text-3" id="text-orge8b290a">
+<p>
+A block of mass \(m=0.500~kg\) is pushed against a horizontal spring of negligible mass until the spring is compressed a distance \(x\), as shown below. The force constant of the spring is \(450~N/m\). When it is released, the block travels along a frictionless, horizontal surface to point A, the bottom of a vertical circular track of radius \(R=1.00~m\), and continues to move up the track. The block’s speed at the bottom of the track is \(v_A = 12.0~m/s\), and the block experiences an average friction force of \(7.00~N\) while sliding up the track.
+</p>
+
+<ol class="org-ol">
+<li>What is x?</li>
+<li>If the block were to reach the top of the track, what would be its speed at that point?</li>
+<li>Does the block actually reach the top of the track, or does it fall off before reaching the top?</li>
+</ol>
+
+
+<div id="orgbd79c45" class="figure">
+<p><img src="./img/hw4_fig2.png" alt="hw4_fig2.png" width="400px" />
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
