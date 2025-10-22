@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-10-22 Wed 12:01 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="author" content="Patrick Malsom" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<style type="text/css">body{ max-width:800px; margin: auto;font-family: LatoWeb, "Lato Extended", Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;}table.center{margin-left:auto; margin-right:auto;}</style>
+</div>
+<div id="content" class="content">
+<div id="outline-container-org60189fc" class="outline-2">
+<h2 id="org60189fc">Phy 221 - Homework 03</h2>
+<div class="outline-text-2" id="text-org60189fc">
+</div>
+<div id="outline-container-orgeeeac54" class="outline-3">
+<h3 id="orgeeeac54">Problem 3.1</h3>
+<div class="outline-text-3" id="text-orgeeeac54">
+<p>
+The magnitude of the net force exerted in the x direction on a \(2.50~kg\) particle varies in time as shown in the below figure. Find
+</p>
+
+<ol class="org-ol">
+<li>the impulse of the force over the \(5.00~s\) time interval</li>
+<li>the final velocity the particle attains if it is originally at rest</li>
+<li>its final velocity if its original velocity is \(-2.00 ~ m/s\)</li>
+<li>the average force exerted on the particle for the time interval between \(0\) and \(5.00~s\)</li>
+</ol>
+
+
+
+<div id="orgeb46235" class="figure">
+<p><img src="./img/hw5_fig1.png" alt="hw5_fig1.png" width="400px" />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org216f7e9" class="outline-3">
+<h3 id="org216f7e9">Problem 3.2</h3>
+<div class="outline-text-3" id="text-org216f7e9">
+<p>
+A \(1200~kg\) car traveling initially at \(v_{Ci} = 25.0~m/s\) in an easterly direction crashes into the back of a \(9000~kg\) truck moving in the same direction at \(v_{Ti} = 20.0~m/s\) (see below figure). The velocity of the car immediately after the collision is \(v_{Cf} = 18.0~m/s\) to the east.
+</p>
+
+<ol class="org-ol">
+<li>What is the velocity of the truck immediately after the collision?</li>
+<li>What is the change in mechanical energy of the car–truck system in the collision?</li>
+<li>What is the cause of this change in mechanical energy?</li>
+</ol>
+
+
+<div id="orgaae1aeb" class="figure">
+<p><img src="./img/hw5_fig2.png" alt="hw5_fig2.png" width="400px" />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orga09dae5" class="outline-3">
+<h3 id="orga09dae5">Problem 3.3</h3>
+<div class="outline-text-3" id="text-orga09dae5">
+<p>
+Two blocks are free to slide along the frictionless, wooden track shown in the below figure. The block of mass \(m_1 = 5.00~kg\) is released from the position shown, at height \(h = 5.00~m\) above the flat part of the track.  Protruding from its front end is the north pole of a strong magnet, which repels the north pole of an identical magnet embedded in the back end of the block of mass \(m_2 = 10.0~kg\), initially at rest. The two blocks never touch. Calculate the maximum height to which \(m_1\) rises after the elastic collision.
+</p>
+
+
+<div id="org168b85e" class="figure">
+<p><img src="./img/hw5_fig3.png" alt="hw5_fig3.png" width="400px" />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgad8b45b" class="outline-3">
+<h3 id="orgad8b45b">Problem 3.4</h3>
+<div class="outline-text-3" id="text-orgad8b45b">
+<p>
+A billiard ball moving at \(5.00~m/s\) strikes a stationary ball of the same mass. After the collision, the first ball moves at \(4.33~m/s\) at an angle of \(30.0^\circ\) with respect to the original line of motion. Assuming an elastic collision (and ignoring friction and rotational motion), find the struck ball’s velocity after the collision.
+</p>
+</div>
+</div>
+<div id="outline-container-orgb73506e" class="outline-3">
+<h3 id="orgb73506e">Problem 3.5</h3>
+<div class="outline-text-3" id="text-orgb73506e">
+<p>
+A uniform piece of sheet metal is shaped as shown in the below figure. Compute the x and y coordinates of the center of mass of the piece.
+</p>
+
+
+<div id="orge803133" class="figure">
+<p><img src="./img/hw5_fig4.png" alt="hw5_fig4.png" width="400px" />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org5e9610f" class="outline-3">
+<h3 id="org5e9610f">Problem 3.6</h3>
+<div class="outline-text-3" id="text-org5e9610f">
+<p>
+A bullet of mass \(m=8.00~g\) is fired into a block of mass \(M=250~g\) initially at rest at the edge of a frictionless table of height \(h = 1.00~m\) (See below figure). The bullet remains in the block, and after impact the block lands a distance \(d=2.00~m\) from the bottom of the table. Determine the initial speed of the bullet.
+</p>
+
+
+<div id="org5b3cae6" class="figure">
+<p><img src="./img/hw5_fig5.png" alt="hw5_fig5.png" width="400px" />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org930a570" class="outline-3">
+<h3 id="org930a570">Problem 3.7</h3>
+<div class="outline-text-3" id="text-org930a570">
+<p>
+In a manufacturing process, a large, cylindrical roller is used to flatten material fed beneath it. The diameter of the roller is 1.00 m, and, while being driven into rotation around a fixed axis, its angular position is expressed as
+\[\theta = 2.50 t^2 - 0.600t^3\]
+where \(\theta\) is in radians and \(t\) is in seconds.
+</p>
+
+<ol class="org-ol">
+<li>Find the maximum angular speed of the roller.</li>
+<li>What is the maximum tangential speed of a point on the rim of the roller?</li>
+<li>At what time t should the driving force be removed from the roller so that the roller does not reverse its direction of rotation?</li>
+<li>Through how many rotations has the roller turned between \(t = 0\) and the time found in part (c)?</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orgae60afa" class="outline-3">
+<h3 id="orgae60afa">Problem 3.8</h3>
+<div class="outline-text-3" id="text-orgae60afa">
+<p>
+A grinding wheel is in the form of a uniform solid disk of radius \(7.00~cm\) and mass \(2.00~kg\). It starts from rest and accelerates uniformly under the action of the constant torque of \(0.600~N\cdot m\) that the motor exerts on the wheel.
+</p>
+
+<ol class="org-ol">
+<li>How long does the wheel take to reach its final operating speed of \(1200~rev/min\)?</li>
+<li>Through how many revolutions does it turn while accelerating?</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org60406ee" class="outline-3">
+<h3 id="org60406ee">Problem 3.9</h3>
+<div class="outline-text-3" id="text-org60406ee">
+<p>
+The combination of an applied force and a friction force produces a constant total torque of \(36.0~ N \cdot m\) on a wheel rotating about a fixed axis.  The applied force acts for \(6.00~s\).  During this time, the angular speed of the wheel increases from \(0\) to \(10.0~rad/s\). The applied force is then removed, and the wheel comes to rest in \(60.0~s\). Find
+</p>
+
+<ol class="org-ol">
+<li>the moment of inertia of the wheel</li>
+<li>the magnitude of the torque due to friction</li>
+<li>the total number of revolutions of the wheel during the entire interval of \(66.0~s\).</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org33db3eb" class="outline-3">
+<h3 id="org33db3eb">Problem 3.10</h3>
+<div class="outline-text-3" id="text-org33db3eb">
+<p>
+Many machines employ cams for various purposes, such as opening and closing valves. In the below figure, the cam is a circular disk of radius \(R\) with a hole of diameter \(R\) cut through it. As shown in the figure, the hole does not pass through the center of the disk. The cam with the hole cut out has mass \(M\). The cam is mounted on a uniform, solid, cylindrical shaft of diameter \(R\) and also of mass \(M\). What is the kinetic energy of the cam–shaft combination when it is rotating with angular speed \(v\) about the shaft’s axis?
+</p>
+
+
+<div id="orgeeaf2ad" class="figure">
+<p><img src="./img/hw6_fig2.png" alt="hw6_fig2.png" width="400px" />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgc4d18fc" class="outline-3">
+<h3 id="orgc4d18fc">Problem 3.11</h3>
+<div class="outline-text-3" id="text-orgc4d18fc">
+<p>
+If \(|\vec{A} \times \vec{B}|  = \vec{A} \cdot \vec{B}\), what is the angle between \(\vec{A}\) and \(\vec{B}\)?
+</p>
+</div>
+</div>
+<div id="outline-container-orgeec93ab" class="outline-3">
+<h3 id="orgeec93ab">Problem 3.12</h3>
+<div class="outline-text-3" id="text-orgeec93ab">
+<p>
+A puck of mass \(m_1 = 80.0~g\) and radius \(r_1 = 4.00~cm\) glides across an air table at a speed of \(\vec{v} = 1.50~m/s\) as shown in the below figure. It makes a glancing collision with a second puck of radius \(r_2 = 6.00~cm\) and mass \(m_2 = 120~g\) (initially at rest) such that their rims just touch.  Because their rims are coated with instant-acting glue, the pucks stick together and rotate after the collision (right side of figure).
+</p>
+
+<ol class="org-ol">
+<li>What is the angular momentum of the system relative to the center of mass?</li>
+<li>What is the \(\vec{\omega}\) about the center of mass?</li>
+</ol>
+
+
+<div id="org2abb561" class="figure">
+<p><img src="./img/hw7_fig1.png" alt="hw7_fig1.png" width="400px" />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd67a1c0" class="outline-3">
+<h3 id="orgd67a1c0">Problem 3.13</h3>
+<div class="outline-text-3" id="text-orgd67a1c0">
+<p>
+A puck of mass \(m = 50.0~g\) is attached to a taut cord passing through a small hole in a frictionless, horizontal surface as shown in the below figure. The puck is initially orbiting with speed \(v_i = 1.50~m/s\) in a circle of radius \(r_i = 0.300~m\).  The cord is then slowly pulled from below, decreasing the radius of the circle to \(r = 0.100~m\).
+</p>
+<ol class="org-ol">
+<li>What is the puck’s speed at the smaller radius?</li>
+<li>Find the tension in the cord at the smaller radius.</li>
+<li>How much work is done by the hand in pulling the cord so that the radius of the puck’s motion changes from \(0.300~m\) to \(0.100~m\)?</li>
+</ol>
+
+
+<div id="org64daf44" class="figure">
+<p><img src="./img/hw7_fig3.png" alt="hw7_fig3.png" width="400px" />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org7e07e0d" class="outline-3">
+<h3 id="org7e07e0d">Problem 3.14</h3>
+<div class="outline-text-3" id="text-org7e07e0d">
+<p>
+A rigid, massless rod has three particles with equal masses attached to it as shown in the below figure. The rod is free to rotate in a vertical plane about a frictionless axle perpendicular to the rod through the point \(P\) and is released from rest in the horizontal position at \(t=0\).  Assuming m and d are known, find
+</p>
+
+<ol class="org-ol">
+<li>the moment of inertia of the system of three particles about the pivot.</li>
+<li>the torque acting on the system at \(t=0\).</li>
+<li>the angular acceleration of the system at \(t=0\).</li>
+<li>the linear accel of particle 3 at \(t = 0\).</li>
+<li>the maximum kinetic energy of the system.</li>
+<li>the maximum angular speed reached by the rod.</li>
+<li>the maximum angular momentum of the system.</li>
+<li>the maximum speed reached of particle 2.</li>
+</ol>
+
+
+<div id="org12bf611" class="figure">
+<p><img src="./img/hw7_fig2.png" alt="hw7_fig2.png" width="400px" />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgf2fdeff" class="outline-3">
+<h3 id="orgf2fdeff">Problem 3.15</h3>
+<div class="outline-text-3" id="text-orgf2fdeff">
+<p>
+A uniform plank of length \(2.00~m\) and mass \(30.0~kg\) is supported by three ropes as indicated by the vectors in the below figure. Find the tension in each rope when a \(700-N\) person is \(d = 0.500~m\) from the left end.
+</p>
+
+
+<div id="orgfaa608d" class="figure">
+<p><img src="./img/hw6_fig3.png" alt="hw6_fig3.png" width="400px" />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd796d3b" class="outline-3">
+<h3 id="orgd796d3b">Problem 3.16</h3>
+<div class="outline-text-3" id="text-orgd796d3b">
+<p>
+When a gymnast performing on the rings executes the iron cross, he maintains the position at rest with arms horizontal to the ground.  In this maneuver, the gymnast’s feet are off the floor. The primary muscles involved in supporting this position are the latissimus dorsi (“lats”) and the pectoralis major (“pecs”). One of the rings exerts an upward force \(\vec{F}_h\) on a hand as shown in the below figure. The force \(\vec{F}_s\) is exerted by the shoulder joint on the arm. The latissimus dorsi and pectoralis major muscles exert a total force \(\vec{F}_m\) on the arm.
+</p>
+
+<ol class="org-ol">
+<li>Using the information in the figure, find the magnitude of the force \(\vec{F}_m\) for an athlete of weight \(750~N\).</li>
+<li>Suppose an athlete in training cannot perform the iron cross but can hold a position similar to the figure in which the arms make a \(45^\circ\) angle with the horizontal rather than being horizontal. Why is this position easier for the athlete?</li>
+</ol>
+
+
+<div id="org48554b3" class="figure">
+<p><img src="./img/hw6_fig4.png" alt="hw6_fig4.png" width="400px" />
+</p>
+</div>
+</div>
+<div id="outline-container-orgb18638e" class="outline-4">
+<h4 id="orgb18638e">Solutions</h4>
+<div class="outline-text-4" id="text-orgb18638e">
+<p>
+Attempt the above questions for yourself without looking at solutions!
+</p>
+
+<p>
+You may trick yourself into thinking you understand without actually understanding.
+</p>
+
+<p>
+<a href="./img/hw3_sol.pdf">./img/hw3_sol.pdf</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
